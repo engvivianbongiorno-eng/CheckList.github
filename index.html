@@ -952,6 +952,8 @@ function verResultadoGeral() {
     history.replaceState(null,'',location.pathname);
     showMsg('⏳ Salvando no Drive...','load');
     uploadDrive(hashAuto.access_token);
+  } else {
+    showMsg('💾 Clique em "Salvar no Google Drive" para enviar.','ok');
   }
 }
 
@@ -1000,7 +1002,7 @@ function baixarTxt(){
   a.href=u; a.download=getNome(); a.click(); URL.revokeObjectURL(u);
 }
 function salvarDrive(){
-  var cid=localStorage.getItem('gd_cid')||'452320350163-r4k8gn2o5vtkvpf5qhdecpvas9llkrv1.apps.googleusercontent.com';
+  var cid=localStorage.getItem('gd_cid');
   if(!cid){abrirDriveCfg();return;}
   showMsg('⏳ Conectando ao Google Drive...','load');
   var redirect='https://engvivianbongiorno-eng.github.io/index.html';
@@ -1013,7 +1015,6 @@ function salvarDrive(){
     uploadDrive(hash.access_token);
     return;
   }
-  // Salvar dados da vistoria antes de ir ao OAuth
   sessionStorage.setItem('dp','1');
   sessionStorage.setItem('dv', JSON.stringify({emp:E.emp, setores:E.setores, tec:E.tec, data:E.data, resps:E.resps}));
   location.href='https://accounts.google.com/o/oauth2/v2/auth?client_id='+encodeURIComponent(cid)+
@@ -1022,49 +1023,65 @@ function salvarDrive(){
 }
 async function uploadDrive(token){
   try{
+    showMsg('⏳ Gerando PDF...','load');
     var pdfBlob = await gerarPDFBlob();
     var boundary='--cl_boundary';
     var meta={name:getNome(),mimeType:'application/pdf'};
-    var enc = new TextEncoder();
-    var part1 = enc.encode('--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+JSON.stringify(meta)+'\r\n--'+boundary+'\r\nContent-Type: application/pdf\r\n\r\n');
-    var part2 = new Uint8Array(await pdfBlob.arrayBuffer());
-    var part3 = enc.encode('\r\n--'+boundary+'--');
-    var body = new Uint8Array(part1.length + part2.length + part3.length);
-    body.set(part1, 0); body.set(part2, part1.length); body.set(part3, part1.length + part2.length);
+    var enc=new TextEncoder();
+    var p1=enc.encode('--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+JSON.stringify(meta)+'\r\n--'+boundary+'\r\nContent-Type: application/pdf\r\n\r\n');
+    var p2=new Uint8Array(await pdfBlob.arrayBuffer());
+    var p3=enc.encode('\r\n--'+boundary+'--');
+    var body=new Uint8Array(p1.length+p2.length+p3.length);
+    body.set(p1,0); body.set(p2,p1.length); body.set(p3,p1.length+p2.length);
     var r=await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart',
       {method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'multipart/related; boundary='+boundary},body:body});
     if(r.ok) showMsg('✅ Salvo no Google Drive!','ok');
     else throw new Error();
-  }catch(e){ showMsg('⚠️ Erro ao salvar no Drive.','err'); }
+  }catch(e){ showMsg('⚠️ Erro ao salvar no Drive.','err'); console.error(e); }
 }
 
 async function gerarPDFBlob(){
-  const {jsPDF} = window.jspdf;
-  // Capturar o elemento de resultado da tela
-  var el = document.getElementById('s4');
-  var canvas = await html2canvas(el, {scale:2, useCORS:true, backgroundColor:'#ffffff'});
-  var imgData = canvas.toDataURL('image/jpeg', 0.95);
-  var pdf = new jsPDF({orientation:'portrait', unit:'mm', format:'a4'});
-  var pageW = pdf.internal.pageSize.getWidth();
-  var pageH = pdf.internal.pageSize.getHeight();
-  var imgW = pageW - 20;
-  var imgH = (canvas.height * imgW) / canvas.width;
-  var y = 10;
-  // Se a imagem for maior que uma página, divide em múltiplas páginas
-  if(imgH <= pageH - 20){
-    pdf.addImage(imgData, 'JPEG', 10, y, imgW, imgH);
-  } else {
-    var pageImgH = pageH - 20;
-    var totalPages = Math.ceil(imgH / pageImgH);
-    for(var i=0; i<totalPages; i++){
+  var dt=E.data?new Date(E.data+'T12:00:00').toLocaleDateString('pt-BR'):'-';
+  var c=0,nc=0,na=0;
+  E.setores.forEach(function(s){ var resp=E.resps[s]||{}; SUBITENS.forEach(function(sub,si){ sub.pergs.forEach(function(p,pi){ var r=resp[si+'_'+pi]; if(r==='c')c++; else if(r==='nc')nc++; else if(r==='na')na++; }); }); });
+  var ncsHtml='';
+  E.setores.forEach(function(s){ var resp=E.resps[s]||{}; SUBITENS.forEach(function(sub,si){ sub.pergs.forEach(function(p,pi){ var id=si+'_'+pi; if(resp[id]==='nc'){ ncsHtml+='<div style="border:1px solid #fca5a5;border-radius:8px;padding:10px 14px;margin-bottom:8px;"><div style="font-size:10px;color:#dc2626;font-weight:600;">'+s+' - '+sub.nr+' - '+sub.nome+'</div><div style="font-weight:700;font-size:13px;margin-top:2px;">'+p+'</div>'+(resp['obs'+id]?'<div style="font-size:11px;color:#555;margin-top:4px;">Obs: '+resp['obs'+id]+'</div>':'')+(resp['prz'+id]?'<div style="font-size:11px;color:#555;">Prazo: '+resp['prz'+id]+'</div>':'')+'</div>'; } }); }); });
+  var html='<!DOCTYPE html><html><head><meta charset="utf-8"><style>*{box-sizing:border-box;}body{font-family:Arial,sans-serif;padding:20px;color:#1e293b;margin:0;width:560px;}</style></head><body>';
+  html+='<div style="font-size:11px;color:#666;display:flex;justify-content:space-between;margin-bottom:10px;"><span>'+new Date().toLocaleString('pt-BR')+'</span><span>Check List</span></div>';
+  html+='<div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px;">';
+  html+='<div style="font-size:11px;color:#64748b;text-transform:uppercase;font-weight:700;margin-bottom:8px;">RESULTADO DA VISTORIA</div>';
+  html+='<div style="font-weight:700;font-size:15px;">'+E.emp.nome+'</div>';
+  html+='<div style="font-size:12px;color:#475569;">CNPJ: '+E.emp.cnpj_fmt+'</div>';
+  html+='<div style="font-size:12px;color:#475569;">'+(E.tec||'-')+' - '+dt+'</div>';
+  html+='<div style="font-size:12px;color:#475569;">Setores: '+E.setores.join(', ')+'</div>';
+  html+='<div style="display:flex;gap:12px;margin-top:12px;">';
+  html+='<div style="flex:1;border:2px solid #bbf7d0;border-radius:8px;padding:12px;text-align:center;"><div style="font-size:32px;font-weight:700;color:#16a34a;">'+c+'</div><div style="font-size:11px;color:#16a34a;">Adequado</div></div>';
+  html+='<div style="flex:1;border:2px solid #fecaca;border-radius:8px;padding:12px;text-align:center;"><div style="font-size:32px;font-weight:700;color:#dc2626;">'+nc+'</div><div style="font-size:11px;color:#dc2626;">Nao Adequado</div></div>';
+  html+='<div style="flex:1;border:2px solid #e2e8f0;border-radius:8px;padding:12px;text-align:center;"><div style="font-size:32px;font-weight:700;color:#475569;">'+na+'</div><div style="font-size:11px;color:#475569;">NA</div></div>';
+  html+='</div>';
+  if(nc>0){ html+='<div style="margin-top:14px;"><div style="font-weight:700;color:#dc2626;font-size:13px;margin-bottom:8px;">NAO CONFORMIDADES</div>'+ncsHtml+'</div>'; }
+  else { html+='<div style="margin-top:14px;text-align:center;color:#16a34a;font-weight:600;">Nenhuma nao conformidade!</div>'; }
+  html+='</div></body></html>';
+  var iframe=document.createElement('iframe');
+  iframe.style.cssText='position:fixed;left:-9999px;top:0;width:580px;height:900px;border:none;';
+  document.body.appendChild(iframe);
+  iframe.contentDocument.open(); iframe.contentDocument.write(html); iframe.contentDocument.close();
+  await new Promise(function(r){setTimeout(r,500);});
+  var canvas=await html2canvas(iframe.contentDocument.body,{scale:2,backgroundColor:'#ffffff',width:560,windowWidth:580});
+  document.body.removeChild(iframe);
+  var imgData=canvas.toDataURL('image/jpeg',0.95);
+  var jsPDF=window.jspdf.jsPDF;
+  var pdf=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  var pw=pdf.internal.pageSize.getWidth(), ph=pdf.internal.pageSize.getHeight();
+  var iw=pw-20, ih=(canvas.height*iw)/canvas.width;
+  if(ih<=ph-20){ pdf.addImage(imgData,'JPEG',10,10,iw,ih); }
+  else {
+    var ratio=canvas.height/ih, segPxH=(ph-20)*ratio, pages=Math.ceil(canvas.height/segPxH);
+    for(var i=0;i<pages;i++){
       if(i>0) pdf.addPage();
-      var sy = i * pageImgH * (canvas.height / imgH);
-      var sh = pageImgH * (canvas.height / imgH);
-      var c2 = document.createElement('canvas');
-      c2.width = canvas.width;
-      c2.height = sh;
-      c2.getContext('2d').drawImage(canvas, 0, sy, canvas.width, sh, 0, 0, canvas.width, sh);
-      pdf.addImage(c2.toDataURL('image/jpeg',0.95), 'JPEG', 10, 10, imgW, pageImgH);
+      var c2=document.createElement('canvas'); c2.width=canvas.width; c2.height=Math.min(segPxH,canvas.height-i*segPxH);
+      c2.getContext('2d').drawImage(canvas,0,i*segPxH,canvas.width,c2.height,0,0,canvas.width,c2.height);
+      pdf.addImage(c2.toDataURL('image/jpeg',0.95),'JPEG',10,10,iw,(c2.height*iw)/canvas.width);
     }
   }
   return pdf.output('blob');
@@ -1111,19 +1128,8 @@ window.addEventListener('load', function(){
     if(hash.access_token){
       sessionStorage.removeItem('dp');
       history.replaceState(null,'',location.pathname);
-      // Restaurar dados da vistoria
       var dv = sessionStorage.getItem('dv');
-      if(dv){
-        try {
-          var saved = JSON.parse(dv);
-          E.emp = saved.emp;
-          E.setores = saved.setores;
-          E.tec = saved.tec;
-          E.data = saved.data;
-          E.resps = saved.resps;
-          sessionStorage.removeItem('dv');
-        } catch(ex){}
-      }
+      if(dv){ try{ var sv=JSON.parse(dv); E.emp=sv.emp; E.setores=sv.setores; E.tec=sv.tec; E.data=sv.data; E.resps=sv.resps; sessionStorage.removeItem('dv'); }catch(ex){} }
       showMsg('⏳ Salvando...','load');
       uploadDrive(hash.access_token);
       tela(4);
