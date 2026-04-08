@@ -950,8 +950,6 @@ function verResultadoGeral() {
     history.replaceState(null,'',location.pathname);
     showMsg('⏳ Salvando no Drive...','load');
     uploadDrive(hashAuto.access_token);
-  } else {
-    showMsg('💾 Clique em "Salvar no Google Drive" para enviar.','ok');
   }
 }
 
@@ -1012,7 +1010,9 @@ function salvarDrive(){
     uploadDrive(hash.access_token);
     return;
   }
+  // Salvar dados da vistoria antes de ir ao OAuth
   sessionStorage.setItem('dp','1');
+  sessionStorage.setItem('dv', JSON.stringify({emp:E.emp, setores:E.setores, tec:E.tec, data:E.data, resps:E.resps}));
   location.href='https://accounts.google.com/o/oauth2/v2/auth?client_id='+encodeURIComponent(cid)+
     '&redirect_uri='+encodeURIComponent(redirect)+
     '&response_type=token&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.file&prompt=consent';
@@ -1072,6 +1072,19 @@ window.addEventListener('load', function(){
     if(hash.access_token){
       sessionStorage.removeItem('dp');
       history.replaceState(null,'',location.pathname);
+      // Restaurar dados da vistoria
+      var dv = sessionStorage.getItem('dv');
+      if(dv){
+        try {
+          var saved = JSON.parse(dv);
+          E.emp = saved.emp;
+          E.setores = saved.setores;
+          E.tec = saved.tec;
+          E.data = saved.data;
+          E.resps = saved.resps;
+          sessionStorage.removeItem('dv');
+        } catch(ex){}
+      }
       showMsg('⏳ Salvando...','load');
       uploadDrive(hash.access_token);
       tela(4);
