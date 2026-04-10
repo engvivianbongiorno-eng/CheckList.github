@@ -152,8 +152,8 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
 .nci{background:#fef2f2;border:1px solid #fca5a5;border-left:3px solid #ef4444;border-radius:7px;padding:9px 11px;margin-bottom:7px;}
 .nci-nr{font-size:9px;color:#ef4444;font-weight:700;margin-bottom:3px;}
 .nci-t{font-size:12px;font-weight:700;color:#1e293b;margin-bottom:2px;}
-.nci-o{font-size:11px;color:#64748b;}
-.nci-p{font-size:11px;color:#dc2626;margin-top:3px;}
+.nci-o{font-size:13px;color:#64748b;}
+.nci-p{font-size:13px;color:#dc2626;margin-top:3px;}
 .div{height:1px;background:#e2e8f0;margin:11px 0;}
 .dmsg{display:none;background:#f0fdf4;border:1px solid #86efac;border-radius:7px;padding:9px 12px;font-size:12px;color:#16a34a;font-weight:700;margin-bottom:8px;text-align:center;}
 .dmsg.err{background:#fef2f2;border-color:#fca5a5;color:#dc2626;}
@@ -257,6 +257,7 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
     </div>
   </div>
   <button class="btn btn-teal" onclick="ir2()">Próximo: Setores →</button>
+  <button class="btn btn-gray" onclick="abrirDriveCfg()" style="margin-top:8px;">⚙️ Configurar Google Drive</button>
 </div>
 
 <!-- S2: SETORES -->
@@ -322,7 +323,7 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
     <img src="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png" width="18" height="18"/> Salvar no Google Drive
   </button>
   <button class="btn btn-gray" onclick="abrirDriveCfg()">⚙️ Configurar Google Drive</button>
-  <button class="btn btn-blue" onclick="window.print()">⬇️ Baixar PDF</button>
+  <button class="btn btn-blue" onclick="baixarPDF()">⬇️ Baixar PDF</button>
   <button class="btn btn-gray" onclick="baixarTxt()">📄 Baixar TXT</button>
   <button class="btn btn-gray" onclick="ir3()">← Revisar</button>
   <div class="div"></div>
@@ -392,7 +393,7 @@ var E = {emp:null, setores:[], tec:'', data:'', resp:{}, resps:{}, setorAtual:nu
 // ============================================================
 // INIT
 // ============================================================
-window.onload = function() {
+function iniciarApp() {
   // Data automática
   var hoje = new Date();
   var ano  = hoje.getFullYear();
@@ -405,19 +406,23 @@ window.onload = function() {
   document.getElementById('f-data').addEventListener('change', atualizarHdr);
   document.getElementById('f-tec').addEventListener('input', atualizarHdr);
 
-  // Listbox populado sob demanda (lazy) — não carrega todas as empresas na inicialização
   // Busca nome — evento INPUT
   document.getElementById('inp-nome').addEventListener('input', buscarNome);
 
   // Busca CNPJ — evento INPUT  
   document.getElementById('inp-cnpj').addEventListener('input', buscarCNPJ);
 
-  // Fechar dropdown ao clicar fora
+  // Fechar dropdown ao clicar/tocar fora
   document.addEventListener('click', function(ev){
     if (!ev.target.closest('.srel') && !ev.target.closest('#cnpj-drop')) {
       fecharDrop();
     }
   });
+  document.addEventListener('touchstart', function(ev){
+    if (!ev.target.closest('.srel') && !ev.target.closest('#cnpj-drop')) {
+      fecharDrop();
+    }
+  }, {passive: true});
 
   // Client ID salvo
   var cid = localStorage.getItem('gd_cid');
@@ -425,7 +430,7 @@ window.onload = function() {
 
   // Restaurar setores customizados salvos
   restaurarSetores();
-};
+}
 
 // ============================================================
 // PERSISTÊNCIA DE SETORES CUSTOMIZADOS
@@ -902,14 +907,23 @@ function atualizarChips() {
 // ============================================================
 // VER RESULTADO GERAL (todos os setores)
 // ============================================================
-function verResultadoGeral() {
-  var c=0, nc=0, na=0, ncsArr=[];
+// Monta o HTML do resultado sem mudar de tela nem lidar com Drive
+function montarResultado() {
+  var c=0, nc=0, na=0, ncsArr=[], levArr=[];
   E.setores.forEach(function(s){
     var resp = E.resps[s] || {};
     SUBITENS.forEach(function(sub,si){
+      var isLev = (sub.nome === 'Levantamento');
+      var unidades = {'Iluminação':'lux','Ruído':'dB','Temperatura':'°C','Umidade':'%'};
       sub.pergs.forEach(function(p,pi){
         var id=si+'_'+pi, r=resp[id];
-        if(r==='c') c++;
+        if(r==='c'){
+          c++;
+          if(isLev && resp['lv'+id]){
+            var unidade = unidades[p] || '';
+            levArr.push({setor:s, p:p, val:resp['lv'+id], unidade:unidade});
+          }
+        }
         else if(r==='na') na++;
         else if(r==='nc'){
           nc++;
@@ -928,8 +942,17 @@ function verResultadoGeral() {
     '<strong>'+E.emp.nome+'</strong><br>CNPJ: '+(E.emp.cnpj_fmt||'—')+'<br>'+(E.tec||'-')+' · '+dt+
     '<br>Setores: '+setoresVisitados.join(', ');
   var ncHtml='';
+  if(levArr.length){
+    ncHtml+='<div class="div"></div><div style="font-size:11px;font-weight:700;color:#ca8a04;margin-bottom:8px;text-transform:uppercase;">📊 Valores Medidos (Levantamento)</div>';
+    levArr.forEach(function(l){
+    ncHtml+='<div class="nci" style="border-color:#fde047;background:#fefce8;">'+
+        '<div class="nci-nr" style="color:#ca8a04;">'+l.setor+'</div>'+
+        '<div class="nci-t">✅ '+l.p+' — <strong>'+l.val+(l.unidade?' '+l.unidade:'')+'</strong></div>'+
+      '</div>';
+    });
+  }
   if(ncsArr.length){
-    ncHtml='<div class="div"></div><div style="font-size:11px;font-weight:700;color:#dc2626;margin-bottom:8px;text-transform:uppercase;">⚠️ Não Conformidades</div>';
+    ncHtml+='<div class="div"></div><div style="font-size:11px;font-weight:700;color:#dc2626;margin-bottom:8px;text-transform:uppercase;">⚠️ Não Conformidades</div>';
     ncsArr.forEach(function(n){
       ncHtml+='<div class="nci">'+
         '<div class="nci-nr">'+n.setor+' · '+n.nr+' · '+n.sub+'</div>'+
@@ -938,10 +961,15 @@ function verResultadoGeral() {
         (n.prz?'<div class="nci-p">⏰ Prazo: '+n.prz+'</div>':'')+
       '</div>';
     });
-  } else {
+  }
+  if(!levArr.length && !ncsArr.length){
     ncHtml='<div style="text-align:center;padding:10px;color:#16a34a;font-weight:700;">✅ Nenhuma não conformidade!</div>';
   }
   document.getElementById('nc-list').innerHTML=ncHtml;
+}
+
+function verResultadoGeral() {
+  montarResultado();
   tela(4);
   // Enviar ao Drive se já autenticado
   var hashAuto={};
@@ -996,30 +1024,42 @@ function showMsg(t,tp){
   if(tp!=='load') setTimeout(function(){m.style.display='none';},5000);
 }
 function baixarTxt(){
-  var b=new Blob([getConteudo()],{type:'text/plain;charset=utf-8'});
-  var u=URL.createObjectURL(b);
-  var a=document.createElement('a');
-  a.href=u; a.download=getNome(); a.click(); URL.revokeObjectURL(u);
+  var conteudo = getConteudo();
+  var nomeArq = getNome().replace('.pdf','.txt');
+  var b = new Blob([conteudo], {type:'text/plain;charset=utf-8'});
+  var file = new File([b], nomeArq, {type:'text/plain'});
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if(isMobile && navigator.canShare && navigator.canShare({files:[file]})){
+    navigator.share({files:[file], title:'Vistoria', text:'Relatório de Vistoria'});
+  } else {
+    var u = URL.createObjectURL(b);
+    var a = document.createElement('a');
+    a.href = u; a.download = nomeArq; a.click(); URL.revokeObjectURL(u);
+  }
 }
 function salvarDrive(){
   var cid=localStorage.getItem('gd_cid');
   if(!cid){abrirDriveCfg();return;}
   showMsg('⏳ Conectando ao Google Drive...','load');
-  var redirect='https://engvivianbongiorno-eng.github.io/index.html';
+  var redirect='https://engvivianbongiorno-eng.github.io/callback.html';
   var hash={};
   location.hash.replace('#','').split('&').filter(function(p){return p;}).forEach(function(p){
     var kv=p.split('='); hash[kv[0]]=kv[1];
   });
   if(hash.access_token){
     history.replaceState(null,'',location.pathname);
+    montarResultado();
+    tela(4);
+    showMsg('⏳ Salvando...','load');
     uploadDrive(hash.access_token);
     return;
   }
   sessionStorage.setItem('dp','1');
-  sessionStorage.setItem('dv', JSON.stringify({emp:E.emp, setores:E.setores, tec:E.tec, data:E.data, resps:E.resps}));
+  localStorage.setItem('dp','1');
+  localStorage.setItem('dv', JSON.stringify({emp:E.emp, setores:E.setores, tec:E.tec, data:E.data, resps:E.resps}));
   location.href='https://accounts.google.com/o/oauth2/v2/auth?client_id='+encodeURIComponent(cid)+
     '&redirect_uri='+encodeURIComponent(redirect)+
-    '&response_type=token&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.file&prompt=consent';
+    '&response_type=token&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.file&prompt=select_account';
 }
 async function uploadDrive(token){
   try{
@@ -1052,12 +1092,27 @@ async function uploadDrive(token){
   }catch(e){ showMsg('⚠️ Erro ao salvar no Drive.','err'); console.error(e); }
 }
 
+async function baixarPDF(){
+  try{
+    showMsg('⏳ Gerando PDF...','load');
+    var blob = await gerarPDFBlob();
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = getNome(); a.click();
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 3000);
+    showMsg('✅ PDF gerado!','ok');
+  }catch(e){ showMsg('⚠️ Erro ao gerar PDF.','err'); console.error(e); }
+}
+
 async function gerarPDFBlob(){
   var dt=E.data?new Date(E.data+'T12:00:00').toLocaleDateString('pt-BR'):'-';
   var c=0,nc=0,na=0;
+  var unidades = {'Iluminação':'lux','Ruído':'dB','Temperatura':'°C','Umidade':'%'};
   E.setores.forEach(function(s){ var resp=E.resps[s]||{}; SUBITENS.forEach(function(sub,si){ sub.pergs.forEach(function(p,pi){ var r=resp[si+'_'+pi]; if(r==='c')c++; else if(r==='nc')nc++; else if(r==='na')na++; }); }); });
   var ncsHtml='';
-  E.setores.forEach(function(s){ var resp=E.resps[s]||{}; SUBITENS.forEach(function(sub,si){ sub.pergs.forEach(function(p,pi){ var id=si+'_'+pi; if(resp[id]==='nc'){ ncsHtml+='<div style="border:1px solid #fca5a5;border-radius:8px;padding:10px 14px;margin-bottom:8px;"><div style="font-size:10px;color:#dc2626;font-weight:600;">'+s+' - '+sub.nr+' - '+sub.nome+'</div><div style="font-weight:700;font-size:13px;margin-top:2px;">'+p+'</div>'+(resp['obs'+id]?'<div style="font-size:11px;color:#555;margin-top:4px;">Obs: '+resp['obs'+id]+'</div>':'')+(resp['prz'+id]?'<div style="font-size:11px;color:#555;">Prazo: '+resp['prz'+id]+'</div>':'')+'</div>'; } }); }); });
+  E.setores.forEach(function(s){ var resp=E.resps[s]||{}; SUBITENS.forEach(function(sub,si){ sub.pergs.forEach(function(p,pi){ var id=si+'_'+pi; if(resp[id]==='nc'){ ncsHtml+='<div style="border:1px solid #fca5a5;border-radius:8px;padding:10px 14px;margin-bottom:8px;"><div style="font-size:10px;color:#dc2626;font-weight:600;">'+s+' - '+sub.nr+' - '+sub.nome+'</div><div style="font-weight:700;font-size:13px;margin-top:2px;">'+p+'</div>'+(resp['obs'+id]?'<div style="font-size:13px;color:#555;margin-top:4px;">Obs: '+resp['obs'+id]+'</div>':'')+(resp['prz'+id]?'<div style="font-size:13px;color:#555;">Prazo: '+resp['prz'+id]+'</div>':'')+'</div>'; } }); }); });
+  var levHtml='';
+  E.setores.forEach(function(s){ var resp=E.resps[s]||{}; SUBITENS.forEach(function(sub,si){ if(sub.nome!=='Levantamento') return; sub.pergs.forEach(function(p,pi){ var id=si+'_'+pi; if(resp[id]==='c' && resp['lv'+id]){ var un=unidades[p]||''; levHtml+='<div style="border:1px solid #fde047;border-radius:8px;padding:8px 14px;margin-bottom:6px;background:#fefce8;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:10px;color:#ca8a04;font-weight:600;">'+s+'</div><div style="font-size:13px;font-weight:600;margin-top:2px;">'+p+'</div></div><div style="font-size:18px;font-weight:700;color:#ca8a04;">'+resp['lv'+id]+(un?' '+un:'')+'</div></div>'; } }); }); });
   var html='<!DOCTYPE html><html><head><meta charset="utf-8"><style>*{box-sizing:border-box;}body{font-family:Arial,sans-serif;padding:20px;color:#1e293b;margin:0;width:560px;}</style></head><body>';
   html+='<div style="font-size:11px;color:#666;display:flex;justify-content:space-between;margin-bottom:10px;"><span>'+new Date().toLocaleString('pt-BR')+'</span><span>Check List</span></div>';
   html+='<div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px;">';
@@ -1071,8 +1126,9 @@ async function gerarPDFBlob(){
   html+='<div style="flex:1;border:2px solid #fecaca;border-radius:8px;padding:12px;text-align:center;"><div style="font-size:32px;font-weight:700;color:#dc2626;">'+nc+'</div><div style="font-size:11px;color:#dc2626;">Nao Adequado</div></div>';
   html+='<div style="flex:1;border:2px solid #e2e8f0;border-radius:8px;padding:12px;text-align:center;"><div style="font-size:32px;font-weight:700;color:#475569;">'+na+'</div><div style="font-size:11px;color:#475569;">NA</div></div>';
   html+='</div>';
+  if(levHtml){ html+='<div style="margin-top:14px;"><div style="font-weight:700;color:#ca8a04;font-size:13px;margin-bottom:8px;">📊 VALORES MEDIDOS (LEVANTAMENTO)</div>'+levHtml+'</div>'; }
   if(nc>0){ html+='<div style="margin-top:14px;"><div style="font-weight:700;color:#dc2626;font-size:13px;margin-bottom:8px;">NAO CONFORMIDADES</div>'+ncsHtml+'</div>'; }
-  else { html+='<div style="margin-top:14px;text-align:center;color:#16a34a;font-weight:600;">Nenhuma nao conformidade!</div>'; }
+  else if(!levHtml){ html+='<div style="margin-top:14px;text-align:center;color:#16a34a;font-weight:600;">Nenhuma nao conformidade!</div>'; }
   html+='</div></body></html>';
   var iframe=document.createElement('iframe');
   iframe.style.cssText='position:fixed;left:-9999px;top:0;width:580px;height:900px;border:none;';
@@ -1130,21 +1186,74 @@ function tela(n){
   window.scrollTo(0,0);
 }
 
-// Retomada após redirect OAuth
+// Único ponto de entrada — inicializa o app e trata retorno OAuth
 window.addEventListener('load', function(){
-  if(sessionStorage.getItem('dp')){
-    var hash={};
-    location.hash.replace('#','').split('&').filter(function(p){return p;}).forEach(function(p){
-      var kv=p.split('='); hash[kv[0]]=decodeURIComponent(kv[1]||'');
-    });
-    if(hash.access_token){
-      sessionStorage.removeItem('dp');
-      history.replaceState(null,'',location.pathname);
-      var dv = sessionStorage.getItem('dv');
-      if(dv){ try{ var sv=JSON.parse(dv); E.emp=sv.emp; E.setores=sv.setores; E.tec=sv.tec; E.data=sv.data; E.resps=sv.resps; sessionStorage.removeItem('dv'); }catch(ex){} }
-      showMsg('⏳ Salvando...','load');
-      uploadDrive(hash.access_token);
-      tela(4);
+
+  function limparFlags(){
+    sessionStorage.removeItem('dp');
+    localStorage.removeItem('dp');
+  }
+
+  function restaurarEstado(dv){
+    try{
+      var sv=JSON.parse(dv);
+      E.emp=sv.emp; E.setores=sv.setores; E.tec=sv.tec; E.data=sv.data; E.resps=sv.resps;
+      localStorage.removeItem('dv');
+      sessionStorage.removeItem('dv');
+      if(E.tec) document.getElementById('f-tec').value = E.tec;
+      if(E.data) document.getElementById('f-data').value = E.data;
+      if(E.emp){
+        document.getElementById('inp-nome').value = E.emp.nome;
+        document.getElementById('emp-box').style.display = 'block';
+        document.getElementById('emp-nome').textContent = E.emp.nome;
+        document.getElementById('emp-det').textContent = 'CNPJ: '+(E.emp.cnpj_fmt||'—')+' · '+E.emp.setores.length+' setores';
+      }
+      return true;
+    }catch(ex){ return false; }
+  }
+
+  // Parse do hash (desktop) + token salvo pelo callback.html (celular)
+  var hash={};
+  location.hash.replace(/^#/,'').split('&').filter(Boolean).forEach(function(p){
+    var idx=p.indexOf('=');
+    if(idx>0) hash[p.substring(0,idx)]=decodeURIComponent(p.substring(idx+1));
+  });
+
+  // Token pode vir do hash (desktop) ou do localStorage via callback.html (celular)
+  var token = hash.access_token || localStorage.getItem('oauth_token') || '';
+  var cancelado = localStorage.getItem('oauth_cancelled') || '';
+  var dv = localStorage.getItem('dv') || sessionStorage.getItem('dv') || '';
+
+  // Limpar flags do OAuth
+  localStorage.removeItem('oauth_token');
+  localStorage.removeItem('oauth_cancelled');
+  if(hash.access_token) history.replaceState(null,'',location.pathname);
+
+  iniciarApp();
+
+  if(token && dv){
+    // Voltou do Google com sucesso — restaurar e ir para resultado
+    limparFlags();
+    restaurarEstado(dv);
+    montarResultado();
+    tela(4);
+    showMsg('⏳ Salvando...','load');
+    uploadDrive(token);
+  } else if(cancelado && dv){
+    // OAuth cancelado — recuperar dados
+    limparFlags();
+    var ok = restaurarEstado(dv);
+    if(ok){
+      var temResps = E.resps && Object.keys(E.resps).length > 0;
+      if(temResps){
+        renderChips();
+        document.getElementById('btn-resultado').style.display = 'block';
+        tela(2);
+      } else if(E.emp){
+        renderChips();
+        tela(2);
+      }
+      showMsg('⚠️ Login cancelado. Seus dados foram recuperados.','err');
     }
   }
 });
