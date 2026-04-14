@@ -66,17 +66,11 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
 
 /* CHIPS SETOR */
 .chips{display:flex;flex-wrap:wrap;gap:7px;}
-.chip{display:inline-flex;align-items:center;gap:5px;padding:6px 10px 6px 13px;border:1.5px solid #cbd5e1;border-radius:20px;font-size:12px;font-weight:600;color:#64748b;background:white;transition:all .15s;user-select:none;}
-.chip-label{cursor:pointer;}
-.chip.on{background:#e0f7f5;border-color:#00b4a0;color:#00796b;}
-.chip.ok{background:#dcfce7;border-color:#16a34a;color:#15803d;}
-.chip.nc{background:#fee2e2;border-color:#dc2626;color:#b91c1c;}
-.chip.pend{background:#fef9c3;border-color:#ca8a04;color:#92400e;}
-.chip-btn{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;border:none;cursor:pointer;font-size:10px;font-weight:700;line-height:1;padding:0;transition:all .12s;flex-shrink:0;}
-.chip-edit{background:rgba(0,0,0,0.07);color:inherit;}
-.chip-edit:hover{background:rgba(0,0,0,0.15)!important;}
-.chip-del{background:rgba(220,38,38,0.12);color:#dc2626;}
-.chip-del:hover{background:rgba(220,38,38,0.3)!important;}
+.chip{padding:7px 13px;border:1.5px solid #cbd5e1;border-radius:20px;font-size:12px;font-weight:600;color:#64748b;cursor:pointer;background:white;transition:all .15s;user-select:none;}
+.chip.on{background:#00b4a0;border-color:#00b4a0;color:white;}
+.chip.ok{background:#16a34a;border-color:#16a34a;color:white;}
+.chip.nc{background:#dc2626;border-color:#dc2626;color:white;}
+.chip.pend{background:#ca8a04;border-color:#ca8a04;color:white;}
 
 /* SUBITEM ACCORDION */
 .sub{border:1px solid #e2e8f0;border-radius:9px;margin-bottom:10px;overflow:hidden;}
@@ -120,11 +114,11 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
 .prazo-lbl{font-size:10px;color:#dc2626;font-weight:700;margin-bottom:4px;text-transform:uppercase;display:block;}
 .prazo input{font-size:12px;border-color:#fca5a5;}
 
-/* LEITURA LEVANTAMENTO */
-.leitura{display:none;margin:4px 13px 10px 13px;background:#f0fdf4;border-left:3px solid #16a34a;border-radius:0 7px 7px 0;padding:10px;}
-.leitura.vis{display:block;}
-.leitura-lbl{font-size:10px;color:#16a34a;font-weight:700;margin-bottom:5px;text-transform:uppercase;display:block;}
-.leitura input{font-size:13px;border-color:#86efac;background:white;}
+/* DADOS ADEQUADO (Levantamento) */
+.dadosobs{display:none;margin:4px 13px 10px 13px;background:#e0f7f5;border-left:3px solid #00b4a0;border-radius:0 7px 7px 0;padding:10px;}
+.dadosobs.vis{display:block;}
+.dadosobs-lbl{font-size:10px;color:#007a6e;font-weight:700;margin-bottom:5px;text-transform:uppercase;display:block;}
+.dadosobs textarea{font-size:12px;border-color:#00b4a0;min-height:50px;background:white;}
 
 /* NR HEADER */
 .nr-hdr{padding:9px 13px;font-size:12px;font-weight:700;color:white;border-radius:9px;margin-bottom:8px;}
@@ -143,11 +137,11 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
 /* RESULTADO */
 .res-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px;}
 .rc{border-radius:8px;padding:12px 6px;text-align:center;}
-.rc-ok{background:#fefce8;border:1.5px solid #fde047;}
+.rc-ok{background:#f0fdf4;border:1.5px solid #86efac;}
 .rc-nc{background:#fef2f2;border:1.5px solid #fca5a5;}
 .rc-na{background:#f8fafc;border:1.5px solid #e2e8f0;}
 .rc-n{font-size:28px;font-weight:700;}
-.rc-ok .rc-n{color:#ca8a04;}.rc-nc .rc-n{color:#dc2626;}.rc-na .rc-n{color:#64748b;}
+.rc-ok .rc-n{color:#16a34a;}.rc-nc .rc-n{color:#dc2626;}.rc-na .rc-n{color:#64748b;}
 .rc-l{font-size:10px;color:#64748b;margin-top:1px;}
 .nci{background:#fef2f2;border:1px solid #fca5a5;border-left:3px solid #ef4444;border-radius:7px;padding:9px 11px;margin-bottom:7px;}
 .nci-nr{font-size:9px;color:#ef4444;font-weight:700;margin-bottom:3px;}
@@ -177,8 +171,6 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
 
 @media print{.hdr,.btn,.dmsg{display:none!important;}body{background:white;}.sub-body{display:block!important;}}
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -256,7 +248,7 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
       </div>
     </div>
   </div>
-  <button class="btn btn-teal" onclick="ir2()">Próximo: Setores →</button>
+  <button class="btn btn-teal" onclick="ir2()">Próximo: Setor →</button>
 </div>
 
 <!-- S2: SETORES -->
@@ -265,28 +257,15 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
     <div class="card-t">🏢 Setor(es) a Vistoriar</div>
     <div class="card-b">
       <div class="leg">
-        <span><span class="dot" style="background:#00b4a0;"></span>Selecione para vistoriar</span>
+        <span><span class="dot" style="background:#00b4a0;"></span>Selecionado</span>
         <span><span class="dot" style="background:#16a34a;"></span>✅ OK</span>
         <span><span class="dot" style="background:#dc2626;"></span>❌ Com NC</span>
         <span><span class="dot" style="background:#ca8a04;"></span>⏳ Incompleto</span>
       </div>
       <div class="chips" id="chips"></div>
-      <div style="margin-top:14px;border-top:1.5px dashed #e2e8f0;padding-top:12px;">
-        <div style="font-size:11px;font-weight:700;color:#475569;text-transform:uppercase;margin-bottom:7px;">➕ Adicionar novo setor</div>
-        <div style="display:flex;gap:8px;align-items:center;">
-          <input id="novo-setor-inp" type="text" placeholder="Nome do novo setor..." maxlength="60"
-            style="flex:1;padding:9px 12px;border:1.5px solid #cbd5e1;border-radius:8px;font-size:13px;font-family:Arial,sans-serif;outline:none;"
-            onkeydown="if(event.key==='Enter') adicionarSetor()"
-            onfocus="this.style.borderColor='#00b4a0'" onblur="this.style.borderColor='#cbd5e1'"/>
-          <button onclick="adicionarSetor()"
-            style="padding:9px 16px;background:#00b4a0;color:white;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;font-family:Arial,sans-serif;">
-            Adicionar
-          </button>
-        </div>
-      </div>
     </div>
   </div>
-  <button class="btn btn-teal" onclick="verResultadoGeral()" id="btn-resultado" style="display:none;">📊 Ver Resultado Geral →</button>
+  <button class="btn btn-teal" onclick="ir3()">Iniciar CheckList →</button>
   <button class="btn btn-gray" onclick="ir1()">← Voltar</button>
 </div>
 
@@ -299,8 +278,8 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
     </div>
   </div>
   <div id="cl-body"></div>
-  <button class="btn btn-teal" onclick="finalizarSetor()">✅ Finalizar Setor →</button>
-  <button class="btn btn-gray" onclick="voltarSetores()">← Setores</button>
+  <button class="btn btn-teal" onclick="finalizar()">✅ Ver Resultado</button>
+  <button class="btn btn-gray" onclick="ir2()">← Setores</button>
 </div>
 
 <!-- S4: RESULTADO -->
@@ -336,9 +315,6 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
   <div class="modal">
     <div class="modal-t">⚙️ Configurar Google Drive</div>
     <div class="modal-s">Para salvar direto no Drive, você precisa de um Client ID gratuito do Google.</div>
-    <div style="font-size:11px;background:#e0f7f5;border:1.5px solid #99f0e8;border-radius:8px;padding:9px 12px;margin-bottom:12px;color:#0d7a6e;line-height:1.5;">
-      🔗 <strong>Configuração compartilhada:</strong> o Client ID salvo aqui também será usado automaticamente pelo <strong>Relatório Desktop</strong>. Você só precisa configurar uma vez.
-    </div>
     <div class="modal-step">Como obter:</div>
     <div style="font-size:11px;color:#64748b;line-height:1.7;margin-bottom:10px;">
       1. Acesse console.cloud.google.com<br>
@@ -374,20 +350,20 @@ const SUBITENS = [
     'Impressora','Leitor ótico','Máquinas','Notebook',
     'Suporte de punhos','Suporte para pés','Telefone',
   ]},
+  {nr:'NR-17', ico:'🌡️', nome:'Levantamento', pergs:[
+    'Iluminação','Ruído','Temperatura','Umidade',
+  ]},
   {nr:'NR-1', ico:'📋', nome:'Trabalho', pergs:[
     'Avisos','Benefícios','Comunicação','Demanda',
     'Denúncias','Ginástica Laboral','Orientações',
     'Palestras','Pausas','Quadros de orientação','Rotatividade',
-  ]},
-  {nr:'NR-17', ico:'🌡️', nome:'Levantamento', pergs:[
-    'Iluminação','Ruído','Temperatura','Umidade',
   ]},
 ];
 
 // ============================================================
 // ESTADO
 // ============================================================
-var E = {emp:null, setores:[], tec:'', data:'', resp:{}, resps:{}, setorAtual:null};
+var E = {emp:null, setores:[], tec:'', data:'', resp:{}};
 
 // ============================================================
 // INIT
@@ -422,37 +398,7 @@ window.onload = function() {
   // Client ID salvo
   var cid = localStorage.getItem('gd_cid');
   if (cid) document.getElementById('inp-cid').value = cid;
-
-  // Restaurar setores customizados salvos
-  restaurarSetores();
 };
-
-// ============================================================
-// PERSISTÊNCIA DE SETORES CUSTOMIZADOS
-// ============================================================
-function salvarSetores() {
-  // Salva apenas os códigos de empresa que tiveram setores alterados
-  var customizados = {};
-  EMP.forEach(function(e) {
-    customizados[e.codigo] = e.setores;
-  });
-  try {
-    localStorage.setItem('cl_setores', JSON.stringify(customizados));
-  } catch(ex) {}
-}
-
-function restaurarSetores() {
-  try {
-    var salvo = localStorage.getItem('cl_setores');
-    if (!salvo) return;
-    var customizados = JSON.parse(salvo);
-    EMP.forEach(function(e) {
-      if (customizados[e.codigo] && Array.isArray(customizados[e.codigo])) {
-        e.setores = customizados[e.codigo];
-      }
-    });
-  } catch(ex) {}
-}
 
 function atualizarHdr() {
   var val = document.getElementById('f-data').value;
@@ -591,79 +537,26 @@ function ir2() {
   E.tec  = document.getElementById('f-tec').value.trim();
   E.data = document.getElementById('f-data').value;
   if (!E.emp) { alert('Selecione uma empresa!'); return; }
-  if (!E.emp.setores.length) { alert('Esta empresa não tem setores cadastrados!'); return; }
-  E.setores = E.emp.setores.slice();
-  renderChips();
-  document.getElementById('btn-resultado').style.display =
-    Object.keys(E.resps).length > 0 ? 'block' : 'none';
+  var c = document.getElementById('chips');
+  c.innerHTML = E.emp.setores.map(function(s){
+    var cls = 'chip' + (E.setores.indexOf(s)>=0 ? ' on' : '');
+    return '<div class="'+cls+'" data-s="'+s+'" onclick="togSetor(this,\''+s.replace(/'/g,"\'")+'\')">'+s+'</div>';
+  }).join('');
   tela(2);
 }
 
-function criarChip(s) {
-  var div = document.createElement('div');
-  // Status do setor
-  var st = statusSetor(s);
-  div.className = 'chip ' + (st || 'on');
-  div.setAttribute('data-s', s);
-
-  var label = document.createElement('span');
-  label.className = 'chip-label';
-  label.title = 'Clique para vistoriar este setor';
-  label.textContent = st==='ok' ? '✅ '+s : st==='nc' ? '❌ '+s : st==='pend' ? '⏳ '+s : s;
-  label.onclick = function(){ iniciarSetor(s); };
-
-  var btnEdit = document.createElement('button');
-  btnEdit.className = 'chip-btn chip-edit';
-  btnEdit.title = 'Editar setor';
-  btnEdit.textContent = '✏️';
-  btnEdit.onclick = function(e){ e.stopPropagation(); editarSetor(div, s); };
-
-  var btnDel = document.createElement('button');
-  btnDel.className = 'chip-btn chip-del';
-  btnDel.title = 'Deletar setor';
-  btnDel.textContent = '✕';
-  btnDel.onclick = function(e){ e.stopPropagation(); deletarSetor(div, s); };
-
-  div.appendChild(label);
-  div.appendChild(btnEdit);
-  div.appendChild(btnDel);
-  return div;
+function togSetor(el, s) {
+  el.classList.toggle('on');
+  var i = E.setores.indexOf(s);
+  if (i >= 0) E.setores.splice(i,1);
+  else E.setores.push(s);
 }
 
-// Retorna classe de status do setor baseado nas respostas salvas
-function statusSetor(s) {
-  var resp = E.resps[s];
-  if (!resp) return ''; // não visitado
-  var totalPergs = 0, pend = 0, nc = 0;
-  SUBITENS.forEach(function(sub,si){
-    sub.pergs.forEach(function(p,pi){
-      totalPergs++;
-      var r = resp[si+'_'+pi];
-      if (!r) pend++;
-      else if (r==='nc') nc++;
-    });
-  });
-  if (pend === totalPergs) return 'on'; // não iniciado
-  if (nc > 0) return 'nc';
-  if (pend > 0) return 'pend';
-  return 'ok';
-}
-
-// Abre o checklist para um setor específico
-function iniciarSetor(s) {
-  // Salvar setor atual se houver
-  if (E.setorAtual) {
-    E.resps[E.setorAtual] = JSON.parse(JSON.stringify(E.resp));
-  }
-  // Carregar respostas do setor selecionado (ou limpar)
-  E.setorAtual = s;
-  E.resp = E.resps[s] ? JSON.parse(JSON.stringify(E.resps[s])) : {};
-
-  // Montar checklist
+function ir3() {
+  if (!E.setores.length) { alert('Selecione ao menos um setor!'); return; }
   var dt = E.data ? new Date(E.data+'T12:00:00').toLocaleDateString('pt-BR') : '-';
   document.getElementById('inf-emp').textContent = E.emp.nome;
-  document.getElementById('inf-det').textContent =
-    '📍 '+s+' · '+(E.tec||'-')+' · '+dt;
+  document.getElementById('inf-det').textContent = (E.tec||'-')+' · '+dt+' · CNPJ: '+(E.emp.cnpj_fmt||'—')+' · '+E.setores.join(', ');
 
   var html = '';
   var nrAtual = '';
@@ -690,11 +583,10 @@ function iniciarSetor(s) {
     sub.pergs.forEach(function(p, pi){
       var id = si+'_'+pi;
       var r = E.resp[id]||null;
-      var isLev = (sub.nome === 'Levantamento');
-      var unidade = isLev ? ({'Iluminação':'lux','Ruído':'dB','Temperatura':'°C','Umidade':'%'}[p]||'') : '';
+      var isDados = (['Iluminação','Ruído','Temperatura','Umidade'].indexOf(p) >= 0);
       html += '<div class="perg" id="pg'+id+'">'+
         '<div class="perg-row">'+
-          '<div><div class="perg-txt">'+p+(unidade?' <span style="font-size:10px;color:#94a3b8;">('+unidade+')</span>':'')+'</div><div class="perg-nr">'+sub.nr+'</div></div>'+
+          '<div><div class="perg-txt">'+p+'</div><div class="perg-nr">'+sub.nr+'</div></div>'+
           '<div class="btns">'+
             '<button class="bs bs-c'+(r==='c'?' at':'')+'" onclick="setR(\''+id+'\',\'c\',this)">Adequado</button>'+
             '<button class="bs bs-nc'+(r==='nc'?' at':'')+'" onclick="setR(\''+id+'\',\'nc\',this)">Não Adequado</button>'+
@@ -702,12 +594,10 @@ function iniciarSetor(s) {
           '</div>'+
         '</div>'+
       '</div>'+
-      (isLev ?
-        '<div class="leitura'+(r==='c'?' vis':'')+'" id="lv'+id+'">'+
-          '<span class="leitura-lbl">📊 Valor medido'+(unidade?' ('+unidade+')':'')+'</span>'+
-          '<input type="text" placeholder="Ex: 500 '+unidade+'" value="'+(E.resp['lv'+id]||'')+'" oninput="E.resp[\'lv'+id+'\'] = this.value"/>'+
-        '</div>'
-      : '') +
+      (isDados ? '<div class="dadosobs'+(r==='c'?' vis':'')+'" id="da'+id+'">'+
+        '<span class="dadosobs-lbl">📊 Dados</span>'+
+        '<textarea placeholder="Informe os dados medidos..." oninput="E.resp[\'dad'+id+'\'] = this.value">'+(E.resp['dad'+id]||'')+'</textarea>'+
+      '</div>' : '')+
       '<div class="ncobs'+(r==='nc'?' vis':'')+'" id="no'+id+'">'+
         '<span class="ncobs-lbl">Observação / Descrição do problema</span>'+
         '<textarea placeholder="Descreva o problema..." oninput="E.resp[\'obs'+id+'\'] = this.value">'+(E.resp['obs'+id]||'')+'</textarea>'+
@@ -723,114 +613,6 @@ function iniciarSetor(s) {
   document.getElementById('cl-body').innerHTML = html;
   togSub(0);
   tela(3);
-}
-
-// Verifica itens não preenchidos e avisa
-function itensPendentes() {
-  var pendentes = [];
-  SUBITENS.forEach(function(sub,si){
-    sub.pergs.forEach(function(p,pi){
-      if (!E.resp[si+'_'+pi]) pendentes.push(sub.nome+': '+p);
-    });
-  });
-  return pendentes;
-}
-
-// Finalizar setor — salva e volta para lista de setores
-function finalizarSetor() {
-  var pend = itensPendentes();
-  if (pend.length > 0) {
-    var msg = '⚠️ '+pend.length+' item(ns) não preenchido(s):\n\n';
-    msg += pend.slice(0,5).join('\n');
-    if (pend.length > 5) msg += '\n... e mais '+(pend.length-5)+' item(ns)';
-    msg += '\n\nDeseja finalizar mesmo assim?';
-    if (!confirm(msg)) return;
-  }
-  // Salvar respostas do setor atual
-  E.resps[E.setorAtual] = JSON.parse(JSON.stringify(E.resp));
-  E.setorAtual = null;
-  E.resp = {};
-  // Atualizar chips
-  renderChips();
-  // Mostrar botão Ver Resultado
-  document.getElementById('btn-resultado').style.display = 'block';
-  tela(2);
-}
-
-// Voltar para setores sem finalizar (salva rascunho)
-function voltarSetores() {
-  if (E.setorAtual) {
-    E.resps[E.setorAtual] = JSON.parse(JSON.stringify(E.resp));
-    E.setorAtual = null;
-    E.resp = {};
-  }
-  renderChips();
-  document.getElementById('btn-resultado').style.display =
-    Object.keys(E.resps).length > 0 ? 'block' : 'none';
-  tela(2);
-}
-
-function renderChips() {
-  var c = document.getElementById('chips');
-  c.innerHTML = '';
-  E.setores.forEach(function(s){
-    c.appendChild(criarChip(s));
-  });
-}
-
-function adicionarSetor() {
-  var inp = document.getElementById('novo-setor-inp');
-  var nome = inp.value.trim();
-  if (!nome) { inp.focus(); return; }
-  if (E.emp.setores.indexOf(nome) >= 0) {
-    alert('Setor "'+nome+'" já existe na lista!');
-    inp.focus();
-    return;
-  }
-  E.emp.setores.push(nome);
-  E.setores.push(nome);
-  var chips = document.getElementById('chips');
-  chips.appendChild(criarChip(nome));
-  salvarSetores();
-  atualizarContadorEmpresa();
-  inp.value = '';
-  inp.focus();
-}
-
-function editarSetor(chipEl, nomeAntigo) {
-  var novo = prompt('Editar nome do setor:', nomeAntigo);
-  if (novo === null) return;
-  novo = novo.trim();
-  if (!novo) { alert('Nome não pode ser vazio!'); return; }
-  if (novo === nomeAntigo) return;
-  if (E.emp.setores.indexOf(novo) >= 0) {
-    alert('Setor "'+novo+'" já existe!');
-    return;
-  }
-  var idxEmp = E.emp.setores.indexOf(nomeAntigo);
-  if (idxEmp >= 0) E.emp.setores[idxEmp] = novo;
-  var idxSel = E.setores.indexOf(nomeAntigo);
-  if (idxSel >= 0) E.setores[idxSel] = novo;
-  salvarSetores();
-  renderChips();
-}
-
-function deletarSetor(chipEl, nome) {
-  if (!confirm('Deletar o setor "'+nome+'"?')) return;
-  var idxEmp = E.emp.setores.indexOf(nome);
-  if (idxEmp >= 0) E.emp.setores.splice(idxEmp, 1);
-  var idxSel = E.setores.indexOf(nome);
-  if (idxSel >= 0) E.setores.splice(idxSel, 1);
-  salvarSetores();
-  atualizarContadorEmpresa();
-  chipEl.remove();
-}
-
-function atualizarContadorEmpresa() {
-  var det = document.getElementById('emp-det');
-  if (det && E.emp) {
-    det.textContent = 'CNPJ: '+(E.emp.cnpj_fmt||'—')+' · '+E.emp.setores.length+' setores';
-  }
 }
 
 function calcStatus(si) {
@@ -854,9 +636,8 @@ function setR(id, val, btn) {
   if (novo) btn.classList.add('at');
   var obs = document.getElementById('no'+id);
   if (obs) obs.classList.toggle('vis', novo==='nc');
-  // Leitura Levantamento
-  var lv = document.getElementById('lv'+id);
-  if (lv) lv.classList.toggle('vis', novo==='c');
+  var dad = document.getElementById('da'+id);
+  if (dad) dad.classList.toggle('vis', novo==='c');
   var si = parseInt(id.split('_')[0]);
   var st = calcStatus(si);
   var pill = document.getElementById('sp'+si);
@@ -875,14 +656,7 @@ function togSub(si) {
   }
 }
 
-// atualizarChips — atualiza o chip do setor ATUAL em tempo real
 function atualizarChips() {
-  if (!E.setorAtual) return;
-  var s = E.setorAtual;
-  var chip = document.querySelector('.chip[data-s="'+s.replace(/"/g,'\\"')+'"]');
-  if (!chip) return;
-  var label = chip.querySelector('.chip-label');
-  if (!label) return;
   var totalPergs=0, totalPend=0, totalNC=0;
   SUBITENS.forEach(function(sub,si){
     sub.pergs.forEach(function(p,pi){
@@ -892,87 +666,50 @@ function atualizarChips() {
       else if (r==='nc') totalNC++;
     });
   });
-  chip.className = 'chip';
-  if (totalPend===totalPergs) { chip.classList.add('on');   label.textContent=s; }
-  else if (totalNC>0)         { chip.classList.add('nc');   label.textContent='❌ '+s; }
-  else if (totalPend>0)       { chip.classList.add('pend'); label.textContent='⏳ '+s; }
-  else                        { chip.classList.add('ok');   label.textContent='✅ '+s; }
+  E.setores.forEach(function(s){
+    var chip = document.querySelector('.chip[data-s="'+s+'"]');
+    if (!chip) return;
+    chip.className = 'chip';
+    if (totalPend===totalPergs) { chip.classList.add('on'); chip.textContent=s; }
+    else if (totalNC>0) { chip.classList.add('nc'); chip.textContent='❌ '+s; }
+    else if (totalPend>0) { chip.classList.add('pend'); chip.textContent='⏳ '+s; }
+    else { chip.classList.add('ok'); chip.textContent='✅ '+s; }
+  });
 }
 
 // ============================================================
-// VER RESULTADO GERAL (todos os setores)
+// FINALIZAR
 // ============================================================
-function verResultadoGeral() {
-  var c=0, nc=0, na=0, ncsArr=[], levArr=[];
-  E.setores.forEach(function(s){
-    var resp = E.resps[s] || {};
-    SUBITENS.forEach(function(sub,si){
-      var isLev = (sub.nome === 'Levantamento');
-      var unidades = {'Iluminação':'lux','Ruído':'dB','Temperatura':'°C','Umidade':'%'};
-      sub.pergs.forEach(function(p,pi){
-        var id=si+'_'+pi, r=resp[id];
-        if(r==='c'){
-          c++;
-          if(isLev && resp['lv'+id]){
-            var unidade = unidades[p] || '';
-            levArr.push({setor:s, p:p, val:resp['lv'+id], unidade:unidade});
-          }
-        }
-        else if(r==='na') na++;
-        else if(r==='nc'){
-          nc++;
-          ncsArr.push({setor:s, nr:sub.nr, sub:sub.nome, p:p,
-            obs:resp['obs'+id]||'', prz:resp['prz'+id]||''});
-        }
-      });
+function finalizar() {
+  var c=0, nc=0, na=0, ncsArr=[];
+  SUBITENS.forEach(function(sub,si){
+    sub.pergs.forEach(function(p,pi){
+      var id=si+'_'+pi, r=E.resp[id];
+      if(r==='c') c++;
+      else if(r==='na') na++; // NA
+      else if(r==='nc'){
+        nc++;
+        ncsArr.push({nr:sub.nr,sub:sub.nome,p:p,obs:E.resp['obs'+id]||'',prz:E.resp['prz'+id]||''});
+      }
     });
   });
   document.getElementById('cnt-c').textContent=c;
   document.getElementById('cnt-nc').textContent=nc;
   document.getElementById('cnt-na').textContent=na;
   var dt=E.data?new Date(E.data+'T12:00:00').toLocaleDateString('pt-BR'):'-';
-  var setoresVisitados = E.setores.filter(function(s){ return !!E.resps[s]; });
   document.getElementById('res-info').innerHTML=
-    '<strong>'+E.emp.nome+'</strong><br>CNPJ: '+(E.emp.cnpj_fmt||'—')+'<br>'+(E.tec||'-')+' · '+dt+
-    '<br>Setores: '+setoresVisitados.join(', ');
+    '<strong>'+E.emp.nome+'</strong><br>CNPJ: '+(E.emp.cnpj_fmt||'—')+'<br>'+(E.tec||'-')+' · '+dt+'<br>Setores: '+E.setores.join(', ');
   var ncHtml='';
-  if(levArr.length){
-    ncHtml+='<div class="div"></div><div style="font-size:11px;font-weight:700;color:#0369a1;margin-bottom:8px;text-transform:uppercase;">📊 Valores Medidos (Levantamento)</div>';
-    levArr.forEach(function(l){
-      ncHtml+='<div class="nci" style="border-color:#bae6fd;">'+
-        '<div class="nci-nr" style="color:#0369a1;">'+l.setor+'</div>'+
-        '<div class="nci-t">✅ '+l.p+' — <strong>'+l.val+(l.unidade?' '+l.unidade:'')+'</strong></div>'+
-      '</div>';
-    });
-  }
   if(ncsArr.length){
-    ncHtml+='<div class="div"></div><div style="font-size:11px;font-weight:700;color:#dc2626;margin-bottom:8px;text-transform:uppercase;">⚠️ Não Conformidades</div>';
+    ncHtml='<div class="div"></div><div style="font-size:11px;font-weight:700;color:#dc2626;margin-bottom:8px;text-transform:uppercase;">⚠️ Não Conformidades</div>';
     ncsArr.forEach(function(n){
-      ncHtml+='<div class="nci">'+
-        '<div class="nci-nr">'+n.setor+' · '+n.nr+' · '+n.sub+'</div>'+
-        '<div class="nci-t">'+n.p+'</div>'+
-        (n.obs?'<div class="nci-o">📝 '+n.obs+'</div>':'')+
-        (n.prz?'<div class="nci-p">⏰ Prazo: '+n.prz+'</div>':'')+
-      '</div>';
+      ncHtml+='<div class="nci"><div class="nci-nr">'+n.nr+' · '+n.sub+'</div><div class="nci-t">'+n.p+'</div>'+(n.obs?'<div class="nci-o">📝 '+n.obs+'</div>':'')+(n.prz?'<div class="nci-p">⏰ Prazo: '+n.prz+'</div>':'')+'</div>';
     });
-  }
-  if(!levArr.length && !ncsArr.length){
+  } else {
     ncHtml='<div style="text-align:center;padding:10px;color:#16a34a;font-weight:700;">✅ Nenhuma não conformidade!</div>';
   }
   document.getElementById('nc-list').innerHTML=ncHtml;
   tela(4);
-  // Enviar ao Drive se já autenticado
-  var hashAuto={};
-  location.hash.replace('#','').split('&').filter(function(p){return p;}).forEach(function(p){
-    var kv=p.split('='); hashAuto[kv[0]]=kv[1];
-  });
-  if(hashAuto.access_token){
-    history.replaceState(null,'',location.pathname);
-    showMsg('⏳ Salvando no Drive...','load');
-    uploadDrive(hashAuto.access_token);
-  } else {
-    showMsg('💾 Clique em "Salvar no Google Drive" para enviar.','ok');
-  }
 }
 
 // ============================================================
@@ -982,30 +719,23 @@ function getConteudo(){
   var dt=E.data?new Date(E.data+'T12:00:00').toLocaleDateString('pt-BR'):'-';
   var linhas=['CHECKLIST — NR-1 / NR-17','========================================',
     'Empresa: '+E.emp.nome+' ('+E.emp.codigo+')','CNPJ: '+(E.emp.cnpj_fmt||'—'),
-    'Técnico: '+(E.tec||'-'),'Data: '+dt,''];
-  E.setores.forEach(function(s){
-    var resp = E.resps[s];
-    if (!resp) return;
-    linhas.push('════ SETOR: '+s+' ════');
-    SUBITENS.forEach(function(sub,si){
-      linhas.push('['+sub.nr+'] '+sub.nome);
-      sub.pergs.forEach(function(p,pi){
-        var id=si+'_'+pi, r=resp[id];
-        var st=r==='c'?'[C ]':r==='nc'?'[NC]':r==='na'?'[NA]':'[  ]';
-        linhas.push('  '+st+' '+p);
-        if(r==='c'&&resp['lv'+id]) linhas.push('     Leitura: '+resp['lv'+id]);
-        if(r==='nc'&&resp['obs'+id]) linhas.push('     Obs: '+resp['obs'+id]);
-        if(r==='nc'&&resp['prz'+id]) linhas.push('     Prazo: '+resp['prz'+id]);
-      });
-      linhas.push('');
+    'Técnico: '+(E.tec||'-'),'Data: '+dt,'Setores: '+E.setores.join(', '),''];
+  SUBITENS.forEach(function(sub,si){
+    linhas.push('['+sub.nr+'] '+sub.nome);
+    sub.pergs.forEach(function(p,pi){
+      var id=si+'_'+pi,r=E.resp[id];
+      var s=r==='c'?'[C ]':r==='nc'?'[NC]':r==='na'?'[NA]':'[  ]';
+      linhas.push('  '+s+' '+p);
+      if(r==='c'&&E.resp['dad'+id]) linhas.push('     Dados: '+E.resp['dad'+id]);
+      if(r==='nc'&&E.resp['obs'+id]) linhas.push('     Obs: '+E.resp['obs'+id]);
+      if(r==='nc'&&E.resp['prz'+id]) linhas.push('     Prazo: '+E.resp['prz'+id]);
     });
+    linhas.push('');
   });
   return linhas.join('\n');
 }
-
 function getNome(){
-  var ano = E.data ? E.data.substring(0,4) : '2026';
-  return 'Vistoria_'+ano+'_'+E.emp.nome.replace(/[^a-zA-Z0-9]/g,'_').substring(0,30)+'.pdf';
+  return 'Vistoria_'+E.emp.nome.replace(/[^a-zA-Z0-9]/g,'_').substring(0,25)+'_'+(E.data||'sd')+'.txt';
 }
 function showMsg(t,tp){
   var m=document.getElementById('dmsg');
@@ -1023,7 +753,7 @@ function salvarDrive(){
   var cid=localStorage.getItem('gd_cid');
   if(!cid){abrirDriveCfg();return;}
   showMsg('⏳ Conectando ao Google Drive...','load');
-  var redirect='https://engvivianbongiorno-eng.github.io/index.html';
+  var redirect=location.origin+location.pathname;
   var hash={};
   location.hash.replace('#','').split('&').filter(function(p){return p;}).forEach(function(p){
     var kv=p.split('='); hash[kv[0]]=kv[1];
@@ -1033,91 +763,23 @@ function salvarDrive(){
     uploadDrive(hash.access_token);
     return;
   }
-  localStorage.setItem('dp','1');
-  localStorage.setItem('dv', JSON.stringify({emp:E.emp, setores:E.setores, tec:E.tec, data:E.data, resps:E.resps}));
+  sessionStorage.setItem('dp','1');
   location.href='https://accounts.google.com/o/oauth2/v2/auth?client_id='+encodeURIComponent(cid)+
     '&redirect_uri='+encodeURIComponent(redirect)+
     '&response_type=token&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.file&prompt=consent';
 }
 async function uploadDrive(token){
+  var boundary='--cl_boundary';
+  var meta={name:getNome(),mimeType:'text/plain'};
+  var body='--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+
+    JSON.stringify(meta)+'\r\n--'+boundary+'\r\nContent-Type: text/plain\r\n\r\n'+
+    getConteudo()+'\r\n--'+boundary+'--';
   try{
-    showMsg('⏳ Gerando PDF...','load');
-    var nomBase='Vistoria_'+(E.data?E.data.substring(0,4):'2026')+'_'+E.emp.nome.replace(/[^a-zA-Z0-9]/g,'_').substring(0,30);
-    // 1. Salvar TXT para o Relatorio
-    var txtContent=getConteudo();
-    var enc=new TextEncoder();
-    var bnd='--cl_bnd';
-    var metaTxt={name:nomBase+'.txt',mimeType:'text/plain'};
-    var t1=enc.encode('--'+bnd+'\r\nContent-Type: application/json\r\n\r\n'+JSON.stringify(metaTxt)+'\r\n--'+bnd+'\r\nContent-Type: text/plain\r\n\r\n');
-    var t2=enc.encode(txtContent);
-    var t3=enc.encode('\r\n--'+bnd+'--');
-    var bodyTxt=new Uint8Array(t1.length+t2.length+t3.length);
-    bodyTxt.set(t1,0); bodyTxt.set(t2,t1.length); bodyTxt.set(t3,t1.length+t2.length);
-    await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart',
-      {method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'multipart/related; boundary='+bnd},body:bodyTxt});
-    // 2. Salvar PDF visual
-    var pdfBlob=await gerarPDFBlob();
-    var metaPdf={name:nomBase+'.pdf',mimeType:'application/pdf'};
-    var p1=enc.encode('--'+bnd+'\r\nContent-Type: application/json\r\n\r\n'+JSON.stringify(metaPdf)+'\r\n--'+bnd+'\r\nContent-Type: application/pdf\r\n\r\n');
-    var p2=new Uint8Array(await pdfBlob.arrayBuffer());
-    var p3=enc.encode('\r\n--'+bnd+'--');
-    var bodyPdf=new Uint8Array(p1.length+p2.length+p3.length);
-    bodyPdf.set(p1,0); bodyPdf.set(p2,p1.length); bodyPdf.set(p3,p1.length+p2.length);
     var r=await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart',
-      {method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'multipart/related; boundary='+bnd},body:bodyPdf});
-    if(r.ok) showMsg('✅ TXT e PDF salvos no Google Drive!','ok');
+      {method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'multipart/related; boundary='+boundary},body:body});
+    if(r.ok) showMsg('✅ Salvo no Google Drive!','ok');
     else throw new Error();
-  }catch(e){ showMsg('⚠️ Erro ao salvar no Drive.','err'); console.error(e); }
-}
-
-async function gerarPDFBlob(){
-  var dt=E.data?new Date(E.data+'T12:00:00').toLocaleDateString('pt-BR'):'-';
-  var c=0,nc=0,na=0;
-  var unidades = {'Iluminação':'lux','Ruído':'dB','Temperatura':'°C','Umidade':'%'};
-  E.setores.forEach(function(s){ var resp=E.resps[s]||{}; SUBITENS.forEach(function(sub,si){ sub.pergs.forEach(function(p,pi){ var r=resp[si+'_'+pi]; if(r==='c')c++; else if(r==='nc')nc++; else if(r==='na')na++; }); }); });
-  var ncsHtml='';
-  E.setores.forEach(function(s){ var resp=E.resps[s]||{}; SUBITENS.forEach(function(sub,si){ sub.pergs.forEach(function(p,pi){ var id=si+'_'+pi; if(resp[id]==='nc'){ ncsHtml+='<div style="border:1px solid #fca5a5;border-radius:8px;padding:10px 14px;margin-bottom:8px;"><div style="font-size:10px;color:#dc2626;font-weight:600;">'+s+' - '+sub.nr+' - '+sub.nome+'</div><div style="font-weight:700;font-size:13px;margin-top:2px;">'+p+'</div>'+(resp['obs'+id]?'<div style="font-size:11px;color:#555;margin-top:4px;">Obs: '+resp['obs'+id]+'</div>':'')+(resp['prz'+id]?'<div style="font-size:11px;color:#555;">Prazo: '+resp['prz'+id]+'</div>':'')+'</div>'; } }); }); });
-  var levHtml='';
-  E.setores.forEach(function(s){ var resp=E.resps[s]||{}; SUBITENS.forEach(function(sub,si){ if(sub.nome!=='Levantamento') return; sub.pergs.forEach(function(p,pi){ var id=si+'_'+pi; if(resp[id]==='c' && resp['lv'+id]){ var un=unidades[p]||''; levHtml+='<div style="border:1px solid #bae6fd;border-radius:8px;padding:8px 14px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:10px;color:#0369a1;font-weight:600;">'+s+'</div><div style="font-size:13px;font-weight:600;margin-top:2px;">'+p+'</div></div><div style="font-size:18px;font-weight:700;color:#0369a1;">'+resp['lv'+id]+(un?' '+un:'')+'</div></div>'; } }); }); });
-  var html='<div style="font-size:11px;color:#666;display:flex;justify-content:space-between;margin-bottom:10px;"><span>'+new Date().toLocaleString('pt-BR')+'</span><span>Check List</span></div>';
-  html+='<div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px;">';
-  html+='<div style="font-size:11px;color:#64748b;text-transform:uppercase;font-weight:700;margin-bottom:8px;">RESULTADO DA VISTORIA</div>';
-  html+='<div style="font-weight:700;font-size:15px;">'+E.emp.nome+'</div>';
-  html+='<div style="font-size:12px;color:#475569;">CNPJ: '+E.emp.cnpj_fmt+'</div>';
-  html+='<div style="font-size:12px;color:#475569;">'+(E.tec||'-')+' - '+dt+'</div>';
-  html+='<div style="font-size:12px;color:#475569;">Setores: '+E.setores.join(', ')+'</div>';
-  html+='<div style="display:flex;gap:12px;margin-top:12px;">';
-  html+='<div style="flex:1;border:2px solid #fde047;border-radius:8px;padding:12px;text-align:center;background:#fefce8;"><div style="font-size:32px;font-weight:700;color:#ca8a04;">'+c+'</div><div style="font-size:11px;color:#ca8a04;">Adequado</div></div>';
-  html+='<div style="flex:1;border:2px solid #fecaca;border-radius:8px;padding:12px;text-align:center;"><div style="font-size:32px;font-weight:700;color:#dc2626;">'+nc+'</div><div style="font-size:11px;color:#dc2626;">Nao Adequado</div></div>';
-  html+='<div style="flex:1;border:2px solid #e2e8f0;border-radius:8px;padding:12px;text-align:center;"><div style="font-size:32px;font-weight:700;color:#475569;">'+na+'</div><div style="font-size:11px;color:#475569;">NA</div></div>';
-  html+='</div>';
-  if(levHtml){ html+='<div style="margin-top:14px;"><div style="font-weight:700;color:#0369a1;font-size:13px;margin-bottom:8px;">📊 VALORES MEDIDOS (LEVANTAMENTO)</div>'+levHtml+'</div>'; }
-  if(nc>0){ html+='<div style="margin-top:14px;"><div style="font-weight:700;color:#dc2626;font-size:13px;margin-bottom:8px;">NAO CONFORMIDADES</div>'+ncsHtml+'</div>'; }
-  else if(!levHtml){ html+='<div style="margin-top:14px;text-align:center;color:#16a34a;font-weight:600;">Nenhuma nao conformidade!</div>'; }
-  html+='</div>';
-  var div=document.createElement('div');
-  div.style.cssText='position:fixed;left:-9999px;top:0;width:580px;background:#ffffff;font-family:Arial,sans-serif;padding:20px;color:#1e293b;box-sizing:border-box;';
-  div.innerHTML=html;
-  document.body.appendChild(div);
-  await new Promise(function(r){setTimeout(r,400);});
-  var canvas=await html2canvas(div,{scale:2,backgroundColor:'#ffffff',width:560,windowWidth:580,useCORS:true,allowTaint:false});
-  document.body.removeChild(div);
-  var imgData=canvas.toDataURL('image/jpeg',0.95);
-  var jsPDF=window.jspdf.jsPDF;
-  var pdf=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
-  var pw=pdf.internal.pageSize.getWidth(), ph=pdf.internal.pageSize.getHeight();
-  var iw=pw-20, ih=(canvas.height*iw)/canvas.width;
-  if(ih<=ph-20){ pdf.addImage(imgData,'JPEG',10,10,iw,ih); }
-  else {
-    var ratio=canvas.height/ih, segPxH=(ph-20)*ratio, pages=Math.ceil(canvas.height/segPxH);
-    for(var i=0;i<pages;i++){
-      if(i>0) pdf.addPage();
-      var c2=document.createElement('canvas'); c2.width=canvas.width; c2.height=Math.min(segPxH,canvas.height-i*segPxH);
-      c2.getContext('2d').drawImage(canvas,0,i*segPxH,canvas.width,c2.height,0,0,canvas.width,c2.height);
-      pdf.addImage(c2.toDataURL('image/jpeg',0.95),'JPEG',10,10,iw,(c2.height*iw)/canvas.width);
-    }
-  }
-  return pdf.output('blob');
+  }catch(e){ baixarTxt(); showMsg('⚠️ Erro no Drive. Arquivo baixado localmente.','err'); }
 }
 function abrirDriveCfg(){ document.getElementById('modal-drive').classList.add('vis'); }
 function fecharDriveCfg(){ document.getElementById('modal-drive').classList.remove('vis'); }
@@ -1133,7 +795,7 @@ function salvarCid(){
 // HELPERS
 // ============================================================
 function novaVistoria(){
-  E={emp:null,setores:[],tec:'',data:'',resp:{},resps:{},setorAtual:null};
+  E={emp:null,setores:[],tec:'',data:'',resp:{}};
   document.getElementById('inp-nome').value='';
   document.getElementById('inp-cnpj').value='';
   document.getElementById('cnpj-drop').innerHTML='';
@@ -1153,22 +815,17 @@ function tela(n){
 
 // Retomada após redirect OAuth
 window.addEventListener('load', function(){
-  if(localStorage.getItem('dp')){
+  if(sessionStorage.getItem('dp')){
     var hash={};
     location.hash.replace('#','').split('&').filter(function(p){return p;}).forEach(function(p){
       var kv=p.split('='); hash[kv[0]]=decodeURIComponent(kv[1]||'');
     });
     if(hash.access_token){
-      localStorage.removeItem('dp');
+      sessionStorage.removeItem('dp');
       history.replaceState(null,'',location.pathname);
-      var dv = localStorage.getItem('dv');
-      if(dv){ try{ var sv=JSON.parse(dv); E.emp=sv.emp; E.setores=sv.setores; E.tec=sv.tec; E.data=sv.data; E.resps=sv.resps; localStorage.removeItem('dv'); }catch(ex){} }
       showMsg('⏳ Salvando...','load');
       uploadDrive(hash.access_token);
       tela(4);
-    } else {
-      localStorage.removeItem('dp');
-      localStorage.removeItem('dv');
     }
   }
 });

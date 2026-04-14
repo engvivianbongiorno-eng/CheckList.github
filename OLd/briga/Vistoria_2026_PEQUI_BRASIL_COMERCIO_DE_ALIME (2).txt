@@ -1,0 +1,56 @@
+CHECKLIST — NR-1 / NR-17
+========================================
+Empresa: PEQUI BRASIL COMERCIO DE ALIMENTOS LTDA (00000541)
+CNPJ: 58.035.769/0001-25
+Técnico: ivan
+Data: 10/04/2026
+
+════ SETOR: VENDAS ════
+[NR-17] Mobiliário
+  [C ] Armários
+  [C ] Balcão
+  [C ] Bancada
+  [C ] Banco de descanso
+  [C ] Cadeira
+  [C ] Cadeira elevada
+  [C ] Mesa
+  [C ] Prateleiras
+
+[NR-17] Equipamentos
+  [C ] Celular
+  [C ] Computador
+  [C ] Ferramentas manuais
+  [C ] Headset
+  [C ] Impressora
+  [C ] Leitor ótico
+  [C ] Máquinas
+  [C ] Notebook
+  [NC] Suporte de punhos
+     Obs: jkjkjjh
+     Prazo: j,j,jhjh
+  [C ] Suporte para pés
+  [NA] Telefone
+
+[NR-1] Trabalho
+  [C ] Avisos
+  [C ] Benefícios
+  [C ] Comunicação
+  [C ] Demanda
+  [C ] Denúncias
+  [C ] Ginástica Laboral
+  [C ] Orientações
+  [C ] Palestras
+  [C ] Pausas
+  [C ] Quadros de orientação
+  [C ] Rotatividade
+
+[NR-17] Levantamento
+  [C ] Iluminação
+     Leitura: ,,jhjh,jh,jh
+  [C ] Ruído
+     Leitura: jh,jjhjh
+  [NC] Temperatura
+     Obs: ,jhjjh,jh,hj
+     Prazo: ,jh,jh,jhh
+  [C ] Umidade
+     Leitura: j,jh,jh,jh,jh,

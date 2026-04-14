@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Relatório CheckList — NR-1 / NR-17</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap');
+:root {
+  --bg:#f4f6f9; --surface:#fff; --border:#e2e8f0; --text:#1e293b; --muted:#64748b;
+  --teal:#00b4a0; --teal-lt:#e0f7f5; --green:#16a34a; --green-lt:#dcfce7;
+  --red:#dc2626; --red-lt:#fee2e2; --amber:#ca8a04; --amber-lt:#fef9c3;
+  --navy:#0d1b2a; --radius:10px; --shadow:0 2px 12px rgba(0,0,0,.07);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:14px;line-height:1.5;}
+
+/* LAYOUT */
+.app{display:flex;height:100vh;overflow:hidden;}
+
+/* SIDEBAR */
+.sidebar{width:300px;min-width:300px;background:var(--navy);color:#fff;display:flex;flex-direction:column;overflow:hidden;}
+.sb-hdr{padding:20px 18px 14px;border-bottom:1px solid rgba(255,255,255,.08);}
+.sb-logo{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:3px;}
+.sb-title{font-size:17px;font-weight:700;}
+.sb-sub{font-size:11px;color:rgba(255,255,255,.4);margin-top:2px;}
+
+/* Drive panel */
+.drv-panel{margin:14px 14px 0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);}
+.drv-hdr{padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.07);}
+.drv-hdr img{width:16px;height:16px;flex-shrink:0;}
+.drv-hdr-txt{font-size:12px;font-weight:600;flex:1;}
+.drv-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:8px;}
+.drv-badge.on{background:rgba(22,163,74,.25);color:#86efac;}
+.drv-badge.off{background:rgba(255,255,255,.08);color:rgba(255,255,255,.35);}
+.drv-body{padding:12px 14px;display:flex;flex-direction:column;gap:7px;}
+.btn-drv{width:100%;padding:9px;border:none;border-radius:8px;font-family:inherit;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .15s;}
+.btn-drv-main{background:var(--teal);color:white;}
+.btn-drv-main:hover{background:#009989;}
+.btn-drv-main:disabled{background:rgba(255,255,255,.1);color:rgba(255,255,255,.3);cursor:not-allowed;}
+.btn-drv-cfg{background:transparent;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);}
+.btn-drv-cfg:hover{border-color:rgba(255,255,255,.4);color:white;}
+.drv-info{font-size:11px;color:rgba(255,255,255,.4);text-align:center;line-height:1.4;}
+
+/* sep */
+.sep{display:flex;align-items:center;gap:8px;margin:12px 14px 0;}
+.sep-line{flex:1;height:1px;background:rgba(255,255,255,.08);}
+.sep-txt{font-size:10px;color:rgba(255,255,255,.25);white-space:nowrap;}
+
+/* upload local */
+.upload-zone{margin:10px 14px 14px;border:2px dashed rgba(255,255,255,.13);border-radius:var(--radius);padding:13px;text-align:center;cursor:pointer;transition:all .2s;}
+.upload-zone:hover{border-color:var(--teal);background:rgba(0,180,160,.06);}
+.upload-zone input{display:none;}
+.uz-ico{font-size:20px;margin-bottom:3px;}
+.uz-txt{font-size:11px;color:rgba(255,255,255,.4);line-height:1.4;}
+.uz-txt strong{color:rgba(255,255,255,.7);}
+
+/* list */
+.sb-list{flex:1;overflow-y:auto;padding:8px 10px;}
+.sb-list::-webkit-scrollbar{width:4px;}
+.sb-list::-webkit-scrollbar-thumb{background:rgba(255,255,255,.12);border-radius:4px;}
+.rpt-item{padding:10px 12px;border-radius:8px;cursor:pointer;margin-bottom:3px;transition:background .15s;display:flex;align-items:center;gap:10px;}
+.rpt-item:hover{background:rgba(255,255,255,.06);}
+.rpt-item.active{background:var(--teal);}
+.rpt-item.active .ri-meta{color:rgba(255,255,255,.75);}
+.ri-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.ri-dot.ok{background:var(--green);}
+.ri-dot.nc{background:var(--red);}
+.ri-dot.pend{background:var(--amber);}
+.ri-body{flex:1;min-width:0;}
+.ri-nome{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ri-meta{font-size:10px;color:rgba(255,255,255,.4);margin-top:1px;}
+.ri-del{background:none;border:none;color:rgba(255,255,255,.2);cursor:pointer;font-size:13px;padding:2px 5px;border-radius:4px;flex-shrink:0;}
+.ri-del:hover{color:#fca5a5;background:rgba(220,38,38,.2);}
+
+.sb-footer{padding:10px 16px;border-top:1px solid rgba(255,255,255,.07);font-size:10px;color:rgba(255,255,255,.2);text-align:center;}
+
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+.topbar{height:54px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 22px;gap:14px;flex-shrink:0;}
+.topbar-title{font-weight:700;font-size:14px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.topbar-actions{display:flex;gap:8px;}
+.btn{padding:7px 14px;border-radius:7px;border:none;cursor:pointer;font-family:inherit;font-size:12px;font-weight:600;transition:all .15s;display:inline-flex;align-items:center;gap:5px;}
+.btn-teal{background:var(--teal);color:white;}
+.btn-teal:hover{background:#009989;}
+.btn-outline{background:white;color:var(--text);border:1.5px solid var(--border);}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal);}
+.btn-red{background:var(--red-lt);color:var(--red);border:1.5px solid #fca5a5;}
+.btn-red:hover{background:var(--red);color:white;}
+
+.content{flex:1;overflow-y:auto;padding:22px;}
+.content::-webkit-scrollbar{width:6px;}
+.content::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+
+/* EMPTY */
+.empty{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);text-align:center;}
+.empty-ico{font-size:52px;}
+.empty-ttl{font-size:17px;font-weight:700;color:var(--text);}
+.empty-sub{font-size:13px;max-width:300px;line-height:1.5;}
+
+/* REPORT */
+.rpt-hdr{background:var(--navy);border-radius:var(--radius);padding:22px 26px;color:white;margin-bottom:16px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px;position:relative;overflow:hidden;}
+.rpt-hdr::after{content:'NR';position:absolute;right:-8px;top:-18px;font-size:110px;font-weight:900;color:rgba(255,255,255,.04);pointer-events:none;}
+.rpt-nome{font-size:19px;font-weight:700;margin-bottom:5px;}
+.rpt-meta{font-size:12px;color:rgba(255,255,255,.5);display:flex;flex-wrap:wrap;gap:12px;margin-bottom:7px;}
+.rpt-setores{display:flex;flex-wrap:wrap;gap:5px;}
+.s-pill{padding:3px 9px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);}
+
+.score-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px;}
+.score-card{background:var(--surface);border-radius:var(--radius);padding:14px 16px;border:1px solid var(--border);box-shadow:var(--shadow);}
+.sc-lbl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);margin-bottom:5px;}
+.sc-val{font-size:29px;font-weight:700;line-height:1;}
+.sc-val.green{color:var(--green);} .sc-val.red{color:var(--red);} .sc-val.amber{color:var(--amber);} .sc-val.teal{color:var(--teal);}
+.sc-bar{height:4px;background:var(--border);border-radius:4px;margin-top:7px;overflow:hidden;}
+.sc-bar-fill{height:100%;border-radius:4px;}
+
+.section{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);margin-bottom:14px;overflow:hidden;}
+.sec-hdr{padding:12px 17px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.sec-ttl{font-size:13px;font-weight:700;}
+.sec-count{font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;}
+.sec-count.red{background:var(--red-lt);color:var(--red);} .sec-count.green{background:var(--green-lt);color:var(--green);}
+
+.nc-table{width:100%;border-collapse:collapse;font-size:13px;}
+.nc-table th{background:#f8fafc;text-align:left;padding:8px 15px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);border-bottom:1px solid var(--border);}
+.nc-table td{padding:10px 15px;border-bottom:1px solid var(--border);vertical-align:top;}
+.nc-table tr:last-child td{border-bottom:none;}
+.nc-table tr:hover td{background:#fafbfc;}
+
+.cl-table{width:100%;border-collapse:collapse;font-size:12px;}
+.cl-table th{background:#f8fafc;text-align:left;padding:7px 13px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);border-bottom:1px solid var(--border);}
+.cl-table td{padding:8px 13px;border-bottom:1px solid var(--border);vertical-align:middle;}
+.cl-table tr:last-child td{border-bottom:none;}
+.cl-table tr:hover td{background:#fafbfc;}
+
+.nr-badge{display:inline-block;font-size:10px;font-weight:700;background:var(--navy);color:white;padding:2px 6px;border-radius:4px;font-family:'DM Mono',monospace;}
+.obs-box{margin-top:5px;padding:5px 9px;background:var(--red-lt);border-radius:6px;font-size:12px;color:#7f1d1d;}
+.prazo-tag{display:inline-flex;align-items:center;gap:4px;margin-top:4px;font-size:11px;font-weight:600;color:var(--amber);background:var(--amber-lt);padding:2px 8px;border-radius:10px;}
+.st-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:3px 9px;border-radius:10px;}
+.st-badge.c{background:var(--green-lt);color:var(--green);}
+.st-badge.nc{background:var(--red-lt);color:var(--red);}
+.st-badge.na{background:#f1f5f9;color:var(--muted);}
+.st-badge.nd{background:var(--amber-lt);color:var(--amber);}
+
+/* MODAIS */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:center;justify-content:center;}
+.modal-bg.vis{display:flex;}
+.modal{background:white;border-radius:14px;padding:26px;width:480px;max-width:95vw;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+.modal-title{font-size:16px;font-weight:700;margin-bottom:5px;}
+.modal-sub{font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.5;}
+.modal label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:5px;}
+.modal input{width:100%;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;font-family:inherit;font-size:13px;outline:none;margin-bottom:6px;}
+.modal input:focus{border-color:var(--teal);}
+.modal-steps{background:#f8fafc;border-radius:8px;padding:14px;margin-bottom:14px;font-size:12px;color:var(--muted);line-height:2;}
+.modal-steps a{color:var(--teal);}
+.modal-steps strong{color:var(--text);}
+.modal-footer{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap;}
+.modal-footer button{padding:9px 18px;border-radius:8px;border:none;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;}
+.mcancel{background:var(--bg);color:var(--muted);}
+.mcancel:hover{background:var(--border);}
+.mok{background:var(--teal);color:white;}
+.mok:hover{background:#009989;}
+.mchange{background:var(--red-lt);color:var(--red);}
+.mchange:hover{background:var(--red);color:white;}
+
+/* drive file list */
+.drv-files-list{max-height:300px;overflow-y:auto;margin:10px 0;border:1px solid var(--border);border-radius:8px;}
+.drv-file{padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;cursor:pointer;transition:background .12s;}
+.drv-file:last-child{border-bottom:none;}
+.drv-file:hover{background:var(--teal-lt);}
+.drv-file.sel{background:#f0fdf4;}
+.df-ico{font-size:18px;flex-shrink:0;}
+.df-name{font-size:13px;font-weight:500;flex:1;}
+.df-date{font-size:11px;color:var(--muted);flex-shrink:0;}
+.df-chk{width:18px;height:18px;border:2px solid var(--border);border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;}
+.drv-file.sel .df-chk{background:var(--teal);border-color:var(--teal);}
+.drv-loading{padding:24px;text-align:center;color:var(--muted);font-size:13px;}
+
+@media print{
+  .sidebar,.topbar,.topbar-actions{display:none!important;}
+  .app{display:block;}
+  .main{overflow:visible;}
+  .content{padding:0;overflow:visible;}
+  .section{break-inside:avoid;}
+  .rpt-hdr::after{display:none;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sb-hdr">
+    <div class="sb-logo">CheckList · NR-1 / NR-17</div>
+    <div class="sb-title">📊 Relatórios</div>
+    <div class="sb-sub">Vistorias compiladas</div>
+  </div>
+
+  <div class="drv-panel">
+    <div class="drv-hdr">
+      <img src="https://www.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png"/>
+      <span class="drv-hdr-txt">Google Drive</span>
+      <span class="drv-badge off" id="drv-badge">Desconectado</span>
+    </div>
+    <div class="drv-body">
+      <button class="btn-drv btn-drv-main" onclick="abrirDrive()">☁️ Carregar do Drive</button>
+      <button class="btn-drv btn-drv-cfg"  onclick="abrirCfg()">⚙️ Configurar / Trocar conta</button>
+      <div class="drv-info" id="drv-info">Configure o Client ID para conectar.</div>
+    </div>
+  </div>
+
+  <div class="sep"><div class="sep-line"></div><div class="sep-txt">ou arquivo local</div><div class="sep-line"></div></div>
+
+  <label class="upload-zone">
+    <input type="file" accept=".txt" multiple id="file-input"/>
+    <div class="uz-ico">📂</div>
+    <div class="uz-txt"><strong>Selecionar TXT</strong><br>exportado pelo CheckList</div>
+  </label>
+
+  <div class="sb-list" id="sb-list">
+    <div style="padding:16px;font-size:12px;color:rgba(255,255,255,.3);text-align:center;">Nenhum relatório</div>
+  </div>
+
+  <div class="sb-footer">Relatório Desktop v2.0 · NR-1/NR-17</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+  <div class="topbar">
+    <div class="topbar-title" id="topbar-title">Nenhum relatório carregado</div>
+    <div class="topbar-actions" id="topbar-actions" style="display:none">
+      <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+      <button class="btn btn-red"     onclick="removerAtual()">🗑️ Remover</button>
+    </div>
+  </div>
+  <div class="content" id="content">
+    <div class="empty">
+      <div class="empty-ico">📋</div>
+      <div class="empty-ttl">Nenhum relatório carregado</div>
+      <div class="empty-sub">Carregue arquivos do Google Drive ou selecione TXT exportados pelo CheckList.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- MODAL: CONFIG DRIVE -->
+<div class="modal-bg" id="modal-cfg">
+  <div class="modal">
+    <div class="modal-title">⚙️ Configurar Google Drive</div>
+    <div class="modal-sub">Use o mesmo Client ID configurado no CheckList. O Relatório vai listar e baixar os arquivos de vistoria salvos no seu Drive.</div>
+    <div style="font-size:11px;background:#e0f7f5;border:1.5px solid #99f0e8;border-radius:8px;padding:9px 12px;margin-bottom:12px;color:#0d7a6e;line-height:1.5;">
+      🔗 <strong>Configuração compartilhada:</strong> o Client ID salvo aqui é o <strong>mesmo do CheckList mobile</strong>. Alterar aqui atualiza os dois automaticamente.
+    </div>
+    <div class="modal-steps">
+      <strong>Como obter o Client ID:</strong><br>
+      1. Acesse <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a><br>
+      2. Crie um projeto → APIs &amp; Serviços → Credenciais<br>
+      3. Crie <strong>ID do cliente OAuth 2.0</strong> (Aplicativo Web)<br>
+      4. Adicione a URL desta página como URI de redirecionamento<br>
+      5. Copie e cole o Client ID abaixo
+    </div>
+    <label>Client ID</label>
+    <input type="text" id="inp-cid" placeholder="xxxxx.apps.googleusercontent.com"/>
+    <div class="modal-footer">
+      <button class="mchange" id="btn-trocar" onclick="trocarConta()" style="display:none">🔄 Trocar conta</button>
+      <button class="mcancel" onclick="fecharCfg()">Cancelar</button>
+      <button class="mok"     onclick="salvarCid()">✅ Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL: ARQUIVOS DRIVE -->
+<div class="modal-bg" id="modal-files">
+  <div class="modal" style="width:540px;">
+    <div class="modal-title">☁️ Arquivos no Google Drive</div>
+    <div class="modal-sub">Selecione os arquivos de vistoria que deseja visualizar no relatório.</div>
+    <div class="drv-files-list" id="drv-files-list">
+      <div class="drv-loading">🔄 Buscando arquivos...</div>
+    </div>
+    <div style="font-size:11px;color:var(--muted);margin-top:6px;">Mostrando arquivos com nome "Vistoria_*" do seu Drive.</div>
+    <div class="modal-footer">
+      <button class="mcancel" onclick="fecharFiles()">Cancelar</button>
+      <button class="mok"     onclick="baixarSelecionados()">📥 Carregar selecionados</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var SUBITENS=[
+  {nr:'NR-17',ico:'🪑',nome:'Mobiliário',pergs:['Armários','Balcão','Bancada','Banco de descanso','Cadeira','Cadeira elevada','Mesa','Prateleiras']},
+  {nr:'NR-17',ico:'💻',nome:'Equipamentos',pergs:['Celular','Computador','Ferramentas manuais','Headset','Impressora','Leitor ótico','Máquinas','Notebook','Suporte de punhos','Suporte para pés','Telefone']},
+  {nr:'NR-1', ico:'📋',nome:'Trabalho',pergs:['Avisos','Benefícios','Comunicação','Demanda','Denúncias','Ginástica Laboral','Orientações','Palestras','Pausas','Quadros de orientação','Rotatividade']},
+  {nr:'NR-17',ico:'🌡️',nome:'Levantamento',pergs:['Iluminação','Ruído','Temperatura','Umidade']},
+];
+
+var reports=[], currentIdx=-1, driveToken=null, driveSelected={};
+
+// ── INIT ──────────────────────────────────────────────────
+window.onload=function(){
+  var cid=localStorage.getItem('gd_cid')||'452320350163-r4k8gn2o5vtkvpf5qhdecpvas9llkrv1.apps.googleusercontent.com';
+  localStorage.setItem('gd_cid',cid);
+  if(cid){ document.getElementById('inp-cid').value=cid; setDriveUI(true); }
+
+  // Captura token do hash após redirect OAuth
+  var hash={};
+  location.hash.replace('#','').split('&').filter(Boolean).forEach(function(p){
+    var kv=p.split('='); hash[kv[0]]=decodeURIComponent(kv[1]||'');
+  });
+  if(hash.access_token){
+    driveToken=hash.access_token;
+    history.replaceState(null,'',location.pathname);
+    setDriveUI(true);
+    listarDrive(); // abre modal direto após autenticação
+  }
+
+  document.getElementById('file-input').addEventListener('change',function(e){
+    lerArquivosLocais(Array.from(e.target.files)); this.value='';
+  });
+};
+
+// ── DRIVE UI ─────────────────────────────────────────────
+function setDriveUI(on){
+  var badge=document.getElementById('drv-badge');
+  var info =document.getElementById('drv-info');
+  if(on){
+    badge.className='drv-badge on'; badge.textContent='Configurado';
+    info.textContent='Clique em "Carregar do Drive" para buscar vistorias.';
+  } else {
+    badge.className='drv-badge off'; badge.textContent='Desconectado';
+    info.textContent='Configure o Client ID para conectar ao Drive.';
+  }
+}
+
+// ── CONFIG ───────────────────────────────────────────────
+function abrirCfg(){
+  var cid=localStorage.getItem('gd_cid')||'';
+  document.getElementById('inp-cid').value=cid;
+  document.getElementById('btn-trocar').style.display=cid?'inline-flex':'none';
+  document.getElementById('modal-cfg').classList.add('vis');
+}
+function fecharCfg(){ document.getElementById('modal-cfg').classList.remove('vis'); }
+
+function salvarCid(){
+  var cid=document.getElementById('inp-cid').value.trim();
+  if(!cid){ alert('Cole o Client ID!'); return; }
+  localStorage.setItem('gd_cid',cid);
+  driveToken=null; // força nova autenticação
+  setDriveUI(true);
+  fecharCfg();
+  alert('✅ Client ID salvo! Agora clique em "Carregar do Drive".');
+}
+
+function trocarConta(){
+  if(!confirm('Isso vai desconectar a sessão atual e pedir nova autenticação. Continuar?')) return;
+  driveToken=null; // limpa só o token de sessão, mantém gd_cid
+  document.getElementById('inp-cid').value=localStorage.getItem('gd_cid')||'';
+  setDriveUI(false);
+  fecharCfg();
+  alert('Sessão encerrada. Configure o novo Client ID e clique em "Carregar do Drive" para reconectar.');
+}
+
+// ── OAUTH ─────────────────────────────────────────────────
+function abrirDrive(){
+  var cid=localStorage.getItem('gd_cid')||'452320350163-r4k8gn2o5vtkvpf5qhdecpvas9llkrv1.apps.googleusercontent.com';
+  if(!cid){ abrirCfg(); return; }
+  if(driveToken){ listarDrive(); return; }
+  var redirect=location.origin+location.pathname;
+  location.href='https://accounts.google.com/o/oauth2/v2/auth' +
+    '?client_id='+encodeURIComponent(cid) +
+    '&redirect_uri='+encodeURIComponent(redirect) +
+    '&response_type=token' +
+    '&scope='+encodeURIComponent('https://www.googleapis.com/auth/drive.readonly') +
+    '&prompt=consent';
+}
+
+// ── LISTAR ARQUIVOS ───────────────────────────────────────
+function listarDrive(){
+  driveSelected={};
+  document.getElementById('modal-files').classList.add('vis');
+  document.getElementById('drv-files-list').innerHTML='<div class="drv-loading">🔄 Buscando arquivos de vistoria...</div>';
+  var q=encodeURIComponent("name contains 'Vistoria_' and mimeType='text/plain' and trashed=false");
+  fetch('https://www.googleapis.com/drive/v3/files?q='+q+'&orderBy=modifiedTime+desc&fields=files(id,name,modifiedTime)&pageSize=100',
+    {headers:{Authorization:'Bearer '+driveToken}})
+  .then(function(r){ if(r.status===401){driveToken=null;fecharFiles();alert('Sessão expirada. Clique em "Carregar do Drive" novamente.');return null;} return r.json(); })
+  .then(function(data){
+    if(!data) return;
+    if(data.error){ renderErro(data.error.message); return; }
+    renderArquivos(data.files||[]);
+  })
+  .catch(function(){ renderErro('Erro de conexão. Verifique sua internet.'); });
+}
+
+function renderErro(msg){
+  document.getElementById('drv-files-list').innerHTML=
+    '<div class="drv-loading" style="color:var(--red);">⚠️ '+esc(msg)+'<br><br>'+
+    '<button class="btn btn-outline" onclick="driveToken=null;fecharFiles();abrirDrive()">🔄 Reconectar</button></div>';
+}
+
+function renderArquivos(files){
+  if(!files.length){
+    document.getElementById('drv-files-list').innerHTML=
+      '<div class="drv-loading">Nenhum arquivo de vistoria encontrado.<br><small style="color:var(--muted)">Os arquivos devem começar com "Vistoria_"</small></div>';
+    return;
+  }
+  document.getElementById('drv-files-list').innerHTML=files.map(function(f){
+    var dt=f.modifiedTime?new Date(f.modifiedTime).toLocaleDateString('pt-BR'):'—';
+    return '<div class="drv-file" id="df-'+f.id+'" onclick="toggleFile(\''+f.id+'\',\''+esc(f.name)+'\')">'+
+      '<div class="df-ico">📄</div>'+
+      '<div class="df-name">'+esc(f.name)+'</div>'+
+      '<div class="df-date">'+dt+'</div>'+
+      '<div class="df-chk" id="dfc-'+f.id+'"></div>'+
+    '</div>';
+  }).join('');
+}
+
+function toggleFile(id,name){
+  var el=document.getElementById('df-'+id);
+  var chk=document.getElementById('dfc-'+id);
+  if(driveSelected[id]){ delete driveSelected[id]; el.classList.remove('sel'); chk.textContent=''; }
+  else { driveSelected[id]=name; el.classList.add('sel'); chk.textContent='✓'; }
+}
+
+function fecharFiles(){ document.getElementById('modal-files').classList.remove('vis'); }
+
+function baixarSelecionados(){
+  var ids=Object.keys(driveSelected);
+  if(!ids.length){ alert('Selecione pelo menos um arquivo!'); return; }
+  fecharFiles();
+  var pending=ids.length;
+  ids.forEach(function(id){
+    var name=driveSelected[id];
+    fetch('https://www.googleapis.com/drive/v3/files/'+id+'?alt=media',
+      {headers:{Authorization:'Bearer '+driveToken}})
+    .then(function(r){ return r.text(); })
+    .then(function(txt){
+      var r=parseTxt(txt,name);
+      if(!reports.some(function(x){return x.filename===r.filename;})) reports.push(r);
+      pending--; if(pending===0){renderLista(); selectReport(reports.length-1);}
+    })
+    .catch(function(){ pending--; if(pending===0) renderLista(); });
+  });
+}
+
+// ── UPLOAD LOCAL ──────────────────────────────────────────
+function lerArquivosLocais(files){
+  var pending=files.length; if(!pending) return;
+  files.forEach(function(file){
+    var reader=new FileReader();
+    reader.onload=function(ev){
+      var r=parseTxt(ev.target.result,file.name);
+      if(!reports.some(function(x){return x.filename===r.filename;})) reports.push(r);
+      pending--; if(pending===0){renderLista(); selectReport(reports.length-1);}
+    };
+    reader.readAsText(file,'utf-8');
+  });
+}
+
+// ── PARSE TXT ─────────────────────────────────────────────
+function parseTxt(txt,filename){
+  var lines=txt.split('\n').map(function(l){return l.trim();});
+  var r={filename:filename,empresa:'',codigo:'',cnpj:'',tecnico:'',data:'',setores:[],resp:{}};
+  for(var i=0;i<lines.length;i++){
+    var l=lines[i];
+    if(l.startsWith('Empresa:')){var m=l.match(/Empresa:\s*(.+?)\s*\((\d+)\)/); r.empresa=m?m[1].trim():l.replace('Empresa:','').trim(); if(m)r.codigo=m[2];}
+    if(l.startsWith('CNPJ:'))    r.cnpj   =l.replace('CNPJ:','').trim();
+    if(l.startsWith('Técnico:')) r.tecnico=l.replace('Técnico:','').trim();
+    if(l.startsWith('Data:'))    r.data   =l.replace('Data:','').trim();
+    if(l.startsWith('Setores:')) r.setores=l.replace('Setores:','').trim().split(',').map(function(s){return s.trim();});
+  }
+  SUBITENS.forEach(function(sub,si){
+    sub.pergs.forEach(function(p,pi){
+      var id=si+'_'+pi;
+      for(var i=0;i<lines.length;i++){
+        var m=lines[i].match(new RegExp('\\[(..)\\]\\s*'+escRE(p)+'$'));
+        if(m){
+          var c=m[1].trim();
+          r.resp[id]=c==='C'?'c':c==='NC'?'nc':c==='NA'?'na':null;
+          if(r.resp[id]==='nc'){
+            if(lines[i+1]&&lines[i+1].startsWith('Obs:'))   r.resp['obs'+id]=lines[i+1].replace('Obs:','').trim();
+            if(lines[i+2]&&lines[i+2].startsWith('Prazo:')) r.resp['prz'+id]=lines[i+2].replace('Prazo:','').trim();
+          }
+          break;
+        }
+      }
+    });
+  });
+  return r;
+}
+function escRE(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');}
+
+// ── STATS ─────────────────────────────────────────────────
+function calcStats(r){
+  var c=0,nc=0,na=0,total=0,ncs=[];
+  SUBITENS.forEach(function(sub,si){
+    sub.pergs.forEach(function(p,pi){
+      total++;
+      var v=r.resp[si+'_'+pi];
+      if(v==='c')c++;
+      else if(v==='nc'){nc++;ncs.push({nr:sub.nr,sub:sub.nome,ico:sub.ico,p:p,obs:r.resp['obs'+si+'_'+pi]||'',prz:r.resp['prz'+si+'_'+pi]||''});}
+      else if(v==='na')na++;
+    });
+  });
+  return{c,nc,na,pend:total-c-nc-na,total,ncs};
+}
+
+// ── LISTA LATERAL ─────────────────────────────────────────
+function renderLista(){
+  var list=document.getElementById('sb-list');
+  if(!reports.length){list.innerHTML='<div style="padding:16px;font-size:12px;color:rgba(255,255,255,.3);text-align:center;">Nenhum relatório</div>';return;}
+  list.innerHTML=reports.map(function(r,idx){
+    var st=calcStats(r);
+    var dot=st.nc>0?'nc':st.pend>0?'pend':'ok';
+    var active=idx===currentIdx?' active':'';
+    return '<div class="rpt-item'+active+'" onclick="selectReport('+idx+')">'+
+      '<div class="ri-dot '+dot+'"></div>'+
+      '<div class="ri-body">'+
+        '<div class="ri-nome">'+esc(r.empresa||r.filename)+'</div>'+
+        '<div class="ri-meta">'+(r.data||'—')+' · '+st.nc+' NC · '+st.c+' OK</div>'+
+      '</div>'+
+      '<button class="ri-del" onclick="event.stopPropagation();remover('+idx+')" title="Remover">✕</button>'+
+    '</div>';
+  }).join('');
+}
+
+function selectReport(idx){
+  currentIdx=idx; renderLista(); renderRelatorio(reports[idx]);
+  document.getElementById('topbar-actions').style.display='flex';
+}
+function removerAtual(){if(currentIdx>=0)remover(currentIdx);}
+function remover(idx){
+  if(!confirm('Remover este relatório da lista?')) return;
+  reports.splice(idx,1);
+  if(currentIdx>=reports.length) currentIdx=reports.length-1;
+  if(currentIdx<0){
+    document.getElementById('topbar-actions').style.display='none';
+    document.getElementById('topbar-title').textContent='Nenhum relatório carregado';
+    document.getElementById('content').innerHTML='<div class="empty"><div class="empty-ico">📋</div><div class="empty-ttl">Nenhum relatório</div></div>';
+  } else { selectReport(currentIdx); }
+  renderLista();
+}
+
+// ── RENDERIZAR RELATÓRIO ──────────────────────────────────
+function renderRelatorio(r){
+  var st=calcStats(r);
+  var pct=st.total>0?Math.round((st.c+st.na)/st.total*100):0;
+  document.getElementById('topbar-title').textContent=r.empresa||r.filename;
+
+  var html='';
+
+  // Cabeçalho
+  var pills=r.setores.map(function(s){return '<span class="s-pill">'+esc(s)+'</span>';}).join('');
+  html+='<div class="rpt-hdr">'+
+    '<div>'+
+      '<div class="rpt-nome">'+esc(r.empresa)+'</div>'+
+      '<div class="rpt-meta">'+
+        '<span>🪪 '+esc(r.cnpj)+'</span>'+
+        '<span>👷 '+esc(r.tecnico||'—')+'</span>'+
+        '<span>📅 '+esc(r.data||'—')+'</span>'+
+      '</div>'+
+      '<div class="rpt-setores">'+pills+'</div>'+
+    '</div>'+
+    '<div style="text-align:right;flex-shrink:0">'+
+      '<div style="font-size:32px;font-weight:900;line-height:1;">'+pct+'%</div>'+
+      '<div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;">conformidade</div>'+
+    '</div>'+
+  '</div>';
+
+  // Score cards
+  html+='<div class="score-grid">'+
+    sc('✅ Adequados',   st.c,   'green','#22c55e',st.total)+
+    sc('❌ Não Adequ.',  st.nc,  'red',  '#ef4444',st.total)+
+    sc('⬜ N/A',         st.na,  'teal', '#00b4a0',st.total)+
+    sc('⏳ Pendentes',   st.pend,'amber','#eab308', st.total)+
+  '</div>';
+
+  // Progresso por categoria
+  html+='<div class="section" style="margin-bottom:16px;">'+
+    '<div class="sec-hdr"><div class="sec-ttl">📊 Progresso por Categoria</div>'+
+    '<span style="font-size:11px;color:var(--muted);">'+st.total+' itens</span></div>'+
+    '<div style="padding:16px 18px;">';
+  SUBITENS.forEach(function(sub,si){
+    var c2=0,nc2=0,na2=0,tot2=sub.pergs.length;
+    sub.pergs.forEach(function(p,pi){var v=r.resp[si+'_'+pi];if(v==='c')c2++;else if(v==='nc')nc2++;else if(v==='na')na2++;});
+    var p2=tot2-c2-nc2-na2;
+    html+='<div style="margin-bottom:11px;">'+
+      '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">'+
+        '<span style="font-size:12px;font-weight:600;">'+sub.ico+' '+sub.nome+' <span style="font-size:10px;color:var(--muted);font-weight:400;">'+sub.nr+'</span></span>'+
+        '<span style="font-size:11px;">'+
+          '<span style="color:var(--green);font-weight:600;">'+c2+' C</span> · '+
+          '<span style="color:var(--red);font-weight:600;">'+nc2+' NC</span> · '+
+          '<span style="color:var(--muted);">'+na2+' NA</span>'+
+          (p2>0?' · <span style="color:var(--amber);">'+p2+' pend.</span>':'')+
+        '</span>'+
+      '</div>'+
+      '<div style="display:flex;height:7px;border-radius:6px;overflow:hidden;background:var(--border);">'+
+        '<div style="width:'+(c2/tot2*100).toFixed(1)+'%;background:var(--green);"></div>'+
+        '<div style="width:'+(nc2/tot2*100).toFixed(1)+'%;background:var(--red);"></div>'+
+        '<div style="width:'+(na2/tot2*100).toFixed(1)+'%;background:#cbd5e1;"></div>'+
+      '</div></div>';
+  });
+  html+='</div></div>';
+
+  // Não Conformidades
+  html+='<div class="section">'+
+    '<div class="sec-hdr"><div class="sec-ttl">⚠️ Não Conformidades</div>'+
+    '<span class="sec-count '+(st.nc>0?'red':'green')+'">'+st.nc+'</span></div>';
+  if(!st.ncs.length){
+    html+='<div style="padding:22px;text-align:center;color:var(--green);font-weight:700;">✅ Nenhuma não conformidade registrada</div>';
+  } else {
+    html+='<table class="nc-table"><thead><tr>'+
+      '<th style="width:95px">Norma</th><th style="width:125px">Categoria</th><th>Item</th><th>Obs / Prazo</th>'+
+      '</tr></thead><tbody>';
+    st.ncs.forEach(function(n){
+      html+='<tr>'+
+        '<td><span class="nr-badge">'+esc(n.nr)+'</span></td>'+
+        '<td>'+n.ico+' '+esc(n.sub)+'</td>'+
+        '<td><strong>'+esc(n.p)+'</strong></td>'+
+        '<td>'+(n.obs?'<div class="obs-box">📝 '+esc(n.obs)+'</div>':'<span style="color:var(--muted);font-size:11px;">—</span>')+(n.prz?'<div class="prazo-tag">⏰ '+esc(n.prz)+'</div>':'')+'</td>'+
+      '</tr>';
+    });
+    html+='</tbody></table>';
+  }
+  html+='</div>';
+
+  // Checklist completo
+  html+='<div class="section" style="margin-top:14px;">'+
+    '<div class="sec-hdr"><div class="sec-ttl">📋 Checklist Completo</div>'+
+    '<span style="font-size:11px;color:var(--muted);">'+st.total+' itens</span></div>'+
+    '<table class="cl-table"><thead><tr>'+
+    '<th style="width:95px">Norma</th><th style="width:125px">Categoria</th><th>Item</th><th style="width:130px">Status</th>'+
+    '</tr></thead><tbody>';
+  SUBITENS.forEach(function(sub,si){
+    sub.pergs.forEach(function(p,pi){
+      var id=si+'_'+pi,v=r.resp[id];
+      var badge=v==='c'?'<span class="st-badge c">✅ Adequado</span>':
+                v==='nc'?'<span class="st-badge nc">❌ Não Adequado</span>':
+                v==='na'?'<span class="st-badge na">⬜ N/A</span>':
+                '<span class="st-badge nd">⏳ Pendente</span>';
+      html+='<tr>'+
+        '<td><span class="nr-badge">'+esc(sub.nr)+'</span></td>'+
+        '<td>'+sub.ico+' '+esc(sub.nome)+'</td>'+
+        '<td>'+esc(p)+(v==='nc'&&r.resp['obs'+id]?'<div class="obs-box">📝 '+esc(r.resp['obs'+id])+'</div>':'')+(v==='nc'&&r.resp['prz'+id]?'<div class="prazo-tag">⏰ '+esc(r.resp['prz'+id])+'</div>':'')+'</td>'+
+        '<td>'+badge+'</td>'+
+      '</tr>';
+    });
+  });
+  html+='</tbody></table></div>';
+
+  document.getElementById('content').innerHTML=html;
+}
+
+function sc(label,value,cls,color,total){
+  var pct=total>0?Math.min(value/total*100,100):0;
+  return '<div class="score-card">'+
+    '<div class="sc-lbl">'+label+'</div>'+
+    '<div class="sc-val '+cls+'">'+value+'</div>'+
+    '<div class="sc-bar"><div class="sc-bar-fill" style="width:'+pct.toFixed(1)+'%;background:'+color+';"></div></div>'+
+  '</div>';
+}
+
+function esc(s){
+  if(!s)return'';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+renderLista();
+</script>
+</body>
+</html>

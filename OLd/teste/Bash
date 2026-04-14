@@ -1,0 +1,6354 @@
+const EMP = [
+  {
+    codigo: "00000001",
+    nome: "QUIMER COMERCIAL LTDA MATRIZ",
+    cnpj: "68224997000105",
+    cnpj_fmt: "68.224.997/0001-05",
+    setores: [
+      "ESCRITORIO",
+      "GERAL",
+      "INSUMO BRUTO",
+      "LABORATORIO",
+      "MANUTENCAO",
+      "PRODUCAO CORTE",
+      "PRODUCAO PULVERIZACAO"
+    ]
+  },
+  {
+    codigo: "00000002",
+    nome: "QUIMER COMERCIAL LTDA FILIAL",
+    cnpj: "68224997000288",
+    cnpj_fmt: "68.224.997/0002-88",
+    setores: [
+      "ESTOQUE"
+    ]
+  },
+  {
+    codigo: "00000003",
+    nome: "NIPPON EXPRESS DO BRASIL TRANSPORTES INTERNACIONAIS LTDA SAO PAULO",
+    cnpj: "51595908000126",
+    cnpj_fmt: "51.595.908/0001-26",
+    setores: [
+      "ADMINISTRACAO - SAO PAULO",
+      "ADMINISTRACAO TRANSPORTES - SAO PAULO",
+      "AEREO - SAO PAULO",
+      "BAGAGEM - SAO PAULO",
+      "CONTABILIDADE - SAO PAULO",
+      "DEPARTAMENTO TI",
+      "DESPACHOS - SAO PAULO",
+      "DESPACHOS AEROPORTO - SAO PAULO",
+      "EXPEDICAO - SAO PAULO",
+      "FINANCEIRO - SAO PAULO",
+      "LOGISTICA - SAO PAULO",
+      "MARITIMO - SAO PAULO",
+      "PLANEJAMENTO VENDAS",
+      "PROJETO VENDAS - SAO PAULO",
+      "TRANSPORTES - ADMINISTRATIVO",
+      "TRANSPORTES CARGA - SAO PAULO",
+      "TRANSPORTES EXTERNOS - SAO PAULO",
+      "TRANSPORTES INTERNO - SAO PAULO",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000004",
+    nome: "NIPPON EXPRESS DO BRASIL TRANSPORTES INTERNACIONAIS LTDA JAGUARIUNA",
+    cnpj: "51595908000126",
+    cnpj_fmt: "51.595.908/0001-26",
+    setores: [
+      "ADMINISTRATIVO - JAGUARIUNA",
+      "LOGISTICA - JAGUARIUNA",
+      "LOGISTICA - JAGUARIUNA - EXTERNA",
+      "LOGISTICA JAGUARIUNA - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000005",
+    nome: "ACP MERCANTIL INDUSTRIAL LTDA",
+    cnpj: "03235174000121",
+    cnpj_fmt: "03.235.174/0001-21",
+    setores: [
+      "AGLUTINADOR",
+      "ALMOXARIFADO",
+      "ALMOXARIFADO - EMPILHADEIRA",
+      "COMPRAS",
+      "CONTABILIDADE",
+      "CORTE PVC",
+      "CORTE PVC SLITER",
+      "CORTE SOLDA",
+      "CORTE VINCO",
+      "COSTURA",
+      "COSTURA COLA",
+      "DIRETORIA",
+      "DIRETORIA - TRANSPORTE",
+      "DOBRADEIRA",
+      "EMBALAGEM ENVELOPES",
+      "EMBALAGEM POLIETILENO",
+      "EMBALAGEM SHRINK SMI PACK",
+      "ESTOQUE",
+      "EXPEDICAO",
+      "EXPEDICAO - EMPILHADEIRA",
+      "EXTRUSORA BALAO",
+      "FATURAMENTO",
+      "FICHARIO",
+      "FINANCEIRO",
+      "GERENCIA",
+      "GUILHOTINA",
+      "INFORMATICA",
+      "MANUTENCAO",
+      "MONTAGEM PASTA PVC",
+      "PASTA L",
+      "PCP",
+      "POLIETILENO",
+      "POLIPROPILENO",
+      "POLIPROPILENO MOINHO",
+      "PRODUCAO",
+      "PRODUCAO - ADMINISTRATIVO",
+      "QUALIDADE",
+      "RECEPCAO",
+      "RECURSOS HUMANOS",
+      "RECURSOS HUMANOS - LIMPEZA",
+      "RECURSOS HUMANOS - SEGURANCA DO TRABALHO",
+      "SEPARACAO",
+      "SOLDA ELETRONICA",
+      "SOLDA ULTRASONIC",
+      "TI",
+      "TRANSPORTE",
+      "TRANSPORTE - CARGA",
+      "VENDAS",
+      "VENDAS - ESTOQUE"
+    ]
+  },
+  {
+    codigo: "00000006",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - MATRIZ",
+    cnpj: "62354055000157",
+    cnpj_fmt: "62.354.055/0001-57",
+    setores: [
+      "ADMINISTRACAO",
+      "ADMINISTRACAO GRUPOS",
+      "ADMINISTRACAO SOCIAL",
+      "AGE",
+      "ANALISE DE CREDITO",
+      "ARQUIVO REMAZA",
+      "AUDITORIA",
+      "CAP",
+      "CENTRAL ATENDIMENTO",
+      "CI CARTAS",
+      "CI CONTEMPLACAO",
+      "COBEX",
+      "COBRANCA",
+      "COBRANCA BA",
+      "COMERCIAL - MATRIZ",
+      "CONTABILIDADE",
+      "DIRETORIA ADM GRUPOS",
+      "DIRETORIA COMERCIAL - MATRIZ",
+      "DIRETORIA COMERCIAL - MATRIZ - ZELADORIA",
+      "DIRETORIA CONTABIL",
+      "ELETRICA",
+      "ENGENHARIA",
+      "ESTACIONAMENTO",
+      "EXPEDICAO",
+      "EXPEDICAO - EXTERNO",
+      "EXTERNO - MKT",
+      "FISCAL",
+      "IMOVEIS",
+      "JURIDICO",
+      "MARCENARIA",
+      "MKT ARTES",
+      "PAGADORIA",
+      "PATRIMONIO",
+      "PDV",
+      "PORTARIA",
+      "POS VENDAS - MATRIZ",
+      "PREDIAL",
+      "PRESIDENCIA",
+      "RECEPCAO",
+      "RECURSOS HUMANOS",
+      "REGISTRO",
+      "RELACOES PUBLICAS",
+      "SERVICOS GERAIS",
+      "SISTEMAS",
+      "TELEVENDAS",
+      "TESOURARIA",
+      "TRANSPORTE",
+      "ZELADORIA - EXPEDICAO"
+    ]
+  },
+  {
+    codigo: "00000007",
+    nome: "ASTEN & CIA LTDA",
+    cnpj: "60831104000170",
+    cnpj_fmt: "60.831.104/0001-70",
+    setores: [
+      "ADMINISTRATIVO",
+      "ALMOXARIFADO - SPV",
+      "VENDAS - SPV"
+    ]
+  },
+  {
+    codigo: "00000012",
+    nome: "SUPRICORP SUPRIMENTO LTDA - IPIRANGA",
+    cnpj: "54651716000188",
+    cnpj_fmt: "54.651.716/0001-88",
+    setores: [
+      "ADMINISTRACAO - IPIRANGA",
+      "ARQUIVO IPIRANGA",
+      "CADASTRO - IPIRANGA",
+      "COBEX - IPIRANGA",
+      "COMODATO - EXTERNO - IPIRANGA",
+      "COMODATO - IPIRANGA",
+      "COMPRAS - IPIRANGA",
+      "CONCILIACAO - IPIRANGA",
+      "CONTABILIDADE - IPIRANGA",
+      "CONTAS A PAGAR - IPIRANGA",
+      "CONTAS A RECEBER - IPIRANGA",
+      "CONTRATOS - IPIRANGA",
+      "CONTRATOS I - IPIRANGA",
+      "CONTRATOS II - IPIRANGA",
+      "CPD - IPIRANGA",
+      "CREDITO - IPIRANGA",
+      "DIRETORIA - IPIRANGA",
+      "E-COMMERCE - IPIRANGA",
+      "EXPEDICAO - IPIRANGA",
+      "FDE - IPIRANGA",
+      "FISCAL - IPIRANGA",
+      "GOVERNANCA - IPIRANGA",
+      "INTELIGENCIA MERCADO - IPIRANGA",
+      "INTELIGENCIA NEGOCIOS BI - IPIRANGA",
+      "LICITACOES IPIRANGA",
+      "LIMPEZA - IPIRANGA",
+      "MANUTENCAO - IPIRANGA - NI",
+      "MANUTENCAO - IPIRANGA - NII",
+      "MANUTENCAO - IPIRANGA - NIII",
+      "MANUTENCAO - IPIRANGA - NIV",
+      "MANUTENCAO - IPIRANGA - PINTURA",
+      "MARKETING IPIRANGA",
+      "MARKETPLACE - IPIRANGA",
+      "ORCAMENTARIO IPIRANGA",
+      "PORTARIA - IPIRANGA",
+      "PORTARIA - SEGURANCA - IPIRANGA",
+      "PRICING IPIRANGA",
+      "QUALIDADE - IPIRANGA",
+      "RECEPCAO - IPIRANGA",
+      "RECURSOS HUMANOS - IPIRANGA",
+      "SAC - IPIRANGA",
+      "SELECAO - IPIRANGA",
+      "SISTEMAS - IPIRANGA",
+      "SPOT - IPIRANGA",
+      "SPOT GRUPOS EMPRESARIAIS - IPIRANGA",
+      "SPOT HUNTER",
+      "SPOT II - IPIRANGA",
+      "SPOT IV - IPIRANGA",
+      "SPOT PROMOTORES - IPIRANGA",
+      "SPOT PROMOTORES - MOEMA",
+      "SPOT V - IPIRANGA",
+      "SPOT VI - IPIRANGA",
+      "SPOT VIII - IPIRANGA",
+      "SPOT XI - IPIRANGA",
+      "SPOT XIII - IPIRANGA",
+      "T I",
+      "VENDAS - IPIRANGA"
+    ]
+  },
+  {
+    codigo: "00000015",
+    nome: "SUPRICORP SUPRIMENTO LTDA - BARUERI",
+    cnpj: "54651716001150",
+    cnpj_fmt: "54.651.716/0011-50",
+    setores: [
+      "ADMINISTRACAO - BARUERI",
+      "BULK - BARUERI",
+      "BULK - EMPILHADEIRA - BARUERI",
+      "COLETA - BARUERI",
+      "COLETA TRANSPORTE - BARUERI",
+      "CONTROLE ESTOQUE - BARUERI",
+      "CONTROLE ESTOQUE - EMPILHADEIRA - BARUERI",
+      "CONTROLE ESTOQUE - MANUTENCAO - BARUERI",
+      "CONTROLE ESTOQUE - MANUTENCAO EMPILHADEIRA -BARUERI",
+      "CPD - BARUERI",
+      "DECANTING - BARUERI",
+      "DEVOLUCAO - BARUERI",
+      "DIRETORIA - BARUERI",
+      "FATURAMENTO - BARUERI",
+      "FRETE - BARUERI",
+      "FROTA - BARUERI",
+      "LIMPEZA - BARUERI",
+      "LOGISTICA - BARUERI",
+      "MANUTENCAO - BARUERI",
+      "MANUTENCAO - ELETRICA - BARUERI",
+      "MANUTENCAO - LIMPEZA - BARUERI",
+      "MANUTENCAO - PINTURA - BARUERI",
+      "PICKING - BARUERI",
+      "PONTO CONTROLE - BARUERI",
+      "PONTO CONTROLE - EMPILHADEIRA - BARUERI",
+      "PORTARIA - BARUERI",
+      "QUALIDADE - BARUERI",
+      "RECEBIMENTO - EMPILHADEIRA - BARUERI",
+      "RECEBIMENTO BARUERI",
+      "RECURSOS HUMANOS - BARUERI",
+      "ROTAS - BARUERI",
+      "SAC - BARUERI",
+      "TRANSPORTE - BARUERI",
+      "TRANSPORTE NOTURNO - BARUERI",
+      "TRANSPORTE NOTURNO - EMPILHADEIRA - BARUERI"
+    ]
+  },
+  {
+    codigo: "00000016",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - MOOCA",
+    cnpj: "62354055000408",
+    cnpj_fmt: "62.354.055/0004-08",
+    setores: [
+      "ADMINISTRACAO - MOOCA",
+      "COMERCIAL - MOOCA"
+    ]
+  },
+  {
+    codigo: "00000017",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - ARTHUR ALVIM",
+    cnpj: "62354055006279",
+    cnpj_fmt: "62.354.055/0062-79",
+    setores: [
+      "ADMINISTRACAO - A ALVIM",
+      "COMERCIAL - A ALVIM",
+      "SERVICOS GERAIS - ARTHUR ALVIM"
+    ]
+  },
+  {
+    codigo: "00000018",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - FREGUESIA DO O",
+    cnpj: "62354055003768",
+    cnpj_fmt: "62.354.055/0037-68",
+    setores: [
+      "ADMINISTRACAO - FREGUESIA",
+      "ADMINISTRACAO - ZELADORIA - FREGUESIA",
+      "COMERCIAL - FREGUESIA",
+      "ZELADORIA - FREGUESIA"
+    ]
+  },
+  {
+    codigo: "00000019",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - GUARULHOS",
+    cnpj: "62354055001803",
+    cnpj_fmt: "62.354.055/0018-03",
+    setores: [
+      "ADMINISTRACAO - GUARULHOS",
+      "ADMINISTRACAO - ZELADORIA - GUARULHOS",
+      "COMERCIAL - GUARULHOS",
+      "ZELADORIA - GUARULHOS"
+    ]
+  },
+  {
+    codigo: "00000020",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - JABAQUARA",
+    cnpj: "62354055000823",
+    cnpj_fmt: "62.354.055/0008-23",
+    setores: [
+      "ADMINISTRACAO - JABAQUARA",
+      "ADMINISTRACAO - ZELADORIA - JABAQUARA",
+      "COMERCIAL - JABAQUARA",
+      "ZELADORIA - JABAQUARA"
+    ]
+  },
+  {
+    codigo: "00000021",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - TATUAPE",
+    cnpj: "62354055004306",
+    cnpj_fmt: "62.354.055/0043-06",
+    setores: [
+      "ADMINISTRACAO - ZELADORIA - TATUAPE",
+      "ADMINISTRACAO TATUAPE",
+      "COMERCIAL - TATUAPE"
+    ]
+  },
+  {
+    codigo: "00000022",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - PACAEMBU",
+    cnpj: "62354055001129",
+    cnpj_fmt: "62.354.055/0011-29",
+    setores: [
+      "ADMINISTRACAO - PACAEMBU",
+      "ADMINISTRACAO - ZELADORIA - PACAEMBU",
+      "COMERCIAL - PACAEMBU",
+      "ZELADORIA - PACAEMBU"
+    ]
+  },
+  {
+    codigo: "00000023",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - SAO CAETANO",
+    cnpj: "62354055005469",
+    cnpj_fmt: "62.354.055/0054-69",
+    setores: [
+      "COMERCIAL - S CAETANO"
+    ]
+  },
+  {
+    codigo: "00000024",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - SAO JOSE DOS CAMPOS",
+    cnpj: "62354055005388",
+    cnpj_fmt: "62.354.055/0053-88",
+    setores: [
+      "ADMINISTRACAO - SJC",
+      "ADMINISTRACAO - ZELADORIA - SJC",
+      "COMERCIAL - SJC",
+      "ZELADORIA - SJC"
+    ]
+  },
+  {
+    codigo: "00000025",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - SAO BERNARDO DO CAMPO",
+    cnpj: "62354055006430",
+    cnpj_fmt: "62.354.055/0064-30",
+    setores: [
+      "ADMINISTRACAO - SBC",
+      "ADMINISTRACAO - ZELADORIA - SBC",
+      "COMERCIAL - SBC",
+      "ZELADORIA - SBC"
+    ]
+  },
+  {
+    codigo: "00000026",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - PINHEIROS",
+    cnpj: "62354055000580",
+    cnpj_fmt: "62.354.055/0005-80",
+    setores: [
+      "ADMINISTRACAO - PINHEIROS",
+      "ADMINISTRACAO - ZELADORIA - PINHEIROS",
+      "COMERCIAL - PINHEIROS",
+      "ZELADORIA - S AMARO"
+    ]
+  },
+  {
+    codigo: "00000027",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - VILA MARIA",
+    cnpj: "62354055001633",
+    cnpj_fmt: "62.354.055/0016-33",
+    setores: [
+      "ADMINISTRACAO - V MARIA",
+      "ADMINISTRACAO - ZELADORIA - V MARIA",
+      "COMERCIAL - V MARIA",
+      "ZELADORIA - V MARIA"
+    ]
+  },
+  {
+    codigo: "00000028",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - CAMPINAS",
+    cnpj: "62354055005035",
+    cnpj_fmt: "62.354.055/0050-35",
+    setores: [
+      "ADMINISTRACAO - CAMPINAS",
+      "COMERCIAL - CAMPINAS"
+    ]
+  },
+  {
+    codigo: "00000029",
+    nome: "SUPRICORP SUPRIMENTO LTDA - MOEMA",
+    cnpj: "54651716002806",
+    cnpj_fmt: "54.651.716/0028-06",
+    setores: [
+      "ADMINISTRACAO - MOEMA",
+      "LIMPEZA - MOEMA",
+      "LOJA - MOEMA",
+      "LOJA MOBILIDADE - MOEMA",
+      "LOJA MOBILIDADE MEC - MOEMA",
+      "SPOT PROMOTORES - MOEMA",
+      "VENDAS - MOEMA"
+    ]
+  },
+  {
+    codigo: "00000030",
+    nome: "JUNCAO COMERCIO E SERVICOS LTDA - PEDROSO",
+    cnpj: "44672780000353",
+    cnpj_fmt: "44.672.780/0003-53",
+    setores: [
+      "ADMINISTRACAO GRUPOS",
+      "ADMINSTRACAO MATRIZ",
+      "ANALISE CREDITO",
+      "AUDITORIA",
+      "CI CARTAS",
+      "COBRANCA BA",
+      "CONTABIL",
+      "DIRETORIA COMERCIAL",
+      "DIRETORIA CONTABIL",
+      "ELETRICA",
+      "ENGENHARIA",
+      "ESTACIONAMENTO",
+      "EXPEDICAO",
+      "EXTERNO",
+      "FISCAL",
+      "PATRIMONIO",
+      "PORTARIA",
+      "PRESIDENCIA",
+      "RECURSOS HUMANOS",
+      "SERVICOS GERAIS",
+      "SISTEMAS",
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000031",
+    nome: "ANUNCIATO ESTRUTURA METALICAS LTDA",
+    cnpj: "48036222000190",
+    cnpj_fmt: "48.036.222/0001-90",
+    setores: [
+      "OPERACIONAL",
+      "OPERACIONAL - ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000032",
+    nome: "BOI DE OURO COMERCIAL DE ALIMENTOS LTDA",
+    cnpj: "62216692000167",
+    cnpj_fmt: "62.216.692/0001-67",
+    setores: [
+      "ACOUGUE",
+      "ESCRITORIO",
+      "LOJA",
+      "LOJA - LIMPEZA",
+      "PADARIA"
+    ]
+  },
+  {
+    codigo: "00000033",
+    nome: "BARBOSA DE CARVALHO & CIA LTDA",
+    cnpj: "47705538000165",
+    cnpj_fmt: "47.705.538/0001-65",
+    setores: [
+      "ESCRITORIO",
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000034",
+    nome: "PRIMARCA VEICULOS LTDA CERAMICA",
+    cnpj: "63078489000134",
+    cnpj_fmt: "63.078.489/0001-34",
+    setores: [
+      "ADMINISTRACAO - CERAMICA",
+      "ADMINISTRACAO - LIMPEZA - CERAMICA",
+      "ADMINISTRACAO MANUTENCAO - CERAMICA",
+      "CENTRAL AGENDAMENTO - CERAMICA",
+      "CENTRAL ATENDIMENTO - CERAMICA",
+      "CENTRAL ATENDIMENTO TRANSPORTE - CERAMICA",
+      "DIRETORIA - CERAMICA",
+      "FUNILARIA PINTURA - CERAMICA",
+      "FUNILARIA PINTURA - ESCRITORIO - CERAMICA",
+      "OFICINA PRODUTIVOS - CERAMICA",
+      "OFICINA PRODUTIVOS ACESSORIOS - CERAMICA",
+      "PECAS - CERAMICA",
+      "VENDAS DIRETA",
+      "VENDAS VEICULOS - CERAMICA"
+    ]
+  },
+  {
+    codigo: "00000035",
+    nome: "PRIMARCA VEICULOS LTDA CERAMICA",
+    cnpj: "63078489000215",
+    cnpj_fmt: "63.078.489/0002-15",
+    setores: [
+      "VENDAS ADMINISTRACAO - CERAMICA",
+      "VENDAS ADMINISTRACAO FINALIZACAO - CERAMICA",
+      "VENDAS DIRETA - CERAMICA",
+      "VENDAS VEICULOS -CERAMICA"
+    ]
+  },
+  {
+    codigo: "00000036",
+    nome: "IDEIALOG LOGISTICA LTDA",
+    cnpj: "61049730000171",
+    cnpj_fmt: "61.049.730/0001-71",
+    setores: [
+      "ADMINISTRACAO",
+      "BIC",
+      "COMERCIAL",
+      "DECANTING",
+      "DHL",
+      "EMPILHADEIRA",
+      "KIT FDE",
+      "LOGISTICA",
+      "TRANSPORTE - ADMINISTRACAO",
+      "VERZANI"
+    ]
+  },
+  {
+    codigo: "00000037",
+    nome: "BIOVALIC COMERCIO DE EQUIPAMENTOS MEDICOS LTDA",
+    cnpj: "08924875000191",
+    cnpj_fmt: "08.924.875/0001-91",
+    setores: [
+      "ADMINISTRACAO",
+      "ADMINISTRACAO - LIMPEZA",
+      "COMERCIAL",
+      "ESTOQUE",
+      "LICITACAO",
+      "PRODUCAO",
+      "QUALIDADE"
+    ]
+  },
+  {
+    codigo: "00000038",
+    nome: "CLUBE DE CAMPO ASSOCIAÇÃO ATLÉTICA GUAPIRA",
+    cnpj: "52161825000191",
+    cnpj_fmt: "52.161.825/0001-91",
+    setores: [
+      "ADMINISTRATIVO",
+      "ESPORTES AQUATICOS - ENFERMAGEM",
+      "ESPORTES AQUATICOS - PISCINA",
+      "ESPORTES AQUATICOS - RECEPCAO",
+      "MANUTENCAO - CARPINTARIA",
+      "MANUTENCAO - ELETRICA",
+      "MANUTENCAO - PREDIAL",
+      "MANUTENCAO - SERRALHERIA",
+      "PATRIMONIO",
+      "PATRIMONIO - TRANSPORTE",
+      "PATRIMONIO ALMOXARIFADO",
+      "PATRIMONIO CONSERVACAO",
+      "PATRIMONIO LIMPEZA",
+      "PATRIMONIO MANUTENCAO",
+      "PATRIMONIO MANUTENCAO ENCANAMENTO",
+      "PATRIMONIO MANUTENCAO PINTURA",
+      "PATRIMONIO MANUTENCAO PISCINA",
+      "PATRIMONIO SAUNA",
+      "PATRIMONIO SEGURANCA",
+      "SECRETARIA",
+      "TESOURARIA"
+    ]
+  },
+  {
+    codigo: "00000039",
+    nome: "CASA DE BOLOS VILA MARIA LTDA",
+    cnpj: "20777530000158",
+    cnpj_fmt: "20.777.530/0001-58",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000040",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - IBIRAPUERA",
+    cnpj: "54267463000143",
+    cnpj_fmt: "54.267.463/0001-43",
+    setores: [
+      "ACESSORIOS - IBIRAPUERA",
+      "ADMINISTRACAO - IBIRAPUERA",
+      "ADMINISTRACAO - IBIRAPUERA - LIMPEZA",
+      "GERENCIA - IBIRAPUERA",
+      "OFICINA - ESCRITORIO - IBIRAPUERA",
+      "OFICINA - IBIRAPUERA",
+      "PECAS - IBIRAPUERA",
+      "VENDAS - IBIRAPUERA"
+    ]
+  },
+  {
+    codigo: "00000041",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - SANTANA",
+    cnpj: "54267463001387",
+    cnpj_fmt: "54.267.463/0013-87",
+    setores: [
+      "ACESSORIOS - SANTANA",
+      "ADMINISTRACAO - LIMPEZA - SANTANA",
+      "ADMINISTRACAO - SANTANA",
+      "ESCRITORIO OFICINA - SANTANA",
+      "GERENCIA - SANTANA",
+      "OFICINA - LAVAGEM - SANTANA",
+      "OFICINA - SANTANA",
+      "PECAS - SANTANA",
+      "SUPERVISAO - SANTANA",
+      "VENDAS - SANTANA"
+    ]
+  },
+  {
+    codigo: "00000042",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - ASSUNCAO",
+    cnpj: "54267463003169",
+    cnpj_fmt: "54.267.463/0031-69",
+    setores: [
+      "SUPERVISAO - ASSUNCAO",
+      "VENDAS - ASSUNCAO"
+    ]
+  },
+  {
+    codigo: "00000043",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - SBC",
+    cnpj: "54267463001549",
+    cnpj_fmt: "54.267.463/0015-49",
+    setores: [
+      "ACESSORIOS - SBC",
+      "ADMINISTRACAO - LIMPEZA - SBC",
+      "ADMINISTRACAO - SBC",
+      "ESCRITORIO OFICINA - SBC",
+      "GERENCIA - SBC",
+      "LAVAGEM - SBC",
+      "OFICINA - SBC",
+      "PECAS - SBC",
+      "RECEPCAO TECNICA - SBC",
+      "VENDAS - SBC"
+    ]
+  },
+  {
+    codigo: "00000044",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - TATUAPE",
+    cnpj: "54267463001620",
+    cnpj_fmt: "54.267.463/0016-20",
+    setores: [
+      "ACESSORIOS - TATUAPE",
+      "ADMINISTRACAO - LIMPEZA - TATUAPE",
+      "ADMINISTRACAO - TATUAPE",
+      "GERENCIA - TATUAPE",
+      "LAVAGEM - TATUAPE",
+      "OFICINA - TATUAPE",
+      "OFICINA- ESCRITORIO - TATUAPE",
+      "PECAS - TATUAPE",
+      "VENDAS - MAQUINAS E MOTORES -TATUAPE",
+      "VENDAS - TATUAPE"
+    ]
+  },
+  {
+    codigo: "00000045",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - VILA CARRAO",
+    cnpj: "54267463002197",
+    cnpj_fmt: "54.267.463/0021-97",
+    setores: [
+      "SUPERVISAO - V CARRAO",
+      "VENDAS - V CARRAO"
+    ]
+  },
+  {
+    codigo: "00000046",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - IPIRANGA",
+    cnpj: "54267463002510",
+    cnpj_fmt: "54.267.463/0025-10",
+    setores: [
+      "ACESSORIOS - IPIRANGA",
+      "ADMINISTACAO - IPIRANGA",
+      "ADMINISTACAO - LIMPEZA - IPIRANGA",
+      "ESCRITORIO OFICINA - IPIRANGA",
+      "GERENCIA - IPIRANGA",
+      "OFICINA - IPIRANGA",
+      "OFICINA - LAVAGEM - IPIRANGA",
+      "PECAS - IPIRANGA",
+      "VENDAS - IPIRANGA"
+    ]
+  },
+  {
+    codigo: "00000047",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - TABOAO",
+    cnpj: "54267463002006",
+    cnpj_fmt: "54.267.463/0020-06",
+    setores: [
+      "SUPERVISAO - TABOAO",
+      "VENDAS - TABOAO"
+    ]
+  },
+  {
+    codigo: "00000048",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - DEPOSITO CENTRAL",
+    cnpj: "54267463002944",
+    cnpj_fmt: "54.267.463/0029-44",
+    setores: [
+      "ACESSORIOS - DEPOSITO CENTRAL",
+      "ADMINISTRACAO - DEPOSITO CENTRAL",
+      "ADMINISTRACAO - DEPOSITO CENTRAL - CENTRALIZACAO",
+      "ADMINISTRACAO - DEPOSITO CENTRAL - LIMPEZA",
+      "ADMINISTRACAO - DEPOSITO CENTRAL - TRANSPORTE",
+      "AGENDAMENTO - DEPOSITO CENTRAL",
+      "ASSESSORIA - DEPOSITO CENTRAL",
+      "ELETRICISTA - DEPOSITO CENTRAL",
+      "ESCRITORIO OFICINA - DEPOSITO CENTRAL",
+      "GERENCIA GERAL - DEPOSITO CENTRAL",
+      "LAVAGEM - DEPOSITO CENTRAL",
+      "MANUTENCAO - DEPOSITO CENTRAL",
+      "MONTAGEM - DEPOSITO CENTRAL",
+      "OFICINA - DEPOSITO CENTRAL",
+      "OFICINA CONSULTORIA - DEPOSITO CENTRAL",
+      "PECAS - DEPOSITO CENTRAL",
+      "SUPERVISAO - DEPOSITO CENTRAL",
+      "VENDAS - DEPOSITO CENTRAL",
+      "VENDAS - SEMINOVOS - DEPOSITO CENTRAL"
+    ]
+  },
+  {
+    codigo: "00000049",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - BUTANTA",
+    cnpj: "54267463001891",
+    cnpj_fmt: "54.267.463/0018-91",
+    setores: [
+      "ACESSORIOS - BUTANTA",
+      "ADMINISTRACAO -  LIMPEZA - BUTANTA",
+      "ADMINISTRACAO - BUTANTA",
+      "ESCRITORIO OFICINA - BUTANTA",
+      "GERENCIA - BUTANTA",
+      "OFICINA - BUTANTA",
+      "OFICINA - LAVAGEM - BUTANTA",
+      "PECAS - BUTANTA",
+      "VENDAS - BUTANTA"
+    ]
+  },
+  {
+    codigo: "00000050",
+    nome: "DISKPAR LOGISTICA E AUTOMACAO LTDA - BARUERI",
+    cnpj: "03684434000227",
+    cnpj_fmt: "03.684.434/0002-27",
+    setores: [
+      "ADMINISTRACAO",
+      "MECANICO",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000051",
+    nome: "ZADE INCORPORACAO EMPREENDIMENTOS E SERVICOS LTDA",
+    cnpj: "55800700000152",
+    cnpj_fmt: "55.800.700/0001-52",
+    setores: [
+      "ADMINISTRACAO",
+      "CONSERVACAO",
+      "ESTACIONAMENTO"
+    ]
+  },
+  {
+    codigo: "00000052",
+    nome: "SGI SISTEMAS GERAIS E INFORMATICA LTDA",
+    cnpj: "56067200000116",
+    cnpj_fmt: "56.067.200/0001-16",
+    setores: [
+      "CORPORATIVO",
+      "WEBSUPPLY"
+    ]
+  },
+  {
+    codigo: "00000053",
+    nome: "TMT - DISTRIBUIDORA DE VEICULOS LTDA - TAUBATE",
+    cnpj: "09448339000120",
+    cnpj_fmt: "09.448.339/0001-20",
+    setores: [
+      "ADMINISTRACAO - CENTRALIZACAO - SAO PAULO",
+      "ADMINISTRACAO - TAUBATE",
+      "ADMINISTRACAO - TAUBATE - LIMPEZA",
+      "ADMINISTRACAO - TAUBATE - MANUTENCAO",
+      "AGENDAMENTO - TAUBATE",
+      "ESCRITORIO OFICINA - TAUBATE",
+      "FUNILARIA - TAUBATE - ESCRITORIO",
+      "FUNILARIA - TAUBATE - FINALIZACAO",
+      "FUNILARIA - TAUBATE - PINTURA",
+      "LAVAGEM - TAUBATE",
+      "MECANICA - TAUBATE",
+      "MECANICA - TAUBATE - TRANSPORTE",
+      "PECAS - TAUBATE",
+      "PECAS - TAUBATE - VENDAS",
+      "RECEPCAO TECNICA - TAUBATE",
+      "RECEPCAO TECNICA - TAUBATE - OFICINA",
+      "VENDAS - TAUBATE",
+      "VENDAS - TAUBATE - OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000054",
+    nome: "TANI MOTORS DISTRIBUIDORA DE VEICULOS LTDA",
+    cnpj: "03647692000152",
+    cnpj_fmt: "03.647.692/0001-52",
+    setores: [
+      "ADMINISTRACAO",
+      "ADMINISTRACAO - CENTRALIZACAO - SAO PAULO",
+      "ADMINISTRACAO - LIMPEZA",
+      "ADMINISTRACAO - MANUTENCAO",
+      "ADMINISTRACAO - PORTARIA",
+      "AGENDAMENTO",
+      "ESCRITORIO OFICINA",
+      "FUNILARIA",
+      "FUNILARIA - ESCRITORIO",
+      "FUNILARIA - FINALIZACAO",
+      "FUNILARIA - LIMPEZA",
+      "FUNILARIA - MECANICA",
+      "FUNILARIA - PINTURA",
+      "LAVAGEM",
+      "MECANICA - OFICINA",
+      "MECANICA - TRANSPORTE",
+      "PECAS",
+      "PECAS - VENDAS",
+      "RECEPCAO TECNICA",
+      "RECEPCAO TECNICA - OFICINA",
+      "VENDAS",
+      "VENDAS - OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000055",
+    nome: "CONDOMINIO EDIFÍCIO JARDIM VILA EUROPA",
+    cnpj: "55383277000132",
+    cnpj_fmt: "55.383.277/0001-32",
+    setores: [
+      "LIMPEZA",
+      "MANUTENÇÃO",
+      "PORTARIA",
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000056",
+    nome: "CORDONTEXTIL INDUSTRIA E COMERCIO LTDA EPP",
+    cnpj: "03983192000191",
+    cnpj_fmt: "03.983.192/0001-91",
+    setores: [
+      "FABRICA",
+      "FABRICA - ADMINISTRATIVO",
+      "FABRICA - LIMPEZA",
+      "FABRICA - TRANSPORTE",
+      "FINANCEIRO",
+      "MANUTENCAO",
+      "MANUTENCAO - PREDIAL",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000057",
+    nome: "CONDOMINIO EDIFICIO MIRIAM",
+    cnpj: "00386948000127",
+    cnpj_fmt: "00.386.948/0001-27",
+    setores: [
+      "LIMPEZA",
+      "PORTARIA",
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000058",
+    nome: "CONDOMINIO EDIFICIO SCORPIOS",
+    cnpj: "69264331000135",
+    cnpj_fmt: "69.264.331/0001-35",
+    setores: [
+      "LIMPEZA",
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000059",
+    nome: "CLINICA EQUILIBRIO NUTRICIONAL LTDA.",
+    cnpj: "07432357000198",
+    cnpj_fmt: "07.432.357/0001-98",
+    setores: [
+      "CLINICO",
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000060",
+    nome: "COLEGIO UNIAO PAULISTA LTDA",
+    cnpj: "00386914000132",
+    cnpj_fmt: "00.386.914/0001-32",
+    setores: [
+      "CANTINA",
+      "COORDENACAO",
+      "COZINHA",
+      "GERAL",
+      "LIMPEZA",
+      "PORTARIA",
+      "SALA DE AULA",
+      "SECRETARIA"
+    ]
+  },
+  {
+    codigo: "00000061",
+    nome: "COPYEDISA MIDIA IMPRESSA LTDA",
+    cnpj: "53102547000164",
+    cnpj_fmt: "53.102.547/0001-64",
+    setores: [
+      "ACABAMENTO",
+      "ADMINISTRAÇÃO",
+      "GRAFICA DIGITAL",
+      "PRODUCAO",
+      "PRODUCAO OFF SET"
+    ]
+  },
+  {
+    codigo: "00000062",
+    nome: "COLOR MAKE INDUSTRIA E COMERCIO DE COSMETICOS LTDA",
+    cnpj: "15428328000180",
+    cnpj_fmt: "15.428.328/0001-80",
+    setores: [
+      "ADMINISTRATIVO",
+      "ALMOXARIFADO",
+      "EXPEDICAO",
+      "FINANCEIRO",
+      "GERAL",
+      "LIMPEZA",
+      "MARKETING",
+      "RH",
+      "TRANSPORTE",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000063",
+    nome: "DIPISO INDUSTRIA E COMERCIO E REPRESENTAÇÕES LTDA",
+    cnpj: "00003036000129",
+    cnpj_fmt: "00.003.036/0001-29",
+    setores: [
+      "ESCRITORIO",
+      "FABRICA",
+      "FABRICA - MANUTENCAO",
+      "REFEITORIO"
+    ]
+  },
+  {
+    codigo: "00000065",
+    nome: "DAITAN COMERCIO DE VEÍCULOS LTDA - IBIRAPUERA",
+    cnpj: "67375899000289",
+    cnpj_fmt: "67.375.899/0002-89",
+    setores: [
+      "ADMINISTRACAO -  TRANSPORTE - IBIRAPUERA",
+      "ADMINISTRACAO - IBIRAPUERA",
+      "ADMINISTRACAO - MANUTENCAO -IBIRAPUERA",
+      "AGENDAMENTO - IBIRAPUERA",
+      "COZINHA - IBIRAPUERA",
+      "DIRETORIA - IBIRAPUERA",
+      "ESCRITORIO - IBIRAPUERA",
+      "ESCRITORIO OFICINA - IBIRAPUERA",
+      "ESCRITORIO OFICINA - TRANSPORTE - IBIRAPUERA",
+      "FINALIZACAO MONTAGEM - IBIRAPUERA",
+      "FUNILARIA - IBIRAPUERA",
+      "MANUTENCAO - IBIRAPUERA",
+      "MECANICA - IBIRAPUERA",
+      "PECAS - IBIRAPUERA",
+      "PINTURA - IBIRAPUERA",
+      "PREPARACAO - IBIRAPUERA",
+      "RECEPCAO TECNICA - IBIRAPUERA",
+      "TRANSPORTE - IBIRAPUERA",
+      "VEICULO - IBIRAPUERA",
+      "VENDAS - IBIRAPUERA",
+      "VENDAS 0KM - IBIRAPUERA",
+      "VENDAS ADMINISTRACAO - IBIRAPUERA",
+      "VENDAS SEMINOVOS - IBIRAPUERA"
+    ]
+  },
+  {
+    codigo: "00000066",
+    nome: "DAITAN COMERCIO DE VEÍCULOS LTDA - SUMARE",
+    cnpj: "67375899000793",
+    cnpj_fmt: "67.375.899/0007-93",
+    setores: [
+      "ADMINISTRACAO - SUMARE",
+      "VENDAS - SUMARE",
+      "VENDAS 0KM - SUMARE",
+      "VENDAS ADMINISTRACAO - SUMARE",
+      "VENDAS SEMINOVOS - SUMARE"
+    ]
+  },
+  {
+    codigo: "00000067",
+    nome: "DAITAN COMERCIO DE VEÍCULOS LTDA - POMPEIA",
+    cnpj: "67375899000874",
+    cnpj_fmt: "67.375.899/0008-74",
+    setores: [
+      "ADMINISTRACAO - MANUTENCAO -POMPEIA",
+      "ADMINISTRACAO - POMPEIA",
+      "DIRETORIA - POMPEIA",
+      "ESCRITORIO OFICINA - POMPEIA",
+      "FINALIZACAO - POMPEIA",
+      "FUNILARIA - POMPEIA",
+      "FUNILARIA PINTURA - PINTURA - POMPEIA",
+      "FUNILARIA PINTURA - POMPEIA - ESCRITORIO",
+      "FUNILARIA PINTURA - POMPEIA - MONTAGEM",
+      "FUNILARIA PINTURA - POMPEIA - POLIMENTO",
+      "MANUTENCAO - POMPEIA",
+      "MECANICA - POMPEIA",
+      "PECAS - POMPEIA",
+      "RECEPCAO TECNICA - POMPEIA",
+      "TRANSPORTE - POMPEIA",
+      "VEICULOS - POMPEIA",
+      "VENDAS - POMPEIA",
+      "VENDAS 0KM - POMPEIA",
+      "VENDAS ADMINISTRACAO - POMPEIA",
+      "VENDAS SEMINOVOS - POMPEIA"
+    ]
+  },
+  {
+    codigo: "00000068",
+    nome: "DAITAN COMERCIO DE VEÍCULOS LTDA - IPIRANGA",
+    cnpj: "67375899001170",
+    cnpj_fmt: "67.375.899/0011-70",
+    setores: [
+      "ADMINISTRACAO - IPIRANGA",
+      "ESCRITORIO MECANICA - IPIRANGA",
+      "FUNILARIA - IPIRANGA",
+      "FUNILARIA - IPIRANGA - FINALIZACAO",
+      "MANUTENCAO - IPIRANGA",
+      "MECANICA - IPIRANGA",
+      "MECANICA - IPIRANGA - FINALIZACAO",
+      "PECAS - IPIRANGA",
+      "PINTURA - IPIRANGA",
+      "PINTURA - IPIRANGA - FINALIZACAO",
+      "TRANSPORTE - IPIRANGA"
+    ]
+  },
+  {
+    codigo: "00000069",
+    nome: "DAITAN COMERCIO DE VEÍCULOS LTDA - JABAQUARA",
+    cnpj: "67375899001331",
+    cnpj_fmt: "67.375.899/0013-31",
+    setores: [
+      "ADMINISTRACAO - JABAQUARA",
+      "ADMINISTRACAO - JABAQUARA - TRANSPORTE",
+      "ADMINISTRACAO - MANUTENCAO - JABAQUARA",
+      "AGENDAMENTO - JABAQUARA",
+      "DIRETORIA - JABAQUARA",
+      "ESCRITORIO OFICINA - JABAQUARA",
+      "ESCRITORIO OFICINA - TRANSPORTE - JABAQUARA",
+      "FINALIZACAO - JABAQUARA",
+      "FINALIZACAO - JABAQUARA - MONTAGEM",
+      "FINALIZACAO - JABAQUARA - POLIMENTO",
+      "FUNILARIA - JABAQUARA",
+      "FUNILARIA PINTURA - ESCRITORIO - JABAQUARA",
+      "MANUTENCAO - JABAQUARA",
+      "MECANICA - FINALIZACAO - JABAQUARA",
+      "MECANICA - JABAQUARA",
+      "PECAS - JABAQUARA",
+      "PECAS - TRANSPORTE - JABAQUARA",
+      "PINTURA - JABAQUARA",
+      "RECEPCAO TECNICA - JABAQUARA",
+      "VEICULO - JABAQUARA",
+      "VENDAS - FINALIZACAO - JABAQUARA",
+      "VENDAS - JABAQUARA",
+      "VENDAS 0KM - JABAQUARA",
+      "VENDAS ADMINISTRACAO - JABAQUARA",
+      "VENDAS SEMINOVOS - JABAQUARA"
+    ]
+  },
+  {
+    codigo: "00000070",
+    nome: "ELAN CASTER ELASTICOS LTDA",
+    cnpj: "96677471000108",
+    cnpj_fmt: "96.677.471/0001-08",
+    setores: [
+      "ADMINISTRACAO",
+      "COMERCIAL",
+      "ELETRICA",
+      "FABRICA",
+      "FINANCEIRO",
+      "LIMPEZA",
+      "MANUTENCAO",
+      "MANUTENCAO - PREDIAL",
+      "PCP",
+      "RECEBIMENTO ENTREGAS",
+      "RECEPCAO",
+      "RECURSOS HUMANOS",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000073",
+    nome: "EDIFICIO MIRANTE AQUAMARINE",
+    cnpj: "18855597000111",
+    cnpj_fmt: "18.855.597/0001-11",
+    setores: [
+      "LIMPEZA",
+      "PORTARIA",
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000074",
+    nome: "ESTRUTECNICA CONSTRUCOES E GESTAO PATRIMONIAL LTDA",
+    cnpj: "60610201000132",
+    cnpj_fmt: "60.610.201/0001-32",
+    setores: [
+      "ADMINISTRACAO",
+      "ADMINISTRACAO - LIMPEZA",
+      "ESTOQUE"
+    ]
+  },
+  {
+    codigo: "00000075",
+    nome: "NOVA SERVICOS EM SEGURANCA DO TRABALHO SS LTDA",
+    cnpj: "24669537000107",
+    cnpj_fmt: "24.669.537/0001-07",
+    setores: [
+      "ADMINISTRACAO"
+    ]
+  },
+  {
+    codigo: "00000076",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - OSASCO",
+    cnpj: "62354055003687",
+    cnpj_fmt: "62.354.055/0036-87",
+    setores: [
+      "ADMINISTRACAO - OSASCO",
+      "ADMINISTRACAO - ZELADORIA - OSASCO",
+      "COMERCIAL - OSASCO",
+      "ZELADORIA - OSASCO"
+    ]
+  },
+  {
+    codigo: "00000077",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - SALVADOR",
+    cnpj: "62354055005620",
+    cnpj_fmt: "62.354.055/0056-20",
+    setores: [
+      "ADMINISTRACAO - SALVADOR",
+      "COMERCIAL - SALVADOR",
+      "EXTERNO - SALVADOR",
+      "MANUTENCAO PREDIAL - SALVADOR",
+      "ZELADORIA - SALVADOR"
+    ]
+  },
+  {
+    codigo: "00000078",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - LIBERDADE",
+    cnpj: "62354055001390",
+    cnpj_fmt: "62.354.055/0013-90",
+    setores: [
+      "ADMINISTRACAO - LIBERDADE",
+      "ADMINISTRACAO - LIBERDADE - ZELADORIA",
+      "COMERCIAL - LIBERDADE",
+      "DIRETORIA COMERCIAL - LIBERDADE",
+      "MKT ARTES - LIBERDADE"
+    ]
+  },
+  {
+    codigo: "00000079",
+    nome: "DROGARIA PARAFARMA LTDA",
+    cnpj: "58972811000134",
+    cnpj_fmt: "58.972.811/0001-34",
+    setores: [
+      "LOJA",
+      "LOJA APLICAÇÃO"
+    ]
+  },
+  {
+    codigo: "00000080",
+    nome: "JUNCAO COMERCIO E SERVICO LTDA - MATRIZ",
+    cnpj: "44672780000191",
+    cnpj_fmt: "44.672.780/0001-91",
+    setores: [
+      "ADMINISTRACAO - MATRIZ",
+      "AUDITORIA - MATRIZ",
+      "COBRANCA BA - MATRIZ",
+      "COMERCIAL",
+      "CONTABILIDADE - MATRIZ",
+      "DIRETORIA CONTABIL- MATRIZ",
+      "ENGENHARIA - MANUTENCAO - MATRIZ",
+      "ENGENHARIA - MATRIZ",
+      "ESTACIONAMENTO - MATRIZ",
+      "FISCAL - MATRIZ",
+      "PATRIMONIO - MATRIZ",
+      "PRESIDENCIA - MATRIZ",
+      "RECURSOS HUMANOS - MATRIZ",
+      "SERVICOS GERAIS - MATRIZ",
+      "SISTEMAS - MATRIZ",
+      "TESOURARIA"
+    ]
+  },
+  {
+    codigo: "00000081",
+    nome: "INSTITUTO GARCIA MONTEIRO SALES LTDA",
+    cnpj: "17646347000109",
+    cnpj_fmt: "17.646.347/0001-09",
+    setores: [
+      "GERAL",
+      "GERAL - COZINHA",
+      "GERAL - LIMPEZA",
+      "GERAL - SALA DE AULA"
+    ]
+  },
+  {
+    codigo: "00000082",
+    nome: "AQUARIUS AUTO SERVICE LTDA",
+    cnpj: "72010739000195",
+    cnpj_fmt: "72.010.739/0001-95",
+    setores: [
+      "ADMINISTRACAO",
+      "GERAL",
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000083",
+    nome: "SUPRICORP SUPRIMENTO LTDA - PAULISTA",
+    cnpj: "54651716002989",
+    cnpj_fmt: "54.651.716/0029-89",
+    setores: [
+      "COMPRAS - PAULISTA",
+      "LOJA - PAULISTA",
+      "SPOT - PAULISTA"
+    ]
+  },
+  {
+    codigo: "00000084",
+    nome: "FRANCISCO A. R. DE ARAUJO - FITAS ME - MATRIZ",
+    cnpj: "08882069000106",
+    cnpj_fmt: "08.882.069/0001-06",
+    setores: [
+      "ADMINISTRACAO - MATRIZ",
+      "EMPILHADEIRA - MATRIZ",
+      "FABRICA - ELETRICA - MATRIZ",
+      "FABRICA - MANUTENCAO - MATRIZ",
+      "FABRICA - MATRIZ",
+      "LIMPEZA - MATRIZ"
+    ]
+  },
+  {
+    codigo: "00000085",
+    nome: "EVANDRO ALVES DE ARAUJO JUNIOR ME",
+    cnpj: "12278786000192",
+    cnpj_fmt: "12.278.786/0001-92",
+    setores: [
+      "FABRICA",
+      "MANUTENCAO"
+    ]
+  },
+  {
+    codigo: "00000086",
+    nome: "FRANCISCO A. R. DE ARAUJO - FITAS ME - FILIAL",
+    cnpj: "08882069000289",
+    cnpj_fmt: "08.882.069/0002-89",
+    setores: [
+      "FABRICA - FILIAL"
+    ]
+  },
+  {
+    codigo: "00000087",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - DIADEMA",
+    cnpj: "54267463003088",
+    cnpj_fmt: "54.267.463/0030-88",
+    setores: [
+      "SUPERVISAO - DIADEMA",
+      "VENDAS - DIADEMA"
+    ]
+  },
+  {
+    codigo: "00000088",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - RUDGE RAMOS",
+    cnpj: "54267463003240",
+    cnpj_fmt: "54.267.463/0032-40",
+    setores: [
+      "SUPERVISAO - RUDGE RAMOS",
+      "VENDAS - RUDGE RAMOS"
+    ]
+  },
+  {
+    codigo: "00000089",
+    nome: "AUTO POSTO ZIMBA LTDA",
+    cnpj: "47147483000115",
+    cnpj_fmt: "47.147.483/0001-15",
+    setores: [
+      "PISTA"
+    ]
+  },
+  {
+    codigo: "00000090",
+    nome: "ZIMBA CONVENIENCIAS LTDA",
+    cnpj: "13334191000170",
+    cnpj_fmt: "13.334.191/0001-70",
+    setores: [
+      "CAIXA",
+      "ESCRITORIO",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000091",
+    nome: "VIACAO SAO CRISTOVAO LTDA - CARGAS",
+    cnpj: "20146015000331",
+    cnpj_fmt: "20.146.015/0003-31",
+    setores: [
+      "ADMINISTRACAO",
+      "CARGAS",
+      "CARGAS - MOVIMENTACAO",
+      "CARGAS - PORTARIA",
+      "CARGAS - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000092",
+    nome: "VIACAO SAO CRISTOVAO LTDA - GARAGEM",
+    cnpj: "20146015000331",
+    cnpj_fmt: "20.146.015/0003-31",
+    setores: [
+      "BILHETERIA",
+      "GARAGEM",
+      "MECANICA"
+    ]
+  },
+  {
+    codigo: "00000093",
+    nome: "FARMACIA MONTESSORI LTDA",
+    cnpj: "61207262000116",
+    cnpj_fmt: "61.207.262/0001-16",
+    setores: [
+      "LOJA - BALCAO",
+      "LOJA - CAIXA",
+      "SALA APLICACAO"
+    ]
+  },
+  {
+    codigo: "00000094",
+    nome: "INSTITUTO DE EDUCAÇÃO NEOLATINO LTDA",
+    cnpj: "04830423000190",
+    cnpj_fmt: "04.830.423/0001-90",
+    setores: [
+      "ADMINISTRACAO",
+      "GERAL - INSPECAO",
+      "GERAL - LIMPEZA",
+      "MANUTENCAO",
+      "PORTARIA",
+      "SALA DE AULA"
+    ]
+  },
+  {
+    codigo: "00000095",
+    nome: "COLEGIO NEOLATINO LTDA",
+    cnpj: "62823729000115",
+    cnpj_fmt: "62.823.729/0001-15",
+    setores: [
+      "ADMINISTRACAO",
+      "COORDENAÇÃO",
+      "GERAL",
+      "GERAL INSPECAO",
+      "MANUTENCAO",
+      "PORTARIA",
+      "SALA DE AULA",
+      "SECRETARIA",
+      "TI"
+    ]
+  },
+  {
+    codigo: "00000096",
+    nome: "JR ARAUJO INDÚSTRIA E COMÉRCIO DE MÁQUINAS LTDA",
+    cnpj: "60533494000100",
+    cnpj_fmt: "60.533.494/0001-00",
+    setores: [
+      "ALMOXARIFADO",
+      "ESCRITORIO",
+      "FUNILARIA",
+      "GERAL",
+      "MONTAGEM - FINALIZACAO",
+      "MONTAGEM - MAQUINAS",
+      "PINTURA",
+      "RETIFICA",
+      "USINAGEM"
+    ]
+  },
+  {
+    codigo: "00000097",
+    nome: "ALESI PRIME SERVICOS DE HOTELARIA EIRELI",
+    cnpj: "10480043000175",
+    cnpj_fmt: "10.480.043/0001-75",
+    setores: [
+      "ADMINISTRACAO",
+      "COZINHA",
+      "GERAL",
+      "GOVERNANCA",
+      "LIMPEZA",
+      "MANUTENCAO",
+      "RECEPCAO",
+      "RECEPCAO - MANOBRISTA"
+    ]
+  },
+  {
+    codigo: "00000098",
+    nome: "FUSOTEC INDUSTRIA E COMERCIO DE MAQUINAS TEXTEIS",
+    cnpj: "67719062000129",
+    cnpj_fmt: "67.719.062/0001-29",
+    setores: [
+      "ALMOXARIFADO",
+      "ESCRITORIO",
+      "FABRICA - GERAL",
+      "FABRICA - LIMPEZA",
+      "FABRICA - TRANSPORTES",
+      "MONTAGEM",
+      "MONTAGEM - ELETRICA",
+      "MONTAGEM - SERRALHERIA",
+      "USINAGEM"
+    ]
+  },
+  {
+    codigo: "00000099",
+    nome: "PAM BRASIL TRANSPORTES RODOVIARIOS LTDA",
+    cnpj: "60146800000147",
+    cnpj_fmt: "60.146.800/0001-47",
+    setores: [
+      "ADMINISTRACAO",
+      "ADMINISTRACAO - OPERACIONAL",
+      "ADMINISTRACAO - VENDAS",
+      "LIMPEZA",
+      "LIMPEZA - COPA",
+      "MANUTENCAO - PREDIAL",
+      "MANUTENCAO - TI",
+      "OPERACIONAL",
+      "OPERACIONAL - ADMINISTRATIVO",
+      "OPERACIONAL - EMPILHADEIRA",
+      "OPERACIONAL - GARAGEM",
+      "OPERACIONAL - TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000100",
+    nome: "ASSORAVIM - ASSOCIACAO REIVINDICATIVA E ASSISTENCIAL DE VILA MEDEIROS",
+    cnpj: "53065611000184",
+    cnpj_fmt: "53.065.611/0001-84",
+    setores: [
+      "CCA",
+      "CCA - COZINHA",
+      "CCA - LIMPEZA",
+      "TELECENTRO"
+    ]
+  },
+  {
+    codigo: "00000101",
+    nome: "SISPACK MEDICAL LTDA",
+    cnpj: "54565478000198",
+    cnpj_fmt: "54.565.478/0001-98",
+    setores: [
+      "ADMINISTRACAO",
+      "ADMINISTRACAO - LIMPEZA",
+      "COMERCIAL",
+      "DEPARTAMENTO TECNICO",
+      "DEPARTAMENTO TECNICO - ESCRITORIO",
+      "ESTOQUE",
+      "FABRICA",
+      "FABRICA - ESCRITORIO",
+      "FABRICA - USINAGEM",
+      "FINANCEIRO",
+      "LICITACAO",
+      "PRODUCAO",
+      "QUALIDADE"
+    ]
+  },
+  {
+    codigo: "00000102",
+    nome: "YTP BRASIL INDUSTRIA DE PEÇAS AUTOMOTIVAS EIRELI",
+    cnpj: "25088757000100",
+    cnpj_fmt: "25.088.757/0001-00",
+    setores: [
+      "COZINHA",
+      "FABRICA",
+      "FABRICA - ESCRITORIO",
+      "FABRICA - LIMPEZA",
+      "FABRICA - MANUTENCAO",
+      "FABRICA - MECANICA",
+      "FABRICA - SOLDA",
+      "FABRICA - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000103",
+    nome: "PAVONI TRATORPECAS COMERCIO, IMPORTACAO E EXPORTACAO LTDA",
+    cnpj: "52931904000134",
+    cnpj_fmt: "52.931.904/0001-34",
+    setores: [
+      "ADMINISTRATIVO",
+      "COMEX",
+      "COMPRAS",
+      "E-COMMERCE",
+      "EXPEDICAO",
+      "EXTERNO",
+      "LIMPEZA",
+      "MANUTENCAO",
+      "MARKETING",
+      "RECEPCAO",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000104",
+    nome: "LIFEPLAS INDUSTRIA E COMERCIO DE PLASTICOS LTDA",
+    cnpj: "45084571000190",
+    cnpj_fmt: "45.084.571/0001-90",
+    setores: [
+      "CORTE E SOLDA",
+      "ESCRITORIO",
+      "EXPEDICAO",
+      "EXTRUSAO",
+      "FABRICA",
+      "IMPRESSAO",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000105",
+    nome: "GUERRA NRTRANSPORTES LTDA",
+    cnpj: "02242894000151",
+    cnpj_fmt: "02.242.894/0001-51",
+    setores: [
+      "ADMINISTRACAO",
+      "OPERACIONAL",
+      "OPERACIONAL - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000106",
+    nome: "INDUSTRIA DE FERRAMENTAS M.J. LTDA",
+    cnpj: "61114476000148",
+    cnpj_fmt: "61.114.476/0001-48",
+    setores: [
+      "ESCRITORIO",
+      "EXTERNO",
+      "PRODUCAO",
+      "PRODUCAO - GERENCIA",
+      "PRODUCAO - LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000107",
+    nome: "SORVETERIA RANGEL LTDA",
+    cnpj: "35063861000101",
+    cnpj_fmt: "35.063.861/0001-01",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000108",
+    nome: "ESTACIONAMENTO GARAGEM RANGEL LTDA",
+    cnpj: "22159383000188",
+    cnpj_fmt: "22.159.383/0001-88",
+    setores: [
+      "GARAGEM"
+    ]
+  },
+  {
+    codigo: "00000109",
+    nome: "MHPPC RESTAURANTE LTDA",
+    cnpj: "01098894000167",
+    cnpj_fmt: "01.098.894/0001-67",
+    setores: [
+      "ADMINISTRATIVO",
+      "COZINHA"
+    ]
+  },
+  {
+    codigo: "00000110",
+    nome: "RESTAURANTE MAIS VOCE EIRELI",
+    cnpj: "18806118000177",
+    cnpj_fmt: "18.806.118/0001-77",
+    setores: [
+      "COZINHA",
+      "RESTAURANTE"
+    ]
+  },
+  {
+    codigo: "00000111",
+    nome: "OVERFAST TRANSPORTES E LOGISTICA EIRELI",
+    cnpj: "03093528000140",
+    cnpj_fmt: "03.093.528/0001-40",
+    setores: [
+      "ADMINISTRACAO",
+      "COMERCIAL",
+      "EXPEDICAO",
+      "FINANCEIRO",
+      "LIMPEZA",
+      "OPERACIONAL",
+      "OPERACIONAL - MANUTENCAO",
+      "OPERACIONAL - MOVIMENTACAO",
+      "OPERACIONAL - TRANSPORTE",
+      "SAC"
+    ]
+  },
+  {
+    codigo: "00000112",
+    nome: "INSTITUTO EDUCACIONAL CORACAO DE MARIA LTDA",
+    cnpj: "02549788000115",
+    cnpj_fmt: "02.549.788/0001-15",
+    setores: [
+      "ADMINISTRACAO",
+      "COZINHA",
+      "DOCENTE",
+      "LIMPEZA",
+      "PORTARIA"
+    ]
+  },
+  {
+    codigo: "00000113",
+    nome: "SOFTCONFORT CONFECCOES EIRELI",
+    cnpj: "10714828000165",
+    cnpj_fmt: "10.714.828/0001-65",
+    setores: [
+      "ACABAMENTO",
+      "ADMINISTRATIVO",
+      "ADMINISTRATIVO - CRIACAO",
+      "ADMINISTRATIVO - LIMPEZA",
+      "ADMINISTRATIVO - PRODUCAO",
+      "ADMINISTRATIVO - TRANSPORTE",
+      "BONE",
+      "BORDADO",
+      "CORTE",
+      "CORTE LASER",
+      "CRIACAO",
+      "EXPEDICAO",
+      "EXPEDICAO - TRANSPORTE",
+      "LOJA",
+      "MALHARIA",
+      "PRODUCAO",
+      "TRANSFER / CALANDRA",
+      "TRANSPORTE",
+      "TRANSPORTE - INTERNO"
+    ]
+  },
+  {
+    codigo: "00000114",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - PACAEMBU",
+    cnpj: "54267463003320",
+    cnpj_fmt: "54.267.463/0033-20",
+    setores: [
+      "VENDAS - LIMPEZA - PACAEMBU",
+      "VENDAS - PACAEMBU"
+    ]
+  },
+  {
+    codigo: "00000115",
+    nome: "M.B. SANTOS TRANSPORTES E LOGISTICA",
+    cnpj: "22626627000195",
+    cnpj_fmt: "22.626.627/0001-95",
+    setores: [
+      "ADMINISTRACAO",
+      "OPERACIONAL",
+      "OPERACIONAL - ABASTECIMENTO",
+      "OPERACIONAL - EMPILHADEIRA",
+      "OPERACIONAL - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000116",
+    nome: "SILVERGRAPH SERVIÇOS GRAFICOS E EDITORA EIRELI",
+    cnpj: "06166878000188",
+    cnpj_fmt: "06.166.878/0001-88",
+    setores: [
+      "ACABAMENTO",
+      "ADMINISTRATIVO",
+      "PRODUCAO",
+      "PRODUCAO - CORTE",
+      "PRODUCAO - SUPERVISAO"
+    ]
+  },
+  {
+    codigo: "00000117",
+    nome: "INDUSTRIA LITOGRAFICA SANTIM LTDA",
+    cnpj: "60812070000176",
+    cnpj_fmt: "60.812.070/0001-76",
+    setores: [
+      "ACABAMENTO",
+      "ADMINISTRATIVO",
+      "PRODUCAO",
+      "PRODUCAO - ADMINISTRATIVO",
+      "PRODUCAO - ALMOXARIFADO"
+    ]
+  },
+  {
+    codigo: "00000118",
+    nome: "NOVO COLEGIO UNIAO PAULISTA LTDA EPP",
+    cnpj: "30213330000126",
+    cnpj_fmt: "30.213.330/0001-26",
+    setores: [
+      "BERCARIO",
+      "COORDENACAO",
+      "COZINHA",
+      "GERAL",
+      "LIMPEZA",
+      "PORTARIA",
+      "SALA DE AULA",
+      "SECRETARIA"
+    ]
+  },
+  {
+    codigo: "00000119",
+    nome: "QUIMER COMERCIAL LTDA FILIAL II",
+    cnpj: "68224997000105",
+    cnpj_fmt: "68.224.997/0001-05",
+    setores: [
+      "ESTOQUE"
+    ]
+  },
+  {
+    codigo: "00000120",
+    nome: "SABORES LA JOY LTDA",
+    cnpj: "31238430000170",
+    cnpj_fmt: "31.238.430/0001-70",
+    setores: [
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000121",
+    nome: "JET ENTULHO S/S LTDA",
+    cnpj: "01998170000170",
+    cnpj_fmt: "01.998.170/0001-70",
+    setores: [
+      "OPERACIONAL",
+      "OPERACIONAL - CONDUTOR"
+    ]
+  },
+  {
+    codigo: "00000122",
+    nome: "KIMBRA PRODUTOS DE HIGIENE E LIMPEZA LTDA",
+    cnpj: "18821928000100",
+    cnpj_fmt: "18.821.928/0001-00",
+    setores: [
+      "ADMINISTRACAO",
+      "DEPARTAMENTO COMERCIAL",
+      "DEPARTAMENTO TECNICO",
+      "DEPTO COMERCIAL EXTERNO",
+      "ESTOQUE"
+    ]
+  },
+  {
+    codigo: "00000123",
+    nome: "ATUAL IMPERMEABILIZACOES E JUNTAS LTDA",
+    cnpj: "45652112000165",
+    cnpj_fmt: "45.652.112/0001-65",
+    setores: [
+      "OBRAS GRUPO I",
+      "OBRAS GRUPO II",
+      "OBRAS GRUPO III",
+      "OBRAS GRUPO IV",
+      "OBRAS GRUPO V",
+      "OBRAS GRUPO VI",
+      "OBRAS GRUPO VII"
+    ]
+  },
+  {
+    codigo: "00000124",
+    nome: "GIROS COMERCIO E SERVIÇOS LTDA",
+    cnpj: "07599493000177",
+    cnpj_fmt: "07.599.493/0001-77",
+    setores: [
+      "ADMINISTRACAO",
+      "ADMINISTRACAO -  LIMPEZA",
+      "OBRAS",
+      "OBRAS - ADMINISTRATIVO",
+      "OBRAS - GRUPO 2",
+      "OBRAS - MAQUINAS",
+      "OBRAS - OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000125",
+    nome: "SUPRICORP SUPRIMENTOS LTDA - SAO CAETANO DO SUL",
+    cnpj: "54651716003284",
+    cnpj_fmt: "54.651.716/0032-84",
+    setores: [
+      "LOJA - SAO CAETANO DO SUL"
+    ]
+  },
+  {
+    codigo: "00000126",
+    nome: "HLEMMAN INDUSTRIA E COMERCIO DE PRODUTOS INDUSTRIAIS EIRELI",
+    cnpj: "21543856000264",
+    cnpj_fmt: "21.543.856/0002-64",
+    setores: [
+      "ADMINISTRATIVO FINANCEIRO",
+      "ADMINISTRATIVO FINANCEIRO - LIMPEZA",
+      "COMERCIAL",
+      "COMERCIAL - EXTERNO",
+      "COMUNICACAO",
+      "EXPEDICAO",
+      "EXPEDICAO - TRANSPORTES",
+      "INFORMATICA TI",
+      "QUALIDADE",
+      "USINAGEM"
+    ]
+  },
+  {
+    codigo: "00000127",
+    nome: "INCARE CLINICA DE TRANSICAO LTDA - CAMBUCI",
+    cnpj: "03325102000175",
+    cnpj_fmt: "03.325.102/0001-75",
+    setores: [
+      "ALMOXARIFADO",
+      "CLINICO - CAMBUCI",
+      "COPA",
+      "COZINHA",
+      "ENFERMARIA",
+      "FARMACIA",
+      "GERAL",
+      "LIMPEZA",
+      "LIMPEZA - MANUTENCAO",
+      "NUTRICAO",
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000128",
+    nome: "IN CARE HOSPITAL DE REABILITACAO E LONGA PERMANENCIA LTDA - BUTANTÃ",
+    cnpj: "10654816000192",
+    cnpj_fmt: "10.654.816/0001-92",
+    setores: [
+      "ADMINISTRATIVO",
+      "CLINICO",
+      "CLINICO - NUTRICAO",
+      "COZINHA",
+      "ENFERMARIA",
+      "FARMACIA",
+      "LIMPEZA",
+      "MANUTENCAO",
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000129",
+    nome: "INCARE HOSPITAL DE TRANSICAO LTDA - VILA MADALENA",
+    cnpj: "33865712000122",
+    cnpj_fmt: "33.865.712/0001-22",
+    setores: [
+      "ADMINISTRATIVO - VILA MADALENA",
+      "COZINHA - VILA MADALENA",
+      "FARMACIA - VILA MADALENA",
+      "LIMPEZA - VILA MADALENA",
+      "MANUTENCAO - VILA MADALENA",
+      "RECEPCAO  - VILA MADALENA"
+    ]
+  },
+  {
+    codigo: "00000130",
+    nome: "INCARE HOSPITAL DE TRANSICAO LTDA - JANDIRA",
+    cnpj: "33865712000475",
+    cnpj_fmt: "33.865.712/0004-75",
+    setores: [
+      "ALMOXARIFADO - JANDIRA",
+      "CLINICO - JANDIRA",
+      "COZINHA - JANDIRA",
+      "FARMACIA - JANDIRA",
+      "LIMPEZA - JANDIRA",
+      "MANUTENCAO - JANDIRA",
+      "RECEPCAO - JANDIRA"
+    ]
+  },
+  {
+    codigo: "00000131",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - LAPA",
+    cnpj: "62354055006600",
+    cnpj_fmt: "62.354.055/0066-00",
+    setores: [
+      "ADMINISTRACAO - LAPA",
+      "ADMINISTRACAO - ZELADORIA - LAPA",
+      "COMERCIAL - LAPA",
+      "ZELADORIA - LAPA"
+    ]
+  },
+  {
+    codigo: "00000132",
+    nome: "WCG GESTAO EM SAUDE LTDA",
+    cnpj: "19116963000183",
+    cnpj_fmt: "19.116.963/0001-83",
+    setores: [
+      "ADMINISTRACAO",
+      "CASE",
+      "COMERCIAL",
+      "DIRETORIA",
+      "FINANCEIRO",
+      "LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000133",
+    nome: "RODOVIARIO JOMI NACIONAL DE CARGAS LTDA",
+    cnpj: "02214448000133",
+    cnpj_fmt: "02.214.448/0001-33",
+    setores: [
+      "TRANSPORTE - ADMINISTRATIVO",
+      "TRANSPORTE - EXTERNO",
+      "TRANSPORTE - MANUTENÇÃO",
+      "TRANSPORTE - MOVIMENTAÇÃO",
+      "TRANSPORTE - OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000135",
+    nome: "SOBRAL & SOBRAL INDUSTRIA METALURGICA LTDA",
+    cnpj: "07432995000109",
+    cnpj_fmt: "07.432.995/0001-09",
+    setores: [
+      "ADMINISTRACAO",
+      "COMERCIAL",
+      "COMPRAS",
+      "LIMPEZA",
+      "MANUTENCAO",
+      "PRODUCAO",
+      "PRODUCAO - EMPILHADEIRA",
+      "PRODUCAO - ESCRITORIO",
+      "PRODUCAO BANHO",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000136",
+    nome: "METALLIC MATERIAIS E ACESSORIOS INDUSTRIAIS LTDA",
+    cnpj: "02848082000154",
+    cnpj_fmt: "02.848.082/0001-54",
+    setores: [
+      "ADMINISTRACAO",
+      "COMERCIAL",
+      "COPA",
+      "ESTOQUE",
+      "OPERACIONAL",
+      "OPERACIONAL - CARGAS",
+      "OPERACIONAL - TRANSPORTE",
+      "PORTARIA"
+    ]
+  },
+  {
+    codigo: "00000137",
+    nome: "JR VALVULAS FLANGES E CONEXOES EIRELI",
+    cnpj: "06183540000134",
+    cnpj_fmt: "06.183.540/0001-34",
+    setores: [
+      "COMERCIAL",
+      "COMERCIAL - EXTERNO",
+      "COZINHA",
+      "OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000138",
+    nome: "TMT - DISTRIBUIDORA DE VEICULOS LTDA - GUARA",
+    cnpj: "09448339000391",
+    cnpj_fmt: "09.448.339/0003-91",
+    setores: [
+      "ADMINISTRACAO - GUARA",
+      "ADMINISTRACAO - GUARA - LIMPEZA",
+      "ADMINISTRACAO - GUARA - MANUTENCAO",
+      "ESCRITORIO OFICINA - GUARA",
+      "FUNILARIA - GUARA - ESCRITORIO",
+      "FUNILARIA - GUARA - FINALIZACAO",
+      "FUNILARIA - GUARA - PINTURA",
+      "LAVAGEM - GUARA",
+      "LAVAGEM ESTETICA - GUARA",
+      "MECANICA - GUARA",
+      "MECANICA - GUARA - TRANSPORTE",
+      "PECAS - GUARA",
+      "PECAS - GUARA - VENDAS",
+      "RECEPCAO TECNICA - GUARA",
+      "RECEPCAO TECNICA - GUARA - OFICINA",
+      "VENDAS - GUARA",
+      "VENDAS - GUARA - OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000139",
+    nome: "REMAZA ADMINISTRADORA DE CONSORCIO LTDA - V CARRAO",
+    cnpj: "62354055006279",
+    cnpj_fmt: "62.354.055/0062-79",
+    setores: [
+      "ADMINISTRACAO - V CARRAO",
+      "ADMINISTRACAO - ZELADORIA - V CARRAO",
+      "COMERCIAL - V CARRAO"
+    ]
+  },
+  {
+    codigo: "00000140",
+    nome: "MIDIA DO BRASIL COMUNICACOES SERVICOS DE TELEVISAO LTDA",
+    cnpj: "71841282000106",
+    cnpj_fmt: "71.841.282/0001-06",
+    setores: [
+      "ADMINISTRATIVO",
+      "EDICAO",
+      "LIMPEZA",
+      "PORTARIA",
+      "PRODUCAO",
+      "PROGRAMACAO",
+      "REDES SOCIAIS",
+      "SERVICOS EXTERNOS",
+      "TRANSMISSAO"
+    ]
+  },
+  {
+    codigo: "00000141",
+    nome: "NIPPON EXPRESS DO BRASIL TRANSPORTES INTERNACIONAIS LTDA - SANTOS",
+    cnpj: "51595908000207",
+    cnpj_fmt: "51.595.908/0002-07",
+    setores: [
+      "FILIAL SANTOS"
+    ]
+  },
+  {
+    codigo: "00000142",
+    nome: "NIPPON EXPRESS DO BRASIL TRANSPORTES INTERNACIONAIS LTDA - MANAUS",
+    cnpj: "51595908000479",
+    cnpj_fmt: "51.595.908/0004-79",
+    setores: [
+      "FILIAL MANAUS",
+      "PROJETO VENDAS - MANAUS"
+    ]
+  },
+  {
+    codigo: "00000143",
+    nome: "NIPPON EXPRESS DO BRASIL TRANSPORTES INTERNACIONAIS LTDA - VIRACOPOS",
+    cnpj: "51595908000550",
+    cnpj_fmt: "51.595.908/0005-50",
+    setores: [
+      "FILIAL VIRACOPOS"
+    ]
+  },
+  {
+    codigo: "00000144",
+    nome: "NIPPON EXPRESS DO BRASIL TRANSPORTES INTERNACIONAIS LTDA - SJP",
+    cnpj: "51595908000711",
+    cnpj_fmt: "51.595.908/0007-11",
+    setores: [
+      "FILIAL SAO JOSE PINHAIS"
+    ]
+  },
+  {
+    codigo: "00000145",
+    nome: "NIPPON EXPRESS DO BRASIL TRANSPORTES INTERNACIONAIS LTDA - RJ",
+    cnpj: "51595908000630",
+    cnpj_fmt: "51.595.908/0006-30",
+    setores: [
+      "FILIAL RIO DE JANEIRO"
+    ]
+  },
+  {
+    codigo: "00000146",
+    nome: "ELIANA DE CASSIA BULKA DE BRITO",
+    cnpj: "11307293000170",
+    cnpj_fmt: "11.307.293/0001-70",
+    setores: [
+      "EXPEDICAO",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000147",
+    nome: "OLIGOM-TEC INDUSTRIA E COMERCIO LTDA",
+    cnpj: "04290443000115",
+    cnpj_fmt: "04.290.443/0001-15",
+    setores: [
+      "ADMINISTRACAO",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000148",
+    nome: "ALOP INDUSTRIA E COMERCIO LTDA",
+    cnpj: "13662131000186",
+    cnpj_fmt: "13.662.131/0001-86",
+    setores: [
+      "ADMINISTRATIVO",
+      "ADMINISTRATIVO - RECEPCAO",
+      "LIMPEZA",
+      "MARKETING",
+      "PRODUCAO",
+      "PRODUCAO - ESTOQUE",
+      "PRODUCAO - MANIPULACAO",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000149",
+    nome: "PIRES INSTITUTO DE BELEZA LTDA",
+    cnpj: "40241948000153",
+    cnpj_fmt: "40.241.948/0001-53",
+    setores: [
+      "ATENDIMENTO",
+      "ATENDIMENTO - PROCEDIMENTOS",
+      "GERENCIA",
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000150",
+    nome: "MEG DE SOUZA COUTINHO TRANSPORTES",
+    cnpj: "24766392000162",
+    cnpj_fmt: "24.766.392/0001-62",
+    setores: [
+      "TRANSPORTE - EXTERNO",
+      "TRANSPORTE - OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000151",
+    nome: "VIMA INDUSTRIA E COMERCIO DE ARTEFATOS PLASTICOS LTDA",
+    cnpj: "31889341000193",
+    cnpj_fmt: "31.889.341/0001-93",
+    setores: [
+      "ADMINISTRATIVO",
+      "ALMOXARIFADO",
+      "ALMOXARIFADO - EMPILHADEIRA",
+      "COMPRAS",
+      "CONTABILIDADE",
+      "CORTE E SOLDA",
+      "CORTE VINCO",
+      "COSTURA",
+      "COSTURA COLA",
+      "DIRETORIA",
+      "DIRETORIA - TRANSPORTE",
+      "EMBALAGEM ENVELOPES",
+      "EMBALAGEM SHRINK SMI PACK",
+      "ESTOQUE",
+      "EXPEDICAO",
+      "EXPEDICAO - EMPILHADEIRA",
+      "FATURAMENTO",
+      "FINANCEIRO",
+      "GERENCIA",
+      "INFORMATICA",
+      "MANUTENCAO",
+      "MONTAGEM  PASTA PVC",
+      "PASTA L",
+      "PCP",
+      "POLIETILENO",
+      "POLIPROPILENO",
+      "POLIPROPILENO MOINHO",
+      "RECEPCAO",
+      "RECURSOS HUMANOS",
+      "SEPARACAO",
+      "SOLDA ELETRONICA",
+      "SOLDA ULTRASONIC",
+      "TRANSPORTE",
+      "TRANSPORTE - CARGA",
+      "VENDAS",
+      "VENDAS - ESTOQUE"
+    ]
+  },
+  {
+    codigo: "00000152",
+    nome: "ARCO IRIS COMERCIO E FABRICACAO DE DOCES E BOLOS LTDA",
+    cnpj: "37925552000110",
+    cnpj_fmt: "37.925.552/0001-10",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000153",
+    nome: "EXPRESSO SAO PAULO MINAS",
+    cnpj: "62413018000172",
+    cnpj_fmt: "62.413.018/0001-72",
+    setores: [
+      "ADMINISTRACAO",
+      "ADMINISTRACAO - GERAL",
+      "DEPOSITO",
+      "DEPOSITO CONFERENCIA",
+      "DEPOSITO EMPILHADEIRA",
+      "MANUTENCAO",
+      "PORTARIA",
+      "TRANSPORTE EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000154",
+    nome: "IMPACTO REPOSICAO AUTOMOTIVA LTDA",
+    cnpj: "96239694000193",
+    cnpj_fmt: "96.239.694/0001-93",
+    setores: [
+      "EXPEDICAO",
+      "GERENCIA",
+      "TRANSPORTES",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000155",
+    nome: "KITS CAR COMERCIO DE AUTO PECAS EIRELI",
+    cnpj: "29641154000144",
+    cnpj_fmt: "29.641.154/0001-44",
+    setores: [
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000156",
+    nome: "TRANSPORTES DELLA VOLPE SA COMERCIO E INDUSTRIA",
+    cnpj: "61139432000172",
+    cnpj_fmt: "61.139.432/0001-72",
+    setores: [
+      "ACERTO CONTAS",
+      "ADMINISTRATIVO - EQUINOX",
+      "ADMINISTRATIVO - EQUINOX MG",
+      "ALMOXARIFADO",
+      "ALMOXARIFADO - MINERADORA",
+      "ARMAZEM",
+      "ARMAZEM - CARGAS",
+      "ARMAZEM - EMPILHADEIRA",
+      "ATENDIMENTO DE AGREGADOS",
+      "CAIXA",
+      "CENTRAL RELACIONAMENTO CLIENTE",
+      "COBRANCA",
+      "COMERCIAL",
+      "COMPRAS - AQUISICAO",
+      "CONTABILIDADE",
+      "CONTAS A PAGAR",
+      "CONTROLE DE PNEUS",
+      "CORPORATIVO",
+      "CORPORATIVO- JATO",
+      "DEPARTAMENTO PESSOAL",
+      "DEPARTAMENTO PESSOAL - SST",
+      "DESENVOLVIMENTO DE NOVOS PROJETOS / COMERCIAL",
+      "ENGENHARIA DE CUSTOS",
+      "FATURAMENTO",
+      "FROTAS MOTORISTA",
+      "GERENCIA ADMINISTRATIVA",
+      "GERENCIAMENTO GERAL DE OPERACAO",
+      "GESTAO DE FROTA PROPRIA",
+      "GESTAO DE FROTA PROPRIA - ABASTECIMENTO",
+      "GESTAO DE FROTA PROPRIA - MANOBRA",
+      "GESTAO DE FROTA PROPRIA - PATIO",
+      "JURIDICO FISCAL",
+      "JURIDICO TRABALHISTA",
+      "MANUTENCAO",
+      "MANUTENCAO - AUTOS",
+      "MANUTENCAO - BORRACHARIA",
+      "MANUTENCAO - CARPINTARIA",
+      "MANUTENCAO - ELETRICA",
+      "MANUTENCAO - LAVAGEM",
+      "MANUTENCAO - LIMPEZA",
+      "MANUTENCAO - PINTURA",
+      "MANUTENCAO - POLIMENTO",
+      "MANUTENCAO - SOLDA",
+      "MANUTENCAO PREDIAL",
+      "MANUTENCAO PREDIAL - ADMINISTRATIVO",
+      "PLANEJAMENTO",
+      "PROJETO SAP",
+      "RASTREAMENTO",
+      "RECURSOS HUMANOS",
+      "RECURSOS HUMANOS - COZINHA",
+      "RECURSOS HUMANOS - EXTERNO",
+      "RECURSOS HUMANOS - MEDICO",
+      "RECURSOS HUMANOS - MEIO AMBIENTE",
+      "RECURSOS HUMANOS - QUALIDADE",
+      "RECURSOS HUMANOS - RECEPCAO",
+      "RECURSOS HUMANOS - SST",
+      "SAP TM",
+      "SEGURO",
+      "SUPORTE FINANCEIRO",
+      "TI - TECNOLOGIA DA INFORMACAO",
+      "UBERLANDIA"
+    ]
+  },
+  {
+    codigo: "00000157",
+    nome: "ACP MERCANTIL INDUSTRIAL LTDA - FILIAL",
+    cnpj: "03235174000474",
+    cnpj_fmt: "03.235.174/0004-74",
+    setores: [
+      "ADMINISTRATIVO - FILIAL",
+      "MANUTENCAO - FILIAL",
+      "OPERACIONAL - AGLUTINADOR - FILIAL",
+      "OPERACIONAL - LIMPEZA - FILIAL",
+      "OPERACIONAL CORTE - FILIAL",
+      "OPERACIONAL I - FILIAL",
+      "OPERACIONAL II - FILIAL"
+    ]
+  },
+  {
+    codigo: "00000158",
+    nome: "STRADA INDUSTRIA E COMERCIO TEXTIL LTDA",
+    cnpj: "06278965000127",
+    cnpj_fmt: "06.278.965/0001-27",
+    setores: [
+      "ACABAMENTO",
+      "ALMOXARIFADO",
+      "ESCRITORIO",
+      "MANUTENCAO",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000159",
+    nome: "KORENTEX SERVICOS TEXTEIS LTDA",
+    cnpj: "10602124000109",
+    cnpj_fmt: "10.602.124/0001-09",
+    setores: [
+      "ADMINISTRATIVO",
+      "ESTOQUE",
+      "PRODUCAO",
+      "PRODUCAO - MANUTENCAO MAQUINAS",
+      "PRODUCAO - MANUTENCAO PREDIAL"
+    ]
+  },
+  {
+    codigo: "00000161",
+    nome: "FLUID CONTROL AUTOMACAO INDUSTRIAL LTDA",
+    cnpj: "08186519000118",
+    cnpj_fmt: "08.186.519/0001-18",
+    setores: [
+      "ADMINISTRATIVO",
+      "LOGISTICA",
+      "MANUTENCAO",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000162",
+    nome: "KBR QUIMICA LTDA",
+    cnpj: "31851747000187",
+    cnpj_fmt: "31.851.747/0001-87",
+    setores: [
+      "ADMINISTRACAO",
+      "DEPARTAMENTO COMERCIAL",
+      "DEPARTAMENTO COMERCIAL - EXTERNO",
+      "DEPARTAMENTO COMERCIAL EXTERNO",
+      "DEPARTAMENTO TECNICO",
+      "ESTOQUE",
+      "FINANCEIRO",
+      "MARKETING"
+    ]
+  },
+  {
+    codigo: "00000163",
+    nome: "VAR COMERCIO DE PALLETS EIRELI",
+    cnpj: "31250042000104",
+    cnpj_fmt: "31.250.042/0001-04",
+    setores: [
+      "ADMINISTRACAO",
+      "LIMPEZA",
+      "PRODUCAO",
+      "PRODUCAO - EMPILHADEIRA",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000164",
+    nome: "DIANA CAPELLI BARCA",
+    cnpj: "06385513800195",
+    cnpj_fmt: "06.385.513/8001-95",
+    setores: [
+      "CONSULTORIO",
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000166",
+    nome: "EVORA INDUSTRIA E COMERCIO - EIRELI",
+    cnpj: "05035395000181",
+    cnpj_fmt: "05.035.395/0001-81",
+    setores: [
+      "ADMINISTRATIVO",
+      "ESTOQUE",
+      "FINANCEIRO",
+      "LABORATORIO",
+      "PRODUCAO",
+      "PRODUCAO - ALMOXARIFADO",
+      "PRODUCAO - GERAL",
+      "PRODUCAO - LABORATORIO",
+      "PRODUCAO - LIMPEZA",
+      "PRODUCAO - MANIPULAÇÃO",
+      "RECURSOS HUMANOS",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000167",
+    nome: "FAA SERVICOS ODONTOLOGICOS S/C LTDA",
+    cnpj: "02981732000135",
+    cnpj_fmt: "02.981.732/0001-35",
+    setores: [
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000168",
+    nome: "TRANSPORTES DELLA VOLPE SA COMERCIO E INDUSTRIA - OURIL",
+    cnpj: "61139432013827",
+    cnpj_fmt: "61.139.432/0138-27",
+    setores: [
+      "OURILANDIA DO NORTE - ADM",
+      "OURILANDIA DO NORTE - LIMPEZA",
+      "OURILANDIA DO NORTE - OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000169",
+    nome: "RITA DE CASSIA CORDEIRO FERREIRA",
+    cnpj: "09318139800103",
+    cnpj_fmt: "09.318.139/8001-03",
+    setores: [
+      "CONSULTORIO"
+    ]
+  },
+  {
+    codigo: "00000170",
+    nome: "LIDA MERCANTIL E IMPORTADORA LTDA",
+    cnpj: "62250378000109",
+    cnpj_fmt: "62.250.378/0001-09",
+    setores: [
+      "EXTERNO",
+      "PRODUCAO",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000171",
+    nome: "VOUCOM GUINCHO E TRANSPORTE LTDA",
+    cnpj: "27550554000119",
+    cnpj_fmt: "27.550.554/0001-19",
+    setores: [
+      "EXTERNO",
+      "MECANICA"
+    ]
+  },
+  {
+    codigo: "00000172",
+    nome: "SPEEDY TRUCK SERVICOS EM MANUTENCAO MECANICA LTDA",
+    cnpj: "07319688000116",
+    cnpj_fmt: "07.319.688/0001-16",
+    setores: [
+      "ESCRITORIO",
+      "OFICINA",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000173",
+    nome: "TRANSPORTES DELLA VOLPE SA COMERCIO E INDUSTRIA - CAMACARI",
+    cnpj: "61139432014556",
+    cnpj_fmt: "61.139.432/0145-56",
+    setores: [
+      "OPERACIONAL - CAMACARI",
+      "OPERACIONAL - MOVIMENTAÇAO - CAMACARI"
+    ]
+  },
+  {
+    codigo: "00000174",
+    nome: "KL MANUTENCAO EM BOMBAS MOTORES E PAINEIS LTDA",
+    cnpj: "22132650000123",
+    cnpj_fmt: "22.132.650/0001-23",
+    setores: [
+      "COMERCIAL - COMPRAS",
+      "COMERCIAL - VENDAS",
+      "LIMPEZA",
+      "OFICINA",
+      "OFICINA - DESMONTAGEM",
+      "OFICINA - ENROLAMENTO",
+      "OFICINA - MONTAGEM",
+      "OFICINA - PINTURA"
+    ]
+  },
+  {
+    codigo: "00000175",
+    nome: "DALUTS ASSESSORIA EMPRESARIAL LTDA",
+    cnpj: "07347789000109",
+    cnpj_fmt: "07.347.789/0001-09",
+    setores: [
+      "ESCRITORIO"
+    ]
+  },
+  {
+    codigo: "00000176",
+    nome: "UP BAG BRINDS PROMOCIONAIS LTDA",
+    cnpj: "22045599000112",
+    cnpj_fmt: "22.045.599/0001-12",
+    setores: [
+      "ESCRITORIO"
+    ]
+  },
+  {
+    codigo: "00000177",
+    nome: "RAPHAEL WANDERLEY DAMARO",
+    cnpj: "22753778800155",
+    cnpj_fmt: "22.753.778/8001-55",
+    setores: [
+      "GERAL"
+    ]
+  },
+  {
+    codigo: "00000178",
+    nome: "JOISE MACHADO PENEIRAS",
+    cnpj: "12717707800143",
+    cnpj_fmt: "12.717.707/8001-43",
+    setores: [
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000179",
+    nome: "AUDIENS GESTAO CONTABIL LTDA",
+    cnpj: "10707928000164",
+    cnpj_fmt: "10.707.928/0001-64",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000180",
+    nome: "RODRIGO HIROSHI HOSHIKA",
+    cnpj: "27586606800158",
+    cnpj_fmt: "27.586.606/8001-58",
+    setores: [
+      "CONSULTORIO",
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000181",
+    nome: "BAR E LANCHONETE GRACIVANIO",
+    cnpj: "06977080000116",
+    cnpj_fmt: "06.977.080/0001-16",
+    setores: [
+      "COZINHA"
+    ]
+  },
+  {
+    codigo: "00000182",
+    nome: "VILLA PARAISO PENSAO",
+    cnpj: "09232822000172",
+    cnpj_fmt: "09.232.822/0001-72",
+    setores: [
+      "LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000183",
+    nome: "SPS-JE EMPREITEIRA E COMERCIO LTDA",
+    cnpj: "14697660000188",
+    cnpj_fmt: "14.697.660/0001-88",
+    setores: [
+      "OBRAS - ADMINISTRATIVO",
+      "OBRAS - ELETRICA",
+      "OBRAS - GERAL"
+    ]
+  },
+  {
+    codigo: "00000184",
+    nome: "PRO POLPA INDUSTRIA E COMERCIO LTDA",
+    cnpj: "12450140000221",
+    cnpj_fmt: "12.450.140/0002-21",
+    setores: [
+      "ADMINISTRATIVO",
+      "OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000185",
+    nome: "DROGARIA NOSSA SENHORA DE FATIMA DE VILA MARIA LTDA",
+    cnpj: "61209151000149",
+    cnpj_fmt: "61.209.151/0001-49",
+    setores: [
+      "FARMACIA - APLICACAO",
+      "FARMACIA - ATENDIMENTO"
+    ]
+  },
+  {
+    codigo: "00000186",
+    nome: "PENACAO PET SHOP",
+    cnpj: "31312212000138",
+    cnpj_fmt: "31.312.212/0001-38",
+    setores: [
+      "BANHO E TOSA",
+      "PETSHOP"
+    ]
+  },
+  {
+    codigo: "00000187",
+    nome: "SIQUEIRA DESINSETIZADORA E DESENTUPIDORA EIRELI",
+    cnpj: "04214857000165",
+    cnpj_fmt: "04.214.857/0001-65",
+    setores: [
+      "ADMINISTRATIVO",
+      "MANIPULACAO E APLICACAO"
+    ]
+  },
+  {
+    codigo: "00000188",
+    nome: "SUBTERRANEA ARTIGOS DO VESTUARIO LTDA",
+    cnpj: "03206065000186",
+    cnpj_fmt: "03.206.065/0001-86",
+    setores: [
+      "GERAL - ATENDIMENTO",
+      "GERAL - CARGAS"
+    ]
+  },
+  {
+    codigo: "00000189",
+    nome: "YUR COMERCIAL IMPORTACAO E EXPORTACAO - EIRELI",
+    cnpj: "11837610000160",
+    cnpj_fmt: "11.837.610/0001-60",
+    setores: [
+      "FINANCEIRO",
+      "FISCAL",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000190",
+    nome: "ADMINISTRADORA E CORRETORA DE SEGUROS FBW LTDA",
+    cnpj: "28982567000120",
+    cnpj_fmt: "28.982.567/0001-20",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000191",
+    nome: "CMK COSMETICOS E ACESSORIOS LTDA",
+    cnpj: "36093238000156",
+    cnpj_fmt: "36.093.238/0001-56",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000192",
+    nome: "UP SERVICE ASSESSORIA DE COBRANCA LTDA",
+    cnpj: "03584339000170",
+    cnpj_fmt: "03.584.339/0001-70",
+    setores: [
+      "OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000193",
+    nome: "PRIME GOLD INTERMEDIACAO DE NEGOCIOS E APOIO ADMINISTRATIVO LTDA",
+    cnpj: "34815819000129",
+    cnpj_fmt: "34.815.819/0001-29",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000194",
+    nome: "100 POR CENTO AQUECEDORES EIRELI",
+    cnpj: "11939979000184",
+    cnpj_fmt: "11.939.979/0001-84",
+    setores: [
+      "ADMINISTRATIVO",
+      "ADMINISTRATIVO - ESTOQUE",
+      "OPERACIONAL - ESTOQUE",
+      "OPERACIONAL - EXTERNO",
+      "OPERACIONAL - LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000195",
+    nome: "BERNAZZANI INFORMATICA EIRELI",
+    cnpj: "17953351000110",
+    cnpj_fmt: "17.953.351/0001-10",
+    setores: [
+      "ADMINISTRATIVO",
+      "ADMINISTRATIVO - LIMPEZA",
+      "ADMINISTRATIVO - PORTARIA",
+      "ADMINISTRATIVO/FINANCEIRO",
+      "COMERCIAL",
+      "CONFERENCIA",
+      "CONFERENCIA - LIMPEZA",
+      "CONTABIL",
+      "DECODIFICADOR",
+      "FINANCEIRO",
+      "HOMOLOGACAO",
+      "JURIDICO",
+      "QUALIDADE",
+      "RECURSOS HUMANOS",
+      "SUPORTE",
+      "TI",
+      "VS"
+    ]
+  },
+  {
+    codigo: "00000196",
+    nome: "MN TECNOLOGIA DA INFORMACAO S/S LTD",
+    cnpj: "07022956000133",
+    cnpj_fmt: "07.022.956/0001-33",
+    setores: [
+      "ADMINISTRATIVO",
+      "CONFERENCIA",
+      "FINANCEIRO",
+      "JURIDICO",
+      "VS"
+    ]
+  },
+  {
+    codigo: "00000197",
+    nome: "SAMIL ASSESSORIA CONTABIL LTDA.",
+    cnpj: "01604989000105",
+    cnpj_fmt: "01.604.989/0001-05",
+    setores: [
+      "CONTABIL",
+      "DEPARTAMENTO PESSOAL"
+    ]
+  },
+  {
+    codigo: "00000198",
+    nome: "SKEMA COMERCIO DE SUCATAS E METAIS LTDA",
+    cnpj: "00624963000166",
+    cnpj_fmt: "00.624.963/0001-66",
+    setores: [
+      "DEPOSITO",
+      "ESCRITORIO"
+    ]
+  },
+  {
+    codigo: "00000199",
+    nome: "SCARLATO COMERCIO E PROMOCAO DE EVENTOS LTDA",
+    cnpj: "03791550000164",
+    cnpj_fmt: "03.791.550/0001-64",
+    setores: [
+      "ADMINISTRATIVO",
+      "EVENTOS",
+      "EVENTOS - ADMINISTRATIVO",
+      "EVENTOS - BAR",
+      "EVENTOS - LIMPEZA",
+      "EVENTOS - MOVIMENTACAO",
+      "EVENTOS - OPERACIONAL",
+      "EVENTOS - TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000200",
+    nome: "TRANSPORTES DELLA VOLPE S A COMERCIO E INDUSTRIA - MAUA",
+    cnpj: "61139432012421",
+    cnpj_fmt: "61.139.432/0124-21",
+    setores: [
+      "OPERACIONAL - MAUA"
+    ]
+  },
+  {
+    codigo: "00000201",
+    nome: "TRANSPORTES DELLA VOLPE SA COMERCIO E INDUSTRIA - STO AGOSTINHO",
+    cnpj: "61139432002540",
+    cnpj_fmt: "61.139.432/0025-40",
+    setores: [
+      "ADMINISTRATIVO -STO AGOSTINHO",
+      "OPERACIONAL I - CARGA - STO AGOSTINHO",
+      "OPERACIONAL I - STO AGOSTINHO"
+    ]
+  },
+  {
+    codigo: "00000202",
+    nome: "PADILHA & BARROS VEICULOS EIRELI",
+    cnpj: "27502603000148",
+    cnpj_fmt: "27.502.603/0001-48",
+    setores: [
+      "ADMINISTRATIVO",
+      "ADMINISTRATIVO - GERAL"
+    ]
+  },
+  {
+    codigo: "00000203",
+    nome: "CONDOMINIO EDIFICIO BELVEDERE",
+    cnpj: "69264109000132",
+    cnpj_fmt: "69.264.109/0001-32",
+    setores: [
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000204",
+    nome: "WHEELING MOTOS PECAS ACESSORIOS E OFICINA LTDA",
+    cnpj: "08180310000147",
+    cnpj_fmt: "08.180.310/0001-47",
+    setores: [
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000205",
+    nome: "ESCOLA TECNICA VILA MARIA LTDA",
+    cnpj: "32879331000130",
+    cnpj_fmt: "32.879.331/0001-30",
+    setores: [
+      "ADMINISTRATIVO",
+      "AGENCIA DE ENCAMINHAMENTO",
+      "COMERCIAL",
+      "COMERCIAL - EXTERNO",
+      "FINANCEIRO",
+      "PEDAGOGICO",
+      "POS VENDA",
+      "SERVICOS GERAIS",
+      "SERVICOS GERAIS - MANUTENCAO"
+    ]
+  },
+  {
+    codigo: "00000206",
+    nome: "REGINALDO BRACAROTTO MARIANO GUINCHO",
+    cnpj: "17831738000101",
+    cnpj_fmt: "17.831.738/0001-01",
+    setores: [
+      "EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000207",
+    nome: "PREMIUM AQUECIMENTO E CLIMATIZACAO EIRELI - CAMPINAS",
+    cnpj: "31570046000170",
+    cnpj_fmt: "31.570.046/0001-70",
+    setores: [
+      "ADMINISTRATIVO - CAMPINAS"
+    ]
+  },
+  {
+    codigo: "00000208",
+    nome: "PREMIUM AQUECEDORES SOROCABA EIRELI",
+    cnpj: "40606277000187",
+    cnpj_fmt: "40.606.277/0001-87",
+    setores: [
+      "ADMINISTRATIVO - SOROCABA"
+    ]
+  },
+  {
+    codigo: "00000209",
+    nome: "QUADRIFOGLIO COMERCIO LTDA",
+    cnpj: "03072101000166",
+    cnpj_fmt: "03.072.101/0001-66",
+    setores: [
+      "DEPARTAMENTO COMERCIAL"
+    ]
+  },
+  {
+    codigo: "00000210",
+    nome: "MAMA FLORA DECORACOES",
+    cnpj: "23778035000151",
+    cnpj_fmt: "23.778.035/0001-51",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000211",
+    nome: "MIRANDA DO DOURO COMERCIO E SERVICOS LTDA",
+    cnpj: "04622968000100",
+    cnpj_fmt: "04.622.968/0001-00",
+    setores: [
+      "ADMINISTRATIVO",
+      "ADMINISTRATIVO - EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000212",
+    nome: "MARCENARIA TEKNO LTDA",
+    cnpj: "43987320000190",
+    cnpj_fmt: "43.987.320/0001-90",
+    setores: [
+      "MARCENARIA"
+    ]
+  },
+  {
+    codigo: "00000213",
+    nome: "EDUARD LEATHER DESIGNER DE ACESSORIOS LTDA",
+    cnpj: "12225498000170",
+    cnpj_fmt: "12.225.498/0001-70",
+    setores: [
+      "ADMINISTRATIVO",
+      "CORTE BALANCIM",
+      "LIMPEZA",
+      "MONTAGEM EXPEDICAO",
+      "MONTAGEM EXPEDICAO - COSTURA"
+    ]
+  },
+  {
+    codigo: "00000214",
+    nome: "MR. TEDDY PIZZA",
+    cnpj: "05965410000190",
+    cnpj_fmt: "05.965.410/0001-90",
+    setores: [
+      "ATENDIMENTO",
+      "ATENDIMENTO - TRANSPORTE",
+      "PIZZARIA"
+    ]
+  },
+  {
+    codigo: "00000215",
+    nome: "STECO INCORPORACOES LTDA",
+    cnpj: "05425340000420",
+    cnpj_fmt: "05.425.340/0004-20",
+    setores: [
+      "ADMINISTRATIVO",
+      "GUARUJA",
+      "GUARUJA - OBRAS",
+      "PORTARIA"
+    ]
+  },
+  {
+    codigo: "00000216",
+    nome: "GALETERIA SAO CAETANO CHURRASCARIA LTDA",
+    cnpj: "07782954000142",
+    cnpj_fmt: "07.782.954/0001-42",
+    setores: [
+      "ADMINISTRATIVO",
+      "BAR",
+      "COZINHA",
+      "LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000217",
+    nome: "PET RL CARVALHO LTDA",
+    cnpj: "11424190000190",
+    cnpj_fmt: "11.424.190/0001-90",
+    setores: [
+      "PET SHOP - ADMINISTRATIVO",
+      "PET SHOP - ESTETICA",
+      "PET SHOP - LIMPEZA",
+      "PET SHOP - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000218",
+    nome: "MAXILOG DISTRIBUICAO E LOGISTICA",
+    cnpj: "12382738000140",
+    cnpj_fmt: "12.382.738/0001-40",
+    setores: [
+      "OPERACIONAL",
+      "OPERACIONAL - EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000219",
+    nome: "M & TECH CONTROLES LTDA",
+    cnpj: "21221003000125",
+    cnpj_fmt: "21.221.003/0001-25",
+    setores: [
+      "ADMINISTRATIVO",
+      "DEPTO TECNICO - EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000220",
+    nome: "TEXTIL FRAGATA LTDA",
+    cnpj: "74610866000150",
+    cnpj_fmt: "74.610.866/0001-50",
+    setores: [
+      "GERAL"
+    ]
+  },
+  {
+    codigo: "00000221",
+    nome: "RADIR RECONDICIONAMENTO DE SUSPENSAO E COMERCIO EIRELI",
+    cnpj: "49832702000120",
+    cnpj_fmt: "49.832.702/0001-20",
+    setores: [
+      "ADMINISTRATIVO",
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000222",
+    nome: "BOUQUET GIGANTE EIRELI",
+    cnpj: "28066332000198",
+    cnpj_fmt: "28.066.332/0001-98",
+    setores: [
+      "LOJA",
+      "LOJA - ADMINISTRATIVO",
+      "LOJA - PRODUCAO",
+      "LOJA - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000223",
+    nome: "ROGERIA DE PAULA OLIVEIRA",
+    cnpj: "14326802000109",
+    cnpj_fmt: "14.326.802/0001-09",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000224",
+    nome: "CARMONA INDUSTRIA DE ARTEFATOS DE COURO LTDA",
+    cnpj: "08775340000104",
+    cnpj_fmt: "08.775.340/0001-04",
+    setores: [
+      "FABRICA"
+    ]
+  },
+  {
+    codigo: "00000225",
+    nome: "GRAMATURA COMERCIAL TEXTIL LTDA",
+    cnpj: "71830848000196",
+    cnpj_fmt: "71.830.848/0001-96",
+    setores: [
+      "COMERCIO"
+    ]
+  },
+  {
+    codigo: "00000226",
+    nome: "MOBI CARGO LOGISTICA INTEGRADA LTDA.",
+    cnpj: "25046607000133",
+    cnpj_fmt: "25.046.607/0001-33",
+    setores: [
+      "ADMINISTRATIVO",
+      "TRANSPORTE",
+      "TRANSPORTE - EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000227",
+    nome: "E.M.F COMERCIO DE SORVETES LTDA",
+    cnpj: "36367770000114",
+    cnpj_fmt: "36.367.770/0001-14",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000228",
+    nome: "RENASCENSE MOVEIS E DECORACOES LTDA",
+    cnpj: "59557280000186",
+    cnpj_fmt: "59.557.280/0001-86",
+    setores: [
+      "COMERCIO MOVEIS"
+    ]
+  },
+  {
+    codigo: "00000229",
+    nome: "C.N. COMERCIO DE VIDROS EIRELI",
+    cnpj: "24272300000198",
+    cnpj_fmt: "24.272.300/0001-98",
+    setores: [
+      "GERAL"
+    ]
+  },
+  {
+    codigo: "00000230",
+    nome: "TRANSPORTE DE AGUA CITY LAPA EIRELI",
+    cnpj: "08316772000149",
+    cnpj_fmt: "08.316.772/0001-49",
+    setores: [
+      "PRODUCAO",
+      "PRODUCAO - EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000231",
+    nome: "ZINHO IMOBILIARIA S/S LTDA",
+    cnpj: "03810580000170",
+    cnpj_fmt: "03.810.580/0001-70",
+    setores: [
+      "CONTABIL"
+    ]
+  },
+  {
+    codigo: "00000232",
+    nome: "K1 ODONTOLOGIA COMERCIO E ENSINO",
+    cnpj: "38086329000190",
+    cnpj_fmt: "38.086.329/0001-90",
+    setores: [
+      "ADMINISTRATIVO",
+      "CONSULTORIO"
+    ]
+  },
+  {
+    codigo: "00000233",
+    nome: "EMKG INDUSTRIA E COMERCIO DE ROUPAS LTDA",
+    cnpj: "40310703000130",
+    cnpj_fmt: "40.310.703/0001-30",
+    setores: [
+      "OFICINA",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000234",
+    nome: "J. L. N. DE FRANCA AUTO VIDROS",
+    cnpj: "04130734000146",
+    cnpj_fmt: "04.130.734/0001-46",
+    setores: [
+      "GERAL"
+    ]
+  },
+  {
+    codigo: "00000235",
+    nome: "AUTO MECANICA PALHINHA",
+    cnpj: "02649718000139",
+    cnpj_fmt: "02.649.718/0001-39",
+    setores: [
+      "MECANICA"
+    ]
+  },
+  {
+    codigo: "00000236",
+    nome: "DINA APARECIDA DE OLIVEIRA",
+    cnpj: "10013786000135",
+    cnpj_fmt: "10.013.786/0001-35",
+    setores: [
+      "CONTABIL"
+    ]
+  },
+  {
+    codigo: "00000237",
+    nome: "QUIMER COMERCIAL LTDA - ITAQUAQUECETUBA",
+    cnpj: "68224997000440",
+    cnpj_fmt: "68.224.997/0004-40",
+    setores: [
+      "ESCRITORIO - ITAQUAQUECETUBA",
+      "GERAL - ITAQUAQUECETUBA",
+      "MANUTENCAO - ITAQUAQUECETUBA",
+      "MANUTENCAO - ITAQUAQUECETUBA - SOLDA",
+      "PRODUCAO CORTE - ITAQUAQUECETUBA",
+      "PRODUCAO PULVERIZACAO - ITAQUA"
+    ]
+  },
+  {
+    codigo: "00000238",
+    nome: "MARCO ANTONIO RIZZATTO",
+    cnpj: "17000781000117",
+    cnpj_fmt: "17.000.781/0001-17",
+    setores: [
+      "ADMINISTRATIVO",
+      "ESTOQUE"
+    ]
+  },
+  {
+    codigo: "00000239",
+    nome: "MADEIREIRA VILA GUSTAVO",
+    cnpj: "51981330000146",
+    cnpj_fmt: "51.981.330/0001-46",
+    setores: [
+      "OPERACIONAL",
+      "OPERACIONAL - MARCENARIA",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000240",
+    nome: "H. Z. COMERCIO DE ALIMENTOS EIRELI",
+    cnpj: "27957944000108",
+    cnpj_fmt: "27.957.944/0001-08",
+    setores: [
+      "ATENDIMENTO",
+      "CONFEITARIA",
+      "GERAL"
+    ]
+  },
+  {
+    codigo: "00000241",
+    nome: "H. Z. COMERCIO DE ALIMENTOS EIRELI - FILIAL",
+    cnpj: "27957944000299",
+    cnpj_fmt: "27.957.944/0002-99",
+    setores: [
+      "GERAL - FILIAL"
+    ]
+  },
+  {
+    codigo: "00000242",
+    nome: "DOM PEDRO ESPORTES EIRELI - MATRIZ",
+    cnpj: "23435465000170",
+    cnpj_fmt: "23.435.465/0001-70",
+    setores: [
+      "LOJA - MATRIZ"
+    ]
+  },
+  {
+    codigo: "00000243",
+    nome: "DOM PEDRO ESPORTES EIRELI - FILIAL",
+    cnpj: "23435465000251",
+    cnpj_fmt: "23.435.465/0002-51",
+    setores: [
+      "LOJA - FILIAL"
+    ]
+  },
+  {
+    codigo: "00000244",
+    nome: "GENEBRA ESPORTES CENTER EIRELI",
+    cnpj: "30286151000119",
+    cnpj_fmt: "30.286.151/0001-19",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000245",
+    nome: "MARGARETH MONTENEGRO",
+    cnpj: "10666783800142",
+    cnpj_fmt: "10.666.783/8001-42",
+    setores: [
+      "CONSULTORIO"
+    ]
+  },
+  {
+    codigo: "00000246",
+    nome: "OSEAS PORTO TRANSPORTES LTDA",
+    cnpj: "28549289000111",
+    cnpj_fmt: "28.549.289/0001-11",
+    setores: [
+      "EXTERNO",
+      "GERAL - ADMINISTRATIVO",
+      "GERAL - EXTERNO",
+      "GERAL - OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000247",
+    nome: "JOSE REINALDO DA SILVA - ACESSORIOS",
+    cnpj: "05278926000167",
+    cnpj_fmt: "05.278.926/0001-67",
+    setores: [
+      "ESCRITORIO",
+      "ESTOQUE",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000249",
+    nome: "ALCONEX - COMERCIO DE VALVULAS E ACESSORIOS INDUSTRIAIS LTDA",
+    cnpj: "54454426000144",
+    cnpj_fmt: "54.454.426/0001-44",
+    setores: [
+      "ADMINISTRATIVO",
+      "COMERCIAL",
+      "EXPEDICAO",
+      "EXPEDICAO - TRANSPORTES",
+      "FINANCEIRO",
+      "QUALIDADE"
+    ]
+  },
+  {
+    codigo: "00000250",
+    nome: "ELO PLUS SERIGRAFIA LTDA",
+    cnpj: "02913807000140",
+    cnpj_fmt: "02.913.807/0001-40",
+    setores: [
+      "GERAL"
+    ]
+  },
+  {
+    codigo: "00000251",
+    nome: "MC MOLAS MARAUTO",
+    cnpj: "48218218000143",
+    cnpj_fmt: "48.218.218/0001-43",
+    setores: [
+      "ADMINISTRATIVO",
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000252",
+    nome: "CAMARGO DISTRIBUIDORA DE COSMETICOS LTDA",
+    cnpj: "29721846000100",
+    cnpj_fmt: "29.721.846/0001-00",
+    setores: [
+      "LOJA - TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000253",
+    nome: "ANDAIMES GARCIA",
+    cnpj: "01267334000199",
+    cnpj_fmt: "01.267.334/0001-99",
+    setores: [
+      "ADMINISTRATIVO",
+      "OPERACIONAL",
+      "OPERACIONAL - EXTERNO",
+      "OPERACIONAL - MANUTENCAO"
+    ]
+  },
+  {
+    codigo: "00000254",
+    nome: "JR MATARAZZO EMPREENDIMENTOS E CONSTRUCOES LTDA",
+    cnpj: "17496564000160",
+    cnpj_fmt: "17.496.564/0001-60",
+    setores: [
+      "OBRAS"
+    ]
+  },
+  {
+    codigo: "00000255",
+    nome: "MC MOLAS AUTOMOTIVAS",
+    cnpj: "10928998000142",
+    cnpj_fmt: "10.928.998/0001-42",
+    setores: [
+      "ADMINISTRATIVO",
+      "COMERCIAL",
+      "ESTOQUE",
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000256",
+    nome: "MALU ARTIGOS ESPORTIVOS EIRELI",
+    cnpj: "22733355000122",
+    cnpj_fmt: "22.733.355/0001-22",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000257",
+    nome: "LONG BEACH COMERCIO DE ARTIGOS ESPORTIVOS LTDA",
+    cnpj: "41797685000126",
+    cnpj_fmt: "41.797.685/0001-26",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000258",
+    nome: "EMTEC SERVICOS TECNICOS LTDA",
+    cnpj: "48243646000126",
+    cnpj_fmt: "48.243.646/0001-26",
+    setores: [
+      "ADMINISTRACAO",
+      "ADMINISTRACAO - OPERACIONAL",
+      "ADMINISTRACAO - TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000259",
+    nome: "NETUNO ESPORTES LTDA",
+    cnpj: "43354991000113",
+    cnpj_fmt: "43.354.991/0001-13",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000260",
+    nome: "SAMOA ESPORTES LTDA",
+    cnpj: "44161695000169",
+    cnpj_fmt: "44.161.695/0001-69",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000261",
+    nome: "SATURNO ESPORTES LTDA",
+    cnpj: "43369382000138",
+    cnpj_fmt: "43.369.382/0001-38",
+    setores: [
+      "ADMINISTRATIVO",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000262",
+    nome: "LA PLAGE COMERCIO DE ARTIGOS ESPORTIVOS EIRELI",
+    cnpj: "34322000000120",
+    cnpj_fmt: "34.322.000/0001-20",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000263",
+    nome: "CONSTRUSPORT CONSTRUCOES ESPORTIVAS LTDA",
+    cnpj: "07003091000168",
+    cnpj_fmt: "07.003.091/0001-68",
+    setores: [
+      "ADMINISTRATIVO",
+      "ADMINISTRATIVO - ALMOXARIFADO",
+      "OBRAS",
+      "OBRAS - ELETRICA",
+      "OBRAS - ELETRICA - OMAGUAS",
+      "OBRAS - OMAGUAS",
+      "OBRAS - PINTURA",
+      "OBRAS - PINTURA - OMAGUAS",
+      "OBRAS - SERRALHERIA",
+      "OBRAS - SERRALHERIA - OMAGUAS",
+      "OBRAS - SOLDA",
+      "OBRAS - SOLDA - OMAGUAS",
+      "OBRAS - TRANSPORTES",
+      "OBRAS - TRANSPORTES - OMAGUAS"
+    ]
+  },
+  {
+    codigo: "00000264",
+    nome: "MARIO BERTI JUNIOR ULTRA-SOM",
+    cnpj: "00165657000109",
+    cnpj_fmt: "00.165.657/0001-09",
+    setores: [
+      "ADMINISTRATIVO",
+      "ELETRONICA",
+      "FABRICA"
+    ]
+  },
+  {
+    codigo: "00000265",
+    nome: "AYUMI LOUNGE RESTAURANTE LTDA",
+    cnpj: "41492027000126",
+    cnpj_fmt: "41.492.027/0001-26",
+    setores: [
+      "COZINHA",
+      "ESCRITORIO",
+      "LIMPEZA",
+      "SALAO",
+      "VALLET"
+    ]
+  },
+  {
+    codigo: "00000266",
+    nome: "LINGEART MODAS",
+    cnpj: "18207535000101",
+    cnpj_fmt: "18.207.535/0001-01",
+    setores: [
+      "OFICINA",
+      "OFICINA - ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000267",
+    nome: "W. M. DE SOUSA EIRELI",
+    cnpj: "22734270000169",
+    cnpj_fmt: "22.734.270/0001-69",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000268",
+    nome: "K.F. ESPORTES EIRELI",
+    cnpj: "43176000000150",
+    cnpj_fmt: "43.176.000/0001-50",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000269",
+    nome: "D.G. DE SOUSA",
+    cnpj: "33925163000134",
+    cnpj_fmt: "33.925.163/0001-34",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000270",
+    nome: "PLANETA ARTIGOS ESPORTIVOS E ACESSORIOS LTDA",
+    cnpj: "44623307000114",
+    cnpj_fmt: "44.623.307/0001-14",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000271",
+    nome: "JUPITER ESPORTES LTDA",
+    cnpj: "44450173000187",
+    cnpj_fmt: "44.450.173/0001-87",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000272",
+    nome: "COMERCIAL DE CALCADOS JAPONESA HAJI EIRELI",
+    cnpj: "01620790000170",
+    cnpj_fmt: "01.620.790/0001-70",
+    setores: [
+      "ESTOQUE",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000273",
+    nome: "FATEK INDUSTRIA E COMERCIO LTDA",
+    cnpj: "10943331000119",
+    cnpj_fmt: "10.943.331/0001-19",
+    setores: [
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000274",
+    nome: "H.A. COMERCIO E SERVICOS DE TERRAPLANAGEM - EIRELI",
+    cnpj: "18768632000165",
+    cnpj_fmt: "18.768.632/0001-65",
+    setores: [
+      "ADMINISTRATIVO",
+      "OPERACIONAL - CARGAS",
+      "OPERACIONAL - MANUTENCAO",
+      "OPERACIONAL - MANUTENCAO PREDIAL",
+      "OPERACIONAL - OBRAS",
+      "OPERACIONAL - SOLDA",
+      "OPERACIONAL - TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000275",
+    nome: "DASJU MODAS LTDA",
+    cnpj: "17909475000106",
+    cnpj_fmt: "17.909.475/0001-06",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000276",
+    nome: "PET SHOP MAIS SAUDAVEL LTDA",
+    cnpj: "29009746000148",
+    cnpj_fmt: "29.009.746/0001-48",
+    setores: [
+      "BANHO TOSA",
+      "BANHO TOSA - BANHO",
+      "LIMPEZA",
+      "PET SHOP",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000277",
+    nome: "FOLEFLEX INDUSTRIA E COMERCIO",
+    cnpj: "49704190000117",
+    cnpj_fmt: "49.704.190/0001-17",
+    setores: [
+      "ADMINISTRATIVO",
+      "LIMPEZA",
+      "PRODUCAO",
+      "PRODUCAO - SOLDA"
+    ]
+  },
+  {
+    codigo: "00000278",
+    nome: "MG INDUSTRIA E COMERCIO DE COSMETICOS LTDA",
+    cnpj: "25055309000100",
+    cnpj_fmt: "25.055.309/0001-00",
+    setores: [
+      "ADMINISTRATIVO",
+      "EXPEDICAO",
+      "FABRICA",
+      "LABORATORIO",
+      "LIMPEZA",
+      "MANIPULACAO",
+      "MANUTENCAO",
+      "TRANSPORTE - EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000279",
+    nome: "RODOTRIO TRANSPORTES LTDA",
+    cnpj: "15400134000177",
+    cnpj_fmt: "15.400.134/0001-77",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000280",
+    nome: "MARQUEZ AUTO SERVICE LTDA",
+    cnpj: "44739541000101",
+    cnpj_fmt: "44.739.541/0001-01",
+    setores: [
+      "OFICINA - MECANICA",
+      "OFICINA - PINTURA",
+      "OFICINA - POLIMENTO"
+    ]
+  },
+  {
+    codigo: "00000281",
+    nome: "COOPERATIVA E.C.M.F.G OWENS-ILLINOIS DO BRASIL",
+    cnpj: "43182278000130",
+    cnpj_fmt: "43.182.278/0001-30",
+    setores: [
+      "GERAL"
+    ]
+  },
+  {
+    codigo: "00000282",
+    nome: "TRANSPORTES DELLA VOLPE SA COMERCIO E INDUSTRIA - PINDA",
+    cnpj: "61139432006960",
+    cnpj_fmt: "61.139.432/0069-60",
+    setores: [
+      "OPERACIONAL - PINDA"
+    ]
+  },
+  {
+    codigo: "00000283",
+    nome: "ARMARINHO NOVO",
+    cnpj: "18269426000100",
+    cnpj_fmt: "18.269.426/0001-00",
+    setores: [
+      "ATENDIMENTO AO CLIENTE",
+      "CAIXA"
+    ]
+  },
+  {
+    codigo: "00000284",
+    nome: "FASHION BIJOUX",
+    cnpj: "12612836000126",
+    cnpj_fmt: "12.612.836/0001-26",
+    setores: [
+      "ATENDIMENTO AO CLIENTE"
+    ]
+  },
+  {
+    codigo: "00000285",
+    nome: "AUZA AUTOMACAO INDUSTRIA E COMERCIO LTDA",
+    cnpj: "28810863000143",
+    cnpj_fmt: "28.810.863/0001-43",
+    setores: [
+      "ADMINISTRATIVO",
+      "COMERCIAL",
+      "LIMPEZA",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000286",
+    nome: "UNION-PARTS COMERCIO E SERVICOS DE PECAS PARA TRATORES LTDA",
+    cnpj: "05107157000134",
+    cnpj_fmt: "05.107.157/0001-34",
+    setores: [
+      "ADMINISTRATIVO",
+      "LIMPEZA",
+      "OPERACIONAL - MONTAGEM",
+      "OPERACIONAL - SOLDA",
+      "OPERACIONAL - TORNO"
+    ]
+  },
+  {
+    codigo: "00000287",
+    nome: "BRASILIA COMERCIO DE COSMETICOS LTDA.",
+    cnpj: "39958559000164",
+    cnpj_fmt: "39.958.559/0001-64",
+    setores: [
+      "ADMINISTRATIVO",
+      "EXPEDICAO",
+      "MANUTENCAO",
+      "PRODUCAO",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000288",
+    nome: "UNION TEC COMERCIO DE SERVICOS DE MATERIAIS RODANTE LTDA",
+    cnpj: "00841828000172",
+    cnpj_fmt: "00.841.828/0001-72",
+    setores: [
+      "ADMINISTRATIVO",
+      "ADMINISTRATIVO - MANUTENCAO",
+      "OPERACIONAL",
+      "OPERACIONAL - MANUTENCAO",
+      "OPERACIONAL - MONTAGEM",
+      "OPERACIONAL - SOLDA",
+      "OPERACIONAL - TORNO"
+    ]
+  },
+  {
+    codigo: "00000289",
+    nome: "LOJAS BECKER DE CALCADOS LTDA - JARDIM JAPAO",
+    cnpj: "48665798000117",
+    cnpj_fmt: "48.665.798/0001-17",
+    setores: [
+      "LOJA - JARDIM JAPAO"
+    ]
+  },
+  {
+    codigo: "00000290",
+    nome: "LOJAS BECKER DE CALCADOS LTDA - VILA MARIA",
+    cnpj: "48665798000389",
+    cnpj_fmt: "48.665.798/0003-89",
+    setores: [
+      "LOJA - VILA MARIA"
+    ]
+  },
+  {
+    codigo: "00000294",
+    nome: "GLOBAL TIME DISTRIBUIDORA DE ELETRONICOS E INFORMATICA EIRELI",
+    cnpj: "09453343000186",
+    cnpj_fmt: "09.453.343/0001-86",
+    setores: [
+      "COMERCIAL",
+      "FINANCEIRO",
+      "INFORMATICA",
+      "LIMPEZA",
+      "LOGISTICA"
+    ]
+  },
+  {
+    codigo: "00000295",
+    nome: "CLINICA THE FISIOTERAPIA",
+    cnpj: "33283741000186",
+    cnpj_fmt: "33.283.741/0001-86",
+    setores: [
+      "ADMINISTRATIVO",
+      "FISIOTERAPIA"
+    ]
+  },
+  {
+    codigo: "00000296",
+    nome: "ESPACO IKARIA LTDA",
+    cnpj: "30400890000190",
+    cnpj_fmt: "30.400.890/0001-90",
+    setores: [
+      "COZINHA",
+      "GERAL",
+      "GERAL - LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000297",
+    nome: "TECNOBOR PRODUTOS PARA RECAUCHUTAGEM LTDA - FILIAL",
+    cnpj: "33705792000230",
+    cnpj_fmt: "33.705.792/0002-30",
+    setores: [
+      "ALMOXARIFADO - FILIAL",
+      "COMPRAS - FILIAL",
+      "EXPEDICAO - FILIAL",
+      "EXPORTACAO - FILIAL",
+      "PRODUCAO - FILIAL",
+      "VENDAS - FILIAL"
+    ]
+  },
+  {
+    codigo: "00000298",
+    nome: "LUMAZIL INDUSTRIA E COMERCIO LTDA",
+    cnpj: "68960673000127",
+    cnpj_fmt: "68.960.673/0001-27",
+    setores: [
+      "PRODUCAO",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000299",
+    nome: "ALUMINIUM GLASS COMERCIO DE ALUMINIO E VIDROS DE SEGURANCA",
+    cnpj: "34457571000171",
+    cnpj_fmt: "34.457.571/0001-71",
+    setores: [
+      "ADMINISTRATIVO",
+      "PRODUCAO - MONTAGEM",
+      "PRODUCAO - SERRALHERIA",
+      "PRODUCAO - VIDRACARIA",
+      "PRODUCAO - VIDRACARIA - EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000300",
+    nome: "EXPRESSO RAQUEL LTDA",
+    cnpj: "03823190000216",
+    cnpj_fmt: "03.823.190/0002-16",
+    setores: [
+      "ESCRITORIO",
+      "EXPEDICAO",
+      "GALPAO",
+      "LOGISTICA",
+      "OPERACIONAL",
+      "OPERACIONAL - MOVIMENTAÇAO"
+    ]
+  },
+  {
+    codigo: "00000301",
+    nome: "TECNOBOR PRODUTOS PARA RECAUCHUTAGEM LTDA - MATRIZ",
+    cnpj: "33705792000159",
+    cnpj_fmt: "33.705.792/0001-59",
+    setores: [
+      "ADMINISTRATIVO - MATRIZ",
+      "VENDAS - MATRIZ"
+    ]
+  },
+  {
+    codigo: "00000309",
+    nome: "GISLAINE REGINA DOS SANTOS TONELI - LANCHONETE",
+    cnpj: "33013492000109",
+    cnpj_fmt: "33.013.492/0001-09",
+    setores: [
+      "COZINHA"
+    ]
+  },
+  {
+    codigo: "00000310",
+    nome: "MITUIE SEKI",
+    cnpj: "79933882800149",
+    cnpj_fmt: "79.933.882/8001-49",
+    setores: [
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000311",
+    nome: "GAMAFIX COMERCIO DE MATERIAIS PARA CONSTRUCAO LTDA",
+    cnpj: "24292794000172",
+    cnpj_fmt: "24.292.794/0001-72",
+    setores: [
+      "OPERACIONAL",
+      "OPERACIONAL - AJUDANTE",
+      "OPERACIONAL - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000312",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PEÇAS LTDA - N CENTRO",
+    cnpj: "54267463003401",
+    cnpj_fmt: "54.267.463/0034-01",
+    setores: [
+      "ACESSORIOS - N CENTRO",
+      "ADMINISTRACAO - LIMPEZA - N CENTRO",
+      "ADMINISTRACAO - N CENTRO",
+      "GERENCIA - N CENTRO",
+      "PECAS - N CENTRO",
+      "VENDAS - N CENTRO"
+    ]
+  },
+  {
+    codigo: "00000313",
+    nome: "NTM LOG EXPRESS TRANSPORTES EIRELI",
+    cnpj: "27752626000100",
+    cnpj_fmt: "27.752.626/0001-00",
+    setores: [
+      "ADMINISTRACAO",
+      "COMERCIAL",
+      "EXPEDICAO",
+      "FINANCEIRO",
+      "OPERACIONAL",
+      "OPERACIONAL - CARGAS",
+      "OPERACIONAL - TRANSPORTE",
+      "SAC"
+    ]
+  },
+  {
+    codigo: "00000314",
+    nome: "MERCEARIA KAMATO LTDA",
+    cnpj: "71951826000184",
+    cnpj_fmt: "71.951.826/0001-84",
+    setores: [
+      "ATENDIMENTO"
+    ]
+  },
+  {
+    codigo: "00000315",
+    nome: "RESTAURANTE NOVA OLINDA II",
+    cnpj: "11314025000186",
+    cnpj_fmt: "11.314.025/0001-86",
+    setores: [
+      "COZINHA",
+      "EXTERNO",
+      "SALAO"
+    ]
+  },
+  {
+    codigo: "00000316",
+    nome: "LANCHONETE SOBREDA LTDA",
+    cnpj: "50250596000156",
+    cnpj_fmt: "50.250.596/0001-56",
+    setores: [
+      "ADMINISTRACAO",
+      "COZINHA",
+      "SALAO"
+    ]
+  },
+  {
+    codigo: "00000317",
+    nome: "RESTAURANTE, ROTISSERIE E LANCHONETE ALEGRE LTDA",
+    cnpj: "46277950000169",
+    cnpj_fmt: "46.277.950/0001-69",
+    setores: [
+      "ADMINISTRACAO",
+      "COZINHA",
+      "SALAO",
+      "SALAO - LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000318",
+    nome: "GN3 AUTO CENTER LTDA",
+    cnpj: "31477257000162",
+    cnpj_fmt: "31.477.257/0001-62",
+    setores: [
+      "ADMINISTRATIVO",
+      "FUNILARIA",
+      "LAVAGEM",
+      "MONTAGEM",
+      "OFICINA",
+      "OPERACIONAL",
+      "PINTURA",
+      "POLIMENTO"
+    ]
+  },
+  {
+    codigo: "00000319",
+    nome: "CONDOMINIO EDIFICIO ORISSANGA",
+    cnpj: "53996872000118",
+    cnpj_fmt: "53.996.872/0001-18",
+    setores: [
+      "CONDOMINIO"
+    ]
+  },
+  {
+    codigo: "00000320",
+    nome: "GUIA NORTE SERVICE LTDA",
+    cnpj: "00685803000127",
+    cnpj_fmt: "00.685.803/0001-27",
+    setores: [
+      "GERAL - ADMINISTRATIVO",
+      "GERAL - COMERCIAL",
+      "GERAL - EXTERNO",
+      "GERAL - LIMPEZA",
+      "GERAL - LOGISTICA",
+      "GERAL - MECANICA"
+    ]
+  },
+  {
+    codigo: "00000321",
+    nome: "FALLME MODAS LTDA",
+    cnpj: "46005107000123",
+    cnpj_fmt: "46.005.107/0001-23",
+    setores: [
+      "ADMINISTRATIVO",
+      "EXPEDICAO",
+      "LIMPEZA",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000322",
+    nome: "ALOP DISTRIBUIDORA DE COSMETICOS E SANEANTES LTDA",
+    cnpj: "42824985000110",
+    cnpj_fmt: "42.824.985/0001-10",
+    setores: [
+      "ESTOQUE"
+    ]
+  },
+  {
+    codigo: "00000323",
+    nome: "DINIZ PRESTACAO DE SERVICOS TERCEIRIZADOS",
+    cnpj: "35800148000195",
+    cnpj_fmt: "35.800.148/0001-95",
+    setores: [
+      "ADMINISTRATIVO",
+      "ADMINISTRATIVO - PORTARIA",
+      "COZINHA",
+      "EXTERNO",
+      "LIMPEZA",
+      "LOGISTICA",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000324",
+    nome: "AESC E COMERCIO DE CONGELADOS LTDA",
+    cnpj: "20250034000141",
+    cnpj_fmt: "20.250.034/0001-41",
+    setores: [
+      "ADMINISTRACAO",
+      "ESTOQUE",
+      "ESTOQUE - FRIO",
+      "LOJA",
+      "PRODUCAO",
+      "PRODUCAO - LIMPEZA",
+      "PRODUCAO - MAQUINAS",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000325",
+    nome: "COMERCIO DE EQUIPAMENTOS NORTE SUL LTDA",
+    cnpj: "53138863000196",
+    cnpj_fmt: "53.138.863/0001-96",
+    setores: [
+      "ADMINISTRATIVO",
+      "ALMOXARIFADO",
+      "COBRANCA",
+      "COMPRAS",
+      "LIMPEZA",
+      "LOGISTICA",
+      "MANUTENCAO",
+      "PRODUCAO",
+      "PRODUCAO - ESCRITORIO",
+      "TRANSPORTES",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000326",
+    nome: "PROJETO BURGUER",
+    cnpj: "28778626000142",
+    cnpj_fmt: "28.778.626/0001-42",
+    setores: [
+      "ADMINISTRACAO",
+      "ATENDIMENTO",
+      "CAIXA",
+      "COZINHA"
+    ]
+  },
+  {
+    codigo: "00000327",
+    nome: "NIQUELACAO ESTRELA LTDA",
+    cnpj: "62148507000144",
+    cnpj_fmt: "62.148.507/0001-44",
+    setores: [
+      "OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000328",
+    nome: "JET SERVICE BOMBAS, BICOS INJETORES E COMERCIO DE PECAS LTDA",
+    cnpj: "45724418000180",
+    cnpj_fmt: "45.724.418/0001-80",
+    setores: [
+      "ADMINISTRATIVO",
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000329",
+    nome: "GIRO EMBALAGENS PRESTACAO DE SERVICOS GRAFICOS LTDA",
+    cnpj: "38422115000147",
+    cnpj_fmt: "38.422.115/0001-47",
+    setores: [
+      "PRODUCAO",
+      "PRODUCAO - IMPRESSAO",
+      "PRODUCAO - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000330",
+    nome: "CENTRO COMUNITARIO JOAO PAULO I - CEI",
+    cnpj: "51195410000176",
+    cnpj_fmt: "51.195.410/0001-76",
+    setores: [
+      "COORDENACAO",
+      "COZINHA",
+      "DIRETORIA",
+      "LIMPEZA",
+      "MANUTENCAO",
+      "SALA DE AULA"
+    ]
+  },
+  {
+    codigo: "00000331",
+    nome: "CENTRO COMUNITARIO JOAO PAULO I - CCA",
+    cnpj: "51195410000176",
+    cnpj_fmt: "51.195.410/0001-76",
+    setores: [
+      "ADMINISTRACAO",
+      "COORDENACAO",
+      "COZINHA",
+      "GERENCIA",
+      "LIMPEZA",
+      "SALA DE CONVIVENCIA"
+    ]
+  },
+  {
+    codigo: "00000332",
+    nome: "BIANCOS MANUTENCAO EM BOMBAS MOTORES E PAINEIS LTDA",
+    cnpj: "46975200000160",
+    cnpj_fmt: "46.975.200/0001-60",
+    setores: [
+      "COMERCIAL - COMPRAS",
+      "COMERCIAL - VENDAS",
+      "LIMPEZA",
+      "OFICINA",
+      "OFICINA - DESMONTAGEM",
+      "OFICINA - ENROLAMENTO",
+      "OFICINA - MONTAGEM",
+      "OFICINA - PINTURA"
+    ]
+  },
+  {
+    codigo: "00000333",
+    nome: "NEW TCE FARMA LOG TRANSPORTES LTDA",
+    cnpj: "41605140000170",
+    cnpj_fmt: "41.605.140/0001-70",
+    setores: [
+      "COMERCIAL"
+    ]
+  },
+  {
+    codigo: "00000334",
+    nome: "MODAS MIKONOS CONFECCOES DE ROUPAS LTDA",
+    cnpj: "05205319000258",
+    cnpj_fmt: "05.205.319/0002-58",
+    setores: [
+      "ACABAMENTO",
+      "ADMINISTRATIVO",
+      "CONFECCAO",
+      "EMBALAGEM",
+      "ESTAMPARIA",
+      "ESTOQUE",
+      "LIMPEZA",
+      "LOJA",
+      "PORTARIA"
+    ]
+  },
+  {
+    codigo: "00000335",
+    nome: "HIDRALRICA DISTRIBUIDORA DE TUBOS E CONEXOES EIRELI",
+    cnpj: "28026158000150",
+    cnpj_fmt: "28.026.158/0001-50",
+    setores: [
+      "ADMINISTRATIVO",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000336",
+    nome: "CHOKO MOTOS",
+    cnpj: "14596984000120",
+    cnpj_fmt: "14.596.984/0001-20",
+    setores: [
+      "LOJA - MECANICA"
+    ]
+  },
+  {
+    codigo: "00000337",
+    nome: "CONDOMINIO EDIFICIO ANA MARIA",
+    cnpj: "61063012000150",
+    cnpj_fmt: "61.063.012/0001-50",
+    setores: [
+      "CONDOMINIO",
+      "LIMPEZA",
+      "PORTARIA"
+    ]
+  },
+  {
+    codigo: "00000338",
+    nome: "WEST BRASIL COMERCIO DE CONFECCOES LTDA.",
+    cnpj: "07281243000194",
+    cnpj_fmt: "07.281.243/0001-94",
+    setores: [
+      "ADMINISTRATIVO",
+      "ESTOQUE"
+    ]
+  },
+  {
+    codigo: "00000339",
+    nome: "CONDOMINIO PIAZZA DI TOSCANA",
+    cnpj: "07238641000128",
+    cnpj_fmt: "07.238.641/0001-28",
+    setores: [
+      "CONDOMINIO",
+      "LIMPEZA",
+      "MANUTENCAO",
+      "MANUTENCAO PREDIAL",
+      "PORTARIA",
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000340",
+    nome: "TRYESTI COMERCIO E SERVICOS DE PRE-IMPRESSAO EIRELI",
+    cnpj: "06188576000100",
+    cnpj_fmt: "06.188.576/0001-00",
+    setores: [
+      "ACABAMENTO",
+      "ADMINISTRATIVO",
+      "EXTERNO",
+      "PRODUCAO",
+      "PRODUCAO - ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000341",
+    nome: "TREVISO SERVICOS GRAFICOS E EDITORA EIRELI",
+    cnpj: "28280211000144",
+    cnpj_fmt: "28.280.211/0001-44",
+    setores: [
+      "ACABAMENTO",
+      "ADMINISTRATIVO",
+      "EXTERNO",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000342",
+    nome: "ILM SANDALIAS LEGITIMAS LTDA",
+    cnpj: "46494497000142",
+    cnpj_fmt: "46.494.497/0001-42",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000343",
+    nome: "CONDOMINIO EDIFICIO PORTAL DO ANALIA FRANCO",
+    cnpj: "59943365000100",
+    cnpj_fmt: "59.943.365/0001-00",
+    setores: [
+      "PORTARIA",
+      "SERVICOS GERAIS",
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000344",
+    nome: "KAZO´S LAVANDERIA",
+    cnpj: "21227526000189",
+    cnpj_fmt: "21.227.526/0001-89",
+    setores: [
+      "LAVANDERIA"
+    ]
+  },
+  {
+    codigo: "00000345",
+    nome: "GUIA NORTE AUTO CENTER LTDA",
+    cnpj: "05397616000161",
+    cnpj_fmt: "05.397.616/0001-61",
+    setores: [
+      "ESTOQUE",
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000346",
+    nome: "MDS INDUSTRIA E COMERCIO DE ARTIGOS METALICOS EIRELI",
+    cnpj: "07729698000120",
+    cnpj_fmt: "07.729.698/0001-20",
+    setores: [
+      "ADMINISTRATIVO",
+      "IMPRESSAO",
+      "PINTURA",
+      "PONTEADEIRA",
+      "PRODUCAO",
+      "SOLDA",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000347",
+    nome: "DATA PRINT BR LTDA",
+    cnpj: "22883081000158",
+    cnpj_fmt: "22.883.081/0001-58",
+    setores: [
+      "ACABAMENTO",
+      "ADMINISTRATIVO",
+      "COMERCIAL",
+      "CORTE",
+      "GRAFICA",
+      "GRAFICA - LIMPEZA",
+      "GRAFICA - MOVIMENTACAO",
+      "IMPRESSAO",
+      "RECEPCAO",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000348",
+    nome: "EDIFICIO SAN MARINO",
+    cnpj: "07118926000125",
+    cnpj_fmt: "07.118.926/0001-25",
+    setores: [
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000349",
+    nome: "ESPETOMAIS FESTAS & EVENTOS EIRELI",
+    cnpj: "29805998000183",
+    cnpj_fmt: "29.805.998/0001-83",
+    setores: [
+      "EVENTOS",
+      "LOJA",
+      "LOJA - ALMOXARIFADO",
+      "LOJA - OPERACIONAL",
+      "LOJA - OPERACIONAL II",
+      "LOJA - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000350",
+    nome: "MEGA LIDER SERVICOS SOCIEDADE UNIPESSOAL LTDA",
+    cnpj: "42086375000166",
+    cnpj_fmt: "42.086.375/0001-66",
+    setores: [
+      "LOJA",
+      "PISTA"
+    ]
+  },
+  {
+    codigo: "00000351",
+    nome: "JUVILO COMERCIO DE OPORTUNIDADES LTDA",
+    cnpj: "20034589000156",
+    cnpj_fmt: "20.034.589/0001-56",
+    setores: [
+      "ADMINISTRACAO"
+    ]
+  },
+  {
+    codigo: "00000352",
+    nome: "SUPRICORP SUPRIMENTOS LTDA - BOICUCANGA II",
+    cnpj: "54651716003365",
+    cnpj_fmt: "54.651.716/0033-65",
+    setores: [
+      "LOJA - BOICUCANGA II",
+      "LOJA - BOICUCANGA II - EMPILHADEIRA",
+      "LOJA - BOICUCANGA II - EXTERNO",
+      "LOJA - BOICUCANGA II - TRANSPORTES",
+      "LOJA - LIMPEZA - BOICUCANGA II"
+    ]
+  },
+  {
+    codigo: "00000353",
+    nome: "CONDOMINIO EDIFICIO CELIA",
+    cnpj: "00241929000102",
+    cnpj_fmt: "00.241.929/0001-02",
+    setores: [
+      "LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000354",
+    nome: "NSA RECICLAGEM DE OLEO VEGETAL EIRELI",
+    cnpj: "25450031000175",
+    cnpj_fmt: "25.450.031/0001-75",
+    setores: [
+      "ADMINISTRACAO",
+      "EXTERNO",
+      "EXTERNO - CARGA"
+    ]
+  },
+  {
+    codigo: "00000355",
+    nome: "ESTACIONAMENTO ESTRELA DO JB LTDA",
+    cnpj: "02000483000150",
+    cnpj_fmt: "02.000.483/0001-50",
+    setores: [
+      "ESTACIONAMENTO"
+    ]
+  },
+  {
+    codigo: "00000356",
+    nome: "NORT PEL INDUSTRIA E COMERCIO DE MATERIAIS DE EMBALAGENS LTDA",
+    cnpj: "00555368000116",
+    cnpj_fmt: "00.555.368/0001-16",
+    setores: [
+      "ADMINISTRATIVO",
+      "FABRICA",
+      "FABRICA - CONFERENCIA",
+      "FABRICA - ESTOQUE",
+      "FABRICA - ESTOQUE ALTURA",
+      "FABRICA - MANUTENCAO",
+      "LIMPEZA",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000357",
+    nome: "OLIPEL COMERCIO DE EMBALAGENS LTDA",
+    cnpj: "64165665000138",
+    cnpj_fmt: "64.165.665/0001-38",
+    setores: [
+      "ADMINISTRATIVO",
+      "ADMINISTRATIVO - LIMPEZA",
+      "FABRICA",
+      "FABRICA - TRANSPORTES",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000358",
+    nome: "ULTRAFARMA JD JAPAO",
+    cnpj: "47077214000120",
+    cnpj_fmt: "47.077.214/0001-20",
+    setores: [
+      "LOJA - APLICACAO",
+      "LOJA - BALCAO",
+      "LOJA - CAIXA"
+    ]
+  },
+  {
+    codigo: "00000359",
+    nome: "ADRIANA TEIXEIRA PORTO",
+    cnpj: "37027485000117",
+    cnpj_fmt: "37.027.485/0001-17",
+    setores: [
+      "GERAL - ADMINISTRATIVO",
+      "GERAL - EMPILHADEIRA",
+      "GERAL - EXTERNO",
+      "GERAL - MANUTENCAO",
+      "GERAL - MECANICO",
+      "GERAL - OPERACIONAL",
+      "GERAL - PINTURA",
+      "GERAL - PORTARIA"
+    ]
+  },
+  {
+    codigo: "00000360",
+    nome: "DOM JOAO COMERCIO E CONFECCOES",
+    cnpj: "02772194000179",
+    cnpj_fmt: "02.772.194/0001-79",
+    setores: [
+      "CONFECCAO",
+      "ESTOQUE",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000361",
+    nome: "JFC ENGENHARIA LTDA",
+    cnpj: "12455099000103",
+    cnpj_fmt: "12.455.099/0001-03",
+    setores: [
+      "OBRAS",
+      "OBRAS - ALVENARIA",
+      "OBRAS - ARMACAO",
+      "OBRAS - CARPINTARIA",
+      "OBRAS - ELETRICA",
+      "OBRAS - PINTURA",
+      "OBRAS - SERRALHERIA"
+    ]
+  },
+  {
+    codigo: "00000362",
+    nome: "LESLYE MODAS LTDA",
+    cnpj: "46714070000102",
+    cnpj_fmt: "46.714.070/0001-02",
+    setores: [
+      "ADMINISTRATIVO",
+      "CORTE",
+      "COSTURA",
+      "ESTAMPA",
+      "GERAL",
+      "MANUTENCAO",
+      "PRODUCAO",
+      "TRANSPORTE",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000363",
+    nome: "M4K - COMERCIO, IMPORTACAO E EXPORTACAO LTDA",
+    cnpj: "28643901000110",
+    cnpj_fmt: "28.643.901/0001-10",
+    setores: [
+      "ADMINISTRATIVO",
+      "ALMOXARIFADO"
+    ]
+  },
+  {
+    codigo: "00000364",
+    nome: "GIOPLAST COMERCIO DE PLASTICOS LTDA",
+    cnpj: "54195938000133",
+    cnpj_fmt: "54.195.938/0001-33",
+    setores: [
+      "PRODUCAO",
+      "PRODUCAO - LOGISTICA",
+      "PRODUCAO - MANUTENCAO",
+      "PRODUCAO - MOINHO",
+      "PRODUCAO - MOVIMENTACAO",
+      "PRODUCAO - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000365",
+    nome: "TVG COMERCIO E SERVICOS DE TUBOS E CONEXOES DE PEAD EIRELI",
+    cnpj: "18596958000152",
+    cnpj_fmt: "18.596.958/0001-52",
+    setores: [
+      "ADMINISTRATIVO",
+      "EXPEDICAO",
+      "LIMPEZA",
+      "MANUTENCAO",
+      "OPERACIONAL",
+      "OPERACIONAL - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000366",
+    nome: "CLAUDIO LUIZ DE SOUZA PRODUTOS DENTARIOS",
+    cnpj: "15367308000147",
+    cnpj_fmt: "15.367.308/0001-47",
+    setores: [
+      "ESCRITORIO",
+      "EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000367",
+    nome: "GC CONSTRUCAO DE QUADRA EIRELI",
+    cnpj: "35135034000178",
+    cnpj_fmt: "35.135.034/0001-78",
+    setores: [
+      "EXTERNO - ALVENARIA",
+      "EXTERNO - GERAL",
+      "EXTERNO - PINTURA",
+      "EXTERNO - SERRALHERIA"
+    ]
+  },
+  {
+    codigo: "00000368",
+    nome: "CONTABIL KINLEX S/S LTDA",
+    cnpj: "62420062000100",
+    cnpj_fmt: "62.420.062/0001-00",
+    setores: [
+      "ESCRITORIO",
+      "EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000369",
+    nome: "IRMAOS CACOMO AUTO PECAS LTDA",
+    cnpj: "74362443000169",
+    cnpj_fmt: "74.362.443/0001-69",
+    setores: [
+      "ADMINISTRATIVO",
+      "EXTERNO",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000370",
+    nome: "MASTERLOG TRANSPORTES E SERVICOS",
+    cnpj: "07639739000197",
+    cnpj_fmt: "07.639.739/0001-97",
+    setores: [
+      "TRANSPORTES",
+      "TRANSPORTES - ADMINISTRATIVO",
+      "TRANSPORTES - CARGAS"
+    ]
+  },
+  {
+    codigo: "00000371",
+    nome: "TOKIO COMERCIAL DE AUTO PECAS LTDA",
+    cnpj: "45027281000104",
+    cnpj_fmt: "45.027.281/0001-04",
+    setores: [
+      "ADMINISTRATIVO",
+      "ESTOQUE",
+      "EXTERNO",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000372",
+    nome: "TRANSPORTES DELLA VOLPE SA COMERCIO E INDUSTRIA - ANANIN",
+    cnpj: "61139432013150",
+    cnpj_fmt: "61.139.432/0131-50",
+    setores: [
+      "MTB OPC MOTORISTA"
+    ]
+  },
+  {
+    codigo: "00000373",
+    nome: "ISABEL CARDOSO DE ALMEIDA BUK",
+    cnpj: "27317531000169",
+    cnpj_fmt: "27.317.531/0001-69",
+    setores: [
+      "COZINHA",
+      "GERAL",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000374",
+    nome: "IMMAS SPORT MODAS LTDA",
+    cnpj: "43159102000167",
+    cnpj_fmt: "43.159.102/0001-67",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000375",
+    nome: "CHARLES M DA SILVA",
+    cnpj: "28607374000199",
+    cnpj_fmt: "28.607.374/0001-99",
+    setores: [
+      "ADMINISTRATIVO",
+      "LOJA",
+      "LOJA - ESTOQUE",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000376",
+    nome: "PORTO CELL LTDA",
+    cnpj: "34434790000135",
+    cnpj_fmt: "34.434.790/0001-35",
+    setores: [
+      "AREA TECNICA",
+      "ATENDIMENTO"
+    ]
+  },
+  {
+    codigo: "00000377",
+    nome: "TRANSPORTADORA JOMI",
+    cnpj: "58113440000135",
+    cnpj_fmt: "58.113.440/0001-35",
+    setores: [
+      "FUNILARIA",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000378",
+    nome: "IZIDIA MARIA DA SILVA",
+    cnpj: "11124924000116",
+    cnpj_fmt: "11.124.924/0001-16",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000379",
+    nome: "JU GOMES STORE LTDA",
+    cnpj: "47658194000180",
+    cnpj_fmt: "47.658.194/0001-80",
+    setores: [
+      "ADMINISTRATIVO",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000380",
+    nome: "LUVISETTO & VIEIRA ASSESSORIA CONTABIL S/S",
+    cnpj: "24022539000100",
+    cnpj_fmt: "24.022.539/0001-00",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000381",
+    nome: "DE MARTINS MODAS LTDA",
+    cnpj: "55663611000101",
+    cnpj_fmt: "55.663.611/0001-01",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000382",
+    nome: "JNITA AUTO PECAS LTDA",
+    cnpj: "22893608000125",
+    cnpj_fmt: "22.893.608/0001-25",
+    setores: [
+      "ADMINISTRATIVO",
+      "ESTOQUE",
+      "EXTERNO",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000383",
+    nome: "BRASIL ESCOLAR PAPELARIAS E AFINS ASSOCIADOS LTDA",
+    cnpj: "72020134000185",
+    cnpj_fmt: "72.020.134/0001-85",
+    setores: [
+      "ADMINISTRACAO"
+    ]
+  },
+  {
+    codigo: "00000384",
+    nome: "TANI MOTORS DISTRIBUIDORA DE VEICULOS - CARAGUATATUBA",
+    cnpj: "03647692000314",
+    cnpj_fmt: "03.647.692/0003-14",
+    setores: [
+      "ADMINISTRATIVO - CARAGUA",
+      "ADMINISTRATIVO - LIMPEZA - CARAGUA",
+      "MECANICA - CARAGUA",
+      "PECAS - CARAGUA",
+      "PECAS - VENDAS - CARAGUA",
+      "RECEPCAO TECNICA - CARAGUA",
+      "VENDAS - CARAGUA"
+    ]
+  },
+  {
+    codigo: "00000385",
+    nome: "SAGRES REPARADORA DE VEICULOS LTDA",
+    cnpj: "02336119000165",
+    cnpj_fmt: "02.336.119/0001-65",
+    setores: [
+      "OFICINA - FUNILARIA",
+      "OFICINA - GERAL"
+    ]
+  },
+  {
+    codigo: "00000386",
+    nome: "WLDESP ORGANIZACAO DE DOCUMENTOS LTDA",
+    cnpj: "14730266000102",
+    cnpj_fmt: "14.730.266/0001-02",
+    setores: [
+      "ADMINISTRATIVO",
+      "TRANSPORTE EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000387",
+    nome: "TRANSPORTES DELLA VOLPE SA - PARAUPEBAS",
+    cnpj: "61139432012774",
+    cnpj_fmt: "61.139.432/0127-74",
+    setores: [
+      "PRB-OPC OPERACAO"
+    ]
+  },
+  {
+    codigo: "00000388",
+    nome: "3R MOVEIS E ESTOFADOS LTDA",
+    cnpj: "43526742000168",
+    cnpj_fmt: "43.526.742/0001-68",
+    setores: [
+      "ADMINISTRATIVO",
+      "FABRICA - CORTE",
+      "FABRICA - COSTURA",
+      "FABRICA - MARCENARIA",
+      "FABRICA - MONTAGEM",
+      "FABRICA - TAPECARIA",
+      "FABRICA -GERAL"
+    ]
+  },
+  {
+    codigo: "00000389",
+    nome: "PURO ESTILO ELEGANTE MODA LTDA",
+    cnpj: "47280786000101",
+    cnpj_fmt: "47.280.786/0001-01",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000390",
+    nome: "JVM ESTACIONAMENTO LTDA",
+    cnpj: "33317029000150",
+    cnpj_fmt: "33.317.029/0001-50",
+    setores: [
+      "ESTACIONAMENTO"
+    ]
+  },
+  {
+    codigo: "00000391",
+    nome: "PIZZARIA DO PORTUGA",
+    cnpj: "52510294000103",
+    cnpj_fmt: "52.510.294/0001-03",
+    setores: [
+      "CAIXA",
+      "COZINHA"
+    ]
+  },
+  {
+    codigo: "00000392",
+    nome: "CAFETERIA CHOCOLATARIA E COMERCIO M.C. LTDA",
+    cnpj: "48184874000172",
+    cnpj_fmt: "48.184.874/0001-72",
+    setores: [
+      "COZINHA",
+      "LOJA",
+      "LOJA - GERENCIA"
+    ]
+  },
+  {
+    codigo: "00000393",
+    nome: "R. A. DOS SANTOS - DOCUMENTOS EMPRESARIAIS",
+    cnpj: "10382207000121",
+    cnpj_fmt: "10.382.207/0001-21",
+    setores: [
+      "ESCRITORIO"
+    ]
+  },
+  {
+    codigo: "00000394",
+    nome: "BOMBONIERI CACIAMANI LTDA",
+    cnpj: "07144255000177",
+    cnpj_fmt: "07.144.255/0001-77",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000395",
+    nome: "WNT CONSTRUCOES LTDA",
+    cnpj: "45988064000180",
+    cnpj_fmt: "45.988.064/0001-80",
+    setores: [
+      "OBRAS"
+    ]
+  },
+  {
+    codigo: "00000396",
+    nome: "SAT ADMINISTRACAO DE BENS PROPRIOS LTDA",
+    cnpj: "13699990000140",
+    cnpj_fmt: "13.699.990/0001-40",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000397",
+    nome: "ESPACO LALU MODA E BELEZA",
+    cnpj: "21495782000157",
+    cnpj_fmt: "21.495.782/0001-57",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000398",
+    nome: "LALU MODAS",
+    cnpj: "34988171000192",
+    cnpj_fmt: "34.988.171/0001-92",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000399",
+    nome: "YANES COMERCIO DE ROUPAS LTDA",
+    cnpj: "03035126000190",
+    cnpj_fmt: "03.035.126/0001-90",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000400",
+    nome: "THA THA FANTASIAS LTDA",
+    cnpj: "02562195000199",
+    cnpj_fmt: "02.562.195/0001-99",
+    setores: [
+      "CONFECCAO",
+      "CONFECCAO - CORTE",
+      "CONFECCAO - GERAL"
+    ]
+  },
+  {
+    codigo: "00000401",
+    nome: "ARPEX ENGENHARIA",
+    cnpj: "28424007000230",
+    cnpj_fmt: "28.424.007/0002-30",
+    setores: [
+      "ADMINISTRATIVO",
+      "LIMPEZA",
+      "MANUTENCAO PREDIAL",
+      "OPERACIONAL EXTERNO ELETRICO",
+      "OPERACIONAL EXTERNO MECANICO",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000402",
+    nome: "ITAMARATY ETIQUETAS E PAPEIS LTDA",
+    cnpj: "53888459000130",
+    cnpj_fmt: "53.888.459/0001-30",
+    setores: [
+      "ADMINISTRACAO",
+      "IMPRESSAO",
+      "PRODUCAO",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000403",
+    nome: "CARDAN PAULISTA COMERCIO E SERVICOS LTDA",
+    cnpj: "67377796000177",
+    cnpj_fmt: "67.377.796/0001-77",
+    setores: [
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000404",
+    nome: "LIWANA INDUSTRIA E COMERCIO DE ARTEFATOS DE BORRACHA LTDA",
+    cnpj: "09097824000104",
+    cnpj_fmt: "09.097.824/0001-04",
+    setores: [
+      "ADMINISTRACAO",
+      "GERAL",
+      "GERAL - MISTURADOR",
+      "GERAL - PRENSA",
+      "GERAL - TORNO"
+    ]
+  },
+  {
+    codigo: "00000405",
+    nome: "MITROPOULOS COMERCIO DE AREIA, PEDRA TERRA PLANAGEM LTDA",
+    cnpj: "26962428000109",
+    cnpj_fmt: "26.962.428/0001-09",
+    setores: [
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000406",
+    nome: "NL SERVICOS AUTOMOTIVOS LTDA",
+    cnpj: "19247838000102",
+    cnpj_fmt: "19.247.838/0001-02",
+    setores: [
+      "OPERACIONAL",
+      "OPERACIONAL - APLICACAO",
+      "OPERACIONAL - LAVAGEM",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000407",
+    nome: "HELP COMPUTER COMERCIO DE INFORMATICA LTDA",
+    cnpj: "01797478000157",
+    cnpj_fmt: "01.797.478/0001-57",
+    setores: [
+      "OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000408",
+    nome: "MARCOS ANTONIO MARCHIORI",
+    cnpj: "14024618000104",
+    cnpj_fmt: "14.024.618/0001-04",
+    setores: [
+      "MECANICA"
+    ]
+  },
+  {
+    codigo: "00000409",
+    nome: "JULIANA FABIANE PUJOL MEDEIROS",
+    cnpj: "30861727000124",
+    cnpj_fmt: "30.861.727/0001-24",
+    setores: [
+      "ALMOXARIFADO",
+      "COMERCIAL",
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000410",
+    nome: "ABF SERVICOS LTDA",
+    cnpj: "20830210000114",
+    cnpj_fmt: "20.830.210/0001-14",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000411",
+    nome: "SOCIEDADE RESIDENCIAL TOCA DOS DOURADOS",
+    cnpj: "00522562000103",
+    cnpj_fmt: "00.522.562/0001-03",
+    setores: [
+      "ADMINISTRACAO",
+      "LIMPEZA",
+      "MANUTENCAO",
+      "PORTARIA"
+    ]
+  },
+  {
+    codigo: "00000412",
+    nome: "RAIOFLEX MOVEIS PARA ESCRITORIO LTDA",
+    cnpj: "10482609000106",
+    cnpj_fmt: "10.482.609/0001-06",
+    setores: [
+      "ESCRITORIO"
+    ]
+  },
+  {
+    codigo: "00000414",
+    nome: "AUTO SERVICE REPARACAO AUTOMOTIVA LTDA",
+    cnpj: "36060272000124",
+    cnpj_fmt: "36.060.272/0001-24",
+    setores: [
+      "ADMINISTRATIVO",
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000415",
+    nome: "BRUNO MARCEL MELO RAMIRES",
+    cnpj: "20505642000150",
+    cnpj_fmt: "20.505.642/0001-50",
+    setores: [
+      "ADMINISTRACAO",
+      "ESTOQUE",
+      "LIMPEZA",
+      "OPERACIONAL",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000416",
+    nome: "VILA MARIA CAFE E EMPORIO LTDA",
+    cnpj: "46231334000177",
+    cnpj_fmt: "46.231.334/0001-77",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000417",
+    nome: "VILA GALVAO COMERCIO DE BOLOS LTDA",
+    cnpj: "27502668000193",
+    cnpj_fmt: "27.502.668/0001-93",
+    setores: [
+      "LOJA - ATENDIMENTO",
+      "LOJA - PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000418",
+    nome: "LIMA COMERCIO DE BOLOS LTDA",
+    cnpj: "25465067000122",
+    cnpj_fmt: "25.465.067/0001-22",
+    setores: [
+      "LOJA - ATENDENTE",
+      "LOJA - PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000419",
+    nome: "DANIEL GARCIA SANTOS INFORMATICA",
+    cnpj: "22738948000181",
+    cnpj_fmt: "22.738.948/0001-81",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000420",
+    nome: "INNOVIDEA TREINAMENTO, GESTAO E CORRETORA DE SEGUROS LTDA",
+    cnpj: "11687923000180",
+    cnpj_fmt: "11.687.923/0001-80",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000421",
+    nome: "NORTCOMP COMERCIAL ELETRONICA LTDA.",
+    cnpj: "10308562000150",
+    cnpj_fmt: "10.308.562/0001-50",
+    setores: [
+      "ALMOXARIFADO"
+    ]
+  },
+  {
+    codigo: "00000422",
+    nome: "PETERSON CAIO DOS SANTOS MIOTO DESENTUPIDORA",
+    cnpj: "32617922000139",
+    cnpj_fmt: "32.617.922/0001-39",
+    setores: [
+      "OPERACIONAL",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000423",
+    nome: "JAQUELINE OLIVEIRA FERNANDES TRANSPORTES",
+    cnpj: "20617085000169",
+    cnpj_fmt: "20.617.085/0001-69",
+    setores: [
+      "ADMINISTRATIVO",
+      "LOGISTICA",
+      "LOGISTICA - EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000424",
+    nome: "PONTO FIXO BOLSAS PROMOCIONAIS LTDA.",
+    cnpj: "46055411000185",
+    cnpj_fmt: "46.055.411/0001-85",
+    setores: [
+      "CONFECCAO"
+    ]
+  },
+  {
+    codigo: "00000425",
+    nome: "ATHENAS COMERCIO DE PRODUTOS ALIMENTICIOS, MERCEARIA E ARMAZEM LTDA",
+    cnpj: "21976214000178",
+    cnpj_fmt: "21.976.214/0001-78",
+    setores: [
+      "GERAL",
+      "GERAL - TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000426",
+    nome: "QUALYCAR LOCADORA LTDA",
+    cnpj: "56699325000169",
+    cnpj_fmt: "56.699.325/0001-69",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000427",
+    nome: "TIETE PROMOCOES E EVENTOS LTDA",
+    cnpj: "49401239000162",
+    cnpj_fmt: "49.401.239/0001-62",
+    setores: [
+      "ADMINISTRATIVO",
+      "ADMINISTRATIVO - GERENCIA",
+      "COZINHA",
+      "COZINHA - CHURRASQUEIRA",
+      "ESTACIONAMENTO",
+      "LIMPEZA",
+      "MANUTENCAO",
+      "SALAO",
+      "SALAO - CAIXA",
+      "SALAO - PASSADOR"
+    ]
+  },
+  {
+    codigo: "00000428",
+    nome: "NOBRES DOCES DISTRIBUIDORA LTDA",
+    cnpj: "63075154000162",
+    cnpj_fmt: "63.075.154/0001-62",
+    setores: [
+      "ADMINISTRATIVO",
+      "ENTREGAS",
+      "EXPEDICAO",
+      "EXPEDICAO - MOVIMENTACAO",
+      "LIMPEZA",
+      "PREPARACAO"
+    ]
+  },
+  {
+    codigo: "00000430",
+    nome: "PRIMARCA VEICULOS LTDA - SAO MIGUEL",
+    cnpj: "63078489001025",
+    cnpj_fmt: "63.078.489/0010-25",
+    setores: [
+      "ACESSORIOS - SAO MIGUEL",
+      "ADMINISTRATIVO - LIMPEZA - SAO MIGUEL",
+      "ADMINISTRATIVO - MANUTENCAO - SAO MIGUEL",
+      "ADMINISTRATIVO - PORTARIA - SAO MIGUEL",
+      "ADMINISTRATIVO - SAO MIGUEL",
+      "CENTRAL ATENDIMENTO - SAO MIGUEL",
+      "OFICINA PRODUTIVOS - SAO MIGUEL",
+      "PECAS - SAO MIGUEL",
+      "VENDAS VEICULOS - PREPARACAO - SAO MIGUEL",
+      "VENDAS VEICULOS - SAO MIGUEL"
+    ]
+  },
+  {
+    codigo: "00000431",
+    nome: "PRIMARCA VEICULOS LTDA - GOIAS",
+    cnpj: "63078489000991",
+    cnpj_fmt: "63.078.489/0009-91",
+    setores: [
+      "CENTRAL ATENDIMENTO - GOIAS",
+      "CENTRAL ATENDIMENTO - LIMPEZA - GOIAS",
+      "OFICINA PRODUTIVOS - GOIAS"
+    ]
+  },
+  {
+    codigo: "00000432",
+    nome: "GUIA NORTE PARK LTDA",
+    cnpj: "49195325000166",
+    cnpj_fmt: "49.195.325/0001-66",
+    setores: [
+      "ADMINISTRATIVO",
+      "ENTREGA",
+      "LIMPEZA",
+      "TECNICO"
+    ]
+  },
+  {
+    codigo: "00000433",
+    nome: "CENTRO EDUCACIONAL TUCURUVI LTDA",
+    cnpj: "48061674000122",
+    cnpj_fmt: "48.061.674/0001-22",
+    setores: [
+      "ADMINISTRATIVO",
+      "AGENCIA DE ENCAMINHAMENTO",
+      "COMERCIAL",
+      "COMERCIAL - EXTERNO",
+      "FINANCEIRO",
+      "PEDAGOGICO",
+      "POS VENDAS",
+      "SERVICOS GERAIS"
+    ]
+  },
+  {
+    codigo: "00000434",
+    nome: "APARENCIA PERFEITA ETIQUETAS E RIBBONS LTDA",
+    cnpj: "06057928000199",
+    cnpj_fmt: "06.057.928/0001-99",
+    setores: [
+      "OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000435",
+    nome: "M. SANTANA DA SILVA",
+    cnpj: "13538118000110",
+    cnpj_fmt: "13.538.118/0001-10",
+    setores: [
+      "OPERACIONAL",
+      "OPERACIONAL - EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000436",
+    nome: "FABIANA DANNA MACHADO",
+    cnpj: "49204003000136",
+    cnpj_fmt: "49.204.003/0001-36",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000437",
+    nome: "100 FRONTEIRAS AVIAMENTOS E TECIDOS LTDA",
+    cnpj: "28876872000137",
+    cnpj_fmt: "28.876.872/0001-37",
+    setores: [
+      "ESTOQUE",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000438",
+    nome: "CASA DE SUCO JARDIM DO LAGO LTDA",
+    cnpj: "35799852000175",
+    cnpj_fmt: "35.799.852/0001-75",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000439",
+    nome: "QUALIT TECNOLOGIA LTDA",
+    cnpj: "37297244000198",
+    cnpj_fmt: "37.297.244/0001-98",
+    setores: [
+      "DEPARTAMENTO COMERCIAL",
+      "DEPARTAMENTO COMERCIAL - CLIENTE"
+    ]
+  },
+  {
+    codigo: "00000440",
+    nome: "CWMPT DE AQUINO COMERCIO LTDA (SLU)",
+    cnpj: "36704480000119",
+    cnpj_fmt: "36.704.480/0001-19",
+    setores: [
+      "ESCRITORIO",
+      "ESTOQUE"
+    ]
+  },
+  {
+    codigo: "00000442",
+    nome: "TRANSPORTES DELLA VOLPE S A COMERCIO E INDUSTRIA - VARZEA GRANDE",
+    cnpj: "61139432016176",
+    cnpj_fmt: "61.139.432/0161-76",
+    setores: [
+      "ADMINISTRATIVO - ERO BRASIL"
+    ]
+  },
+  {
+    codigo: "00000443",
+    nome: "REFRINTER SERVICOS E COMERCIO LTDA",
+    cnpj: "48058550000198",
+    cnpj_fmt: "48.058.550/0001-98",
+    setores: [
+      "OPERACIONAL EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000444",
+    nome: "REFRIGERACAO INTERNACIONAL E COMERCIO DE PECAS LTDA",
+    cnpj: "55166797000193",
+    cnpj_fmt: "55.166.797/0001-93",
+    setores: [
+      "ADMINISTRATIVO",
+      "OPERACIONAL EXTERNO"
+    ]
+  },
+  {
+    codigo: "00000445",
+    nome: "NA WEB GROUP DE MARCAS LICENCIADAS LTDA - ARUJA",
+    cnpj: "39269114000177",
+    cnpj_fmt: "39.269.114/0001-77",
+    setores: [
+      "ADMINISTRATIVO",
+      "ATENDIMENTO",
+      "COMPRAS - ARUJA",
+      "ECOMMERCE - ARUJA",
+      "ECOMMERCE - ARUJA - LOGISTICA",
+      "FINANCEIRO - ARUJA",
+      "GERAL - ARUJA",
+      "GERAL - ARUJA - TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000446",
+    nome: "ARPEX ENGENHARIA LTDA MATRIZ",
+    cnpj: "28424007000150",
+    cnpj_fmt: "28.424.007/0001-50",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000447",
+    nome: "CONDOMINIO EDIFICIO TORRE DEL MAR",
+    cnpj: "10502430000165",
+    cnpj_fmt: "10.502.430/0001-65",
+    setores: [
+      "GERAL",
+      "PORTARIA",
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000448",
+    nome: "T.99 REPRESENTACOES LTDA",
+    cnpj: "05485094000150",
+    cnpj_fmt: "05.485.094/0001-50",
+    setores: [
+      "ADMINISTRATIVO",
+      "GERAL"
+    ]
+  },
+  {
+    codigo: "00000449",
+    nome: "SUPERMERCADO COSMORAMA",
+    cnpj: "31711651000113",
+    cnpj_fmt: "31.711.651/0001-13",
+    setores: [
+      "ADMINISTRATIVO",
+      "GERAL",
+      "PADARIA"
+    ]
+  },
+  {
+    codigo: "00000450",
+    nome: "MATEX COMERCIO DE TECIDOS LTDA",
+    cnpj: "50976512000166",
+    cnpj_fmt: "50.976.512/0001-66",
+    setores: [
+      "LOJA",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000451",
+    nome: "ISA COMERCIO DE ARTIGOS MILITARES E ESPORTIVOS LTDA",
+    cnpj: "68309418000119",
+    cnpj_fmt: "68.309.418/0001-19",
+    setores: [
+      "COFRE - ESTANDE DE TIRO",
+      "COFRE ARMAZENAMENTO",
+      "FINANCEIRO",
+      "LOJA",
+      "LOJA - CAIXA"
+    ]
+  },
+  {
+    codigo: "00000452",
+    nome: "PRIMARCA VEICULOS LTDA - JABAQUARA",
+    cnpj: "63078489001297",
+    cnpj_fmt: "63.078.489/0012-97",
+    setores: [
+      "ACESSORIOS - VENDAS - JABAQUARA",
+      "ADMINISTRATIVO - JABAQUARA",
+      "ADMINISTRATIVO - LIMPEZA - JABAQUARA",
+      "ADMINISTRATIVO - MANUTENCAO - JABAQUARA",
+      "ADMINISTRATIVO - PORTARIA - JABAQUARA",
+      "CENTRAL ATENDIMENTO - JABAQUARA",
+      "OFICINA PRODUTIVOS - JABAQUARA",
+      "PECAS - JABAQUARA",
+      "VENDAS VEICULOS - JABAQUARA",
+      "VENDAS VEICULOS - PREPARACAO - JABAQUARA"
+    ]
+  },
+  {
+    codigo: "00000453",
+    nome: "CONDOMINIO ARQUIPELAGO DOS ACORES",
+    cnpj: "08348423000109",
+    cnpj_fmt: "08.348.423/0001-09",
+    setores: [
+      "GERAL",
+      "LIMPEZA",
+      "PORTARIA",
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000454",
+    nome: "SABORES DA TERRA COMERCIO DE ALIMENTOS LTDA",
+    cnpj: "45507368000189",
+    cnpj_fmt: "45.507.368/0001-89",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000455",
+    nome: "NIPPON EXPRESS DO BRASIL TRANSPORTES INTERNACIONAIS LTDA - GUARULHOS",
+    cnpj: "51595908000983",
+    cnpj_fmt: "51.595.908/0009-83",
+    setores: [
+      "LOGISTICA - GUARULHOS",
+      "LOGISTICA - GUARULHOS - ESCRITORIO"
+    ]
+  },
+  {
+    codigo: "00000456",
+    nome: "MILCY COSMETICOS LTDA",
+    cnpj: "31863783000160",
+    cnpj_fmt: "31.863.783/0001-60",
+    setores: [
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000457",
+    nome: "EM FOODS EVENTOS LTDA",
+    cnpj: "08699095000195",
+    cnpj_fmt: "08.699.095/0001-95",
+    setores: [
+      "EVENTOS"
+    ]
+  },
+  {
+    codigo: "00000458",
+    nome: "LRA MANUTENCAO EM MOTORES ELETRICOS MOTOREDUTORES E BOMBAS LTDA",
+    cnpj: "52622674000121",
+    cnpj_fmt: "52.622.674/0001-21",
+    setores: [
+      "LIMPEZA",
+      "OFICINA",
+      "OFICINA - MONTAGEM",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000459",
+    nome: "PRISMA ALBUNS FOTOGRAFICOS",
+    cnpj: "71764922000113",
+    cnpj_fmt: "71.764.922/0001-13",
+    setores: [
+      "LIMPEZA",
+      "PRODUCAO",
+      "PRODUCAO - ENCADERNACAO",
+      "PRODUCAO - SOLDA ELETRONICA",
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000460",
+    nome: "MUROCAL COMERCIO DE MATERIAL ELETRICO LTDA",
+    cnpj: "10734620000108",
+    cnpj_fmt: "10.734.620/0001-08",
+    setores: [
+      "ADMINISTRATIVO",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000461",
+    nome: "NPSP PROMOCOES E EVENTOS LTDA",
+    cnpj: "54405166000117",
+    cnpj_fmt: "54.405.166/0001-17",
+    setores: [
+      "ADMINISTRATIVO",
+      "COPA",
+      "COZINHA",
+      "COZINHA - ACOUGUE",
+      "SALAO"
+    ]
+  },
+  {
+    codigo: "00000462",
+    nome: "CENTRO VETERINARIO AMABILIS",
+    cnpj: "51603668000164",
+    cnpj_fmt: "51.603.668/0001-64",
+    setores: [
+      "LIMPEZA",
+      "RECEPCAO"
+    ]
+  },
+  {
+    codigo: "00000463",
+    nome: "GMP DISTRIBUIDORA DE DOCES LTDA",
+    cnpj: "53621163000158",
+    cnpj_fmt: "53.621.163/0001-58",
+    setores: [
+      "ENTREGAS",
+      "EXPEDICAO",
+      "PREPARACAO"
+    ]
+  },
+  {
+    codigo: "00000464",
+    nome: "MPDESP ORGANIZACAO DE DOCUMENTOS LTDA",
+    cnpj: "29174296000149",
+    cnpj_fmt: "29.174.296/0001-49",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000465",
+    nome: "HIDROSERVICE EQUIPAMENTOS HIDRAULICOS",
+    cnpj: "14260802000145",
+    cnpj_fmt: "14.260.802/0001-45",
+    setores: [
+      "ADMINISTRATIVO",
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000466",
+    nome: "GUIA NORTE SERVICOS ORGANIZACIONAIS LTDA",
+    cnpj: "52568867000141",
+    cnpj_fmt: "52.568.867/0001-41",
+    setores: [
+      "ADMINISTRATIVO",
+      "ESTOQUE",
+      "LIMPEZA",
+      "OFICINA"
+    ]
+  },
+  {
+    codigo: "00000467",
+    nome: "HAPPY KIDS BRINQUEDOS LTDA",
+    cnpj: "46868572000198",
+    cnpj_fmt: "46.868.572/0001-98",
+    setores: [
+      "E-COMMERCE",
+      "ESTOQUE",
+      "ESTOQUE - ADMINISTRACAO",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000468",
+    nome: "RSR USINAGEM COMERCIO DE PECAS E PRESTACAO DE SERVICOS DE USINAGEM LTDA",
+    cnpj: "35194728000186",
+    cnpj_fmt: "35.194.728/0001-86",
+    setores: [
+      "ADMINISTRATIVO",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000469",
+    nome: "REAL INDUSTRIA E COMERCIO DE ELEVADORES LTDA",
+    cnpj: "03594213000187",
+    cnpj_fmt: "03.594.213/0001-87",
+    setores: [
+      "CONSERVACAO",
+      "ESCRITORIO",
+      "FABRICA"
+    ]
+  },
+  {
+    codigo: "00000470",
+    nome: "CONDOMINIO JARDINS DE LOUVRE",
+    cnpj: "55537492000140",
+    cnpj_fmt: "55.537.492/0001-40",
+    setores: [
+      "PORTARIA",
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000471",
+    nome: "ALCONEX COMERCIO DE TUBOS E ACESSORIOS INDUSTRIAIS",
+    cnpj: "47548566000116",
+    cnpj_fmt: "47.548.566/0001-16",
+    setores: [
+      "ADMINISTRATIVO",
+      "COMERCIAL",
+      "EXPEDICAO",
+      "EXPEDICAO - TRANSPORTES",
+      "FINANCEIRO",
+      "QUALIDADE"
+    ]
+  },
+  {
+    codigo: "00000472",
+    nome: "G. SCHNUR CASA DE SUCOS LTDA",
+    cnpj: "55110802000146",
+    cnpj_fmt: "55.110.802/0001-46",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000473",
+    nome: "NA WEB GROUP DE MARCAS LICENCIADAS LTDA - CAMBUCI",
+    cnpj: "39269114000177",
+    cnpj_fmt: "39.269.114/0001-77",
+    setores: [
+      "ADMINISTRATIVO - CAMBUCI",
+      "ECOMMERCE - CAMBUCI"
+    ]
+  },
+  {
+    codigo: "00000474",
+    nome: "ACADEMIA LIONS FITNESS",
+    cnpj: "28168734000101",
+    cnpj_fmt: "28.168.734/0001-01",
+    setores: [
+      "ADMINISTRATIVO",
+      "ATENDIMENTO"
+    ]
+  },
+  {
+    codigo: "00000475",
+    nome: "AGROBAR CAMPINAS LTDA",
+    cnpj: "54860888000161",
+    cnpj_fmt: "54.860.888/0001-61",
+    setores: [
+      "ATENDIMENTO - BAR",
+      "ATENDIMENTO - CAIXA",
+      "BAR",
+      "COZINHA",
+      "LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000476",
+    nome: "FLUID CONTROL AUTOMACAO INDUSTRIAL LTDA - FILIAL",
+    cnpj: "08186519000207",
+    cnpj_fmt: "08.186.519/0002-07",
+    setores: [
+      "MANUTENCAO - ADMINISTRATIVO - FILIAL",
+      "MANUTENCAO - FILIAL"
+    ]
+  },
+  {
+    codigo: "00000477",
+    nome: "CONJUNTO RESIDENCIAL JURUA",
+    cnpj: "01470276000104",
+    cnpj_fmt: "01.470.276/0001-04",
+    setores: [
+      "PORTARIA"
+    ]
+  },
+  {
+    codigo: "00000478",
+    nome: "E.M.F COMERCIO DE SORVETES LTDA - FILIAL",
+    cnpj: "36367770000203",
+    cnpj_fmt: "36.367.770/0002-03",
+    setores: [
+      "LOJA - FILIAL"
+    ]
+  },
+  {
+    codigo: "00000479",
+    nome: "CONDOMINIO EDIFICIO ANA SILVIA",
+    cnpj: "04921301000109",
+    cnpj_fmt: "04.921.301/0001-09",
+    setores: [
+      "LIMPEZA",
+      "PORTARIA",
+      "ZELADORIA"
+    ]
+  },
+  {
+    codigo: "00000481",
+    nome: "CONDOMINIO EDIFICIO BAY SIDE",
+    cnpj: "04457713000130",
+    cnpj_fmt: "04.457.713/0001-30",
+    setores: [
+      "PORTARIA"
+    ]
+  },
+  {
+    codigo: "00000482",
+    nome: "MEDICALTRANS TRANSPORTE DE EQUIPAMENTOS SENSIVEIS LTDA",
+    cnpj: "40361299000124",
+    cnpj_fmt: "40.361.299/0001-24",
+    setores: [
+      "ADMINISTRATIVO",
+      "CARGA E DESCARGA",
+      "CARGA E DESCARGA - ADMINISTRATIVO",
+      "LOGISTICA",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000483",
+    nome: "ALPHA COMERCIO E INDUSTRIA",
+    cnpj: "53070818000147",
+    cnpj_fmt: "53.070.818/0001-47",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000484",
+    nome: "SPNP PROMOCOES",
+    cnpj: "54405166000117",
+    cnpj_fmt: "54.405.166/0001-17",
+    setores: [
+      "ADMINISTRATIVO",
+      "COPA",
+      "COZINHA",
+      "COZINHA - ACOUGUE",
+      "COZINHA - CHAPA",
+      "ESTOQUE",
+      "LIMPEZA",
+      "SALAO"
+    ]
+  },
+  {
+    codigo: "00000485",
+    nome: "IDEIALOG LOGISTICA LTDA - IPIRANGA",
+    cnpj: "61049730000333",
+    cnpj_fmt: "61.049.730/0003-33",
+    setores: [
+      "DHL - IPIRANGA",
+      "TRANSPORTE IPIRANGA - ADMINISTRACAO"
+    ]
+  },
+  {
+    codigo: "00000486",
+    nome: "MKN CAMISETAS",
+    cnpj: "21219927000197",
+    cnpj_fmt: "21.219.927/0001-97",
+    setores: [
+      "LOJA ESTAMPARIA",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000487",
+    nome: "CAIXAFORTE EVENTOS",
+    cnpj: "24773329000153",
+    cnpj_fmt: "24.773.329/0001-53",
+    setores: [
+      "EVENTOS"
+    ]
+  },
+  {
+    codigo: "00000488",
+    nome: "TTC-TRACAO TECNICA COMERCIAL LTDA",
+    cnpj: "03451790000110",
+    cnpj_fmt: "03.451.790/0001-10",
+    setores: [
+      "ADMINISTRATIVO",
+      "EXTERNO",
+      "VENDAS - EXTERNA"
+    ]
+  },
+  {
+    codigo: "00000489",
+    nome: "J.R. PINTURAS",
+    cnpj: "48346313000122",
+    cnpj_fmt: "48.346.313/0001-22",
+    setores: [
+      "ADMINISTRATIVO",
+      "OBRAS"
+    ]
+  },
+  {
+    codigo: "00000490",
+    nome: "SANTA INES DISTRIBUIDORA DE PRODUTOS ALIMENTICIOS, MERCEARIA E ARMAZEM LTDA",
+    cnpj: "51674252000137",
+    cnpj_fmt: "51.674.252/0001-37",
+    setores: [
+      "ADMINISTRATIVO",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000491",
+    nome: "JGDV EMPREENDIMENTOS IMOBILIARIOS LTDA.",
+    cnpj: "12633148000142",
+    cnpj_fmt: "12.633.148/0001-42",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000492",
+    nome: "CENTER NORTE ARTIGOS ESPORTIVOS LTDA.",
+    cnpj: "53265744000102",
+    cnpj_fmt: "53.265.744/0001-02",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000493",
+    nome: "PRIMARCA VEICULOS - BARALDI",
+    cnpj: "63078489001378",
+    cnpj_fmt: "63.078.489/0013-78",
+    setores: [
+      "ADMINISTRACAO - BARALDI",
+      "ADMINISTRACAO - LIMPEZA - BARALDI",
+      "ADMINISTRACAO - MANUTENCAO - BARALDI",
+      "CENTRAL ATENDIMENTO -  TRANSPORTES -BARALDI",
+      "CENTRAL ATENDIMENTO - BARALDI",
+      "DIRETORIA - BARALDI",
+      "FUNILARIA PINTURA - ADMININISTRATIVO -  BARALDI",
+      "FUNILARIA PINTURA - BARALDI",
+      "OFICINA PRODUTIVOS - ACESSORIOS - BARALDI",
+      "OFICINA PRODUTIVOS - BARALDI",
+      "PECAS - BARALDI"
+    ]
+  },
+  {
+    codigo: "00000494",
+    nome: "RANTYSET GRAFICA LTDA",
+    cnpj: "03900000000136",
+    cnpj_fmt: "03.900.000/0001-36",
+    setores: [
+      "ADMINISTRATIVO",
+      "CORTE",
+      "IMPRESSAO"
+    ]
+  },
+  {
+    codigo: "00000495",
+    nome: "TRANSPORTES DELLA VOLPE S/A COMERCIO E INDUSTRIA - DOURADOS",
+    cnpj: "61139432015790",
+    cnpj_fmt: "61.139.432/0157-90",
+    setores: [
+      "TRANSPORTES - DOURADOS"
+    ]
+  },
+  {
+    codigo: "00000496",
+    nome: "DROGARIA FARMA BUS",
+    cnpj: "52397145000171",
+    cnpj_fmt: "52.397.145/0001-71",
+    setores: [
+      "FARMACIA"
+    ]
+  },
+  {
+    codigo: "00000497",
+    nome: "PSG PECAS E SERVICOS PARA GRAFICA LTDA",
+    cnpj: "31230446000136",
+    cnpj_fmt: "31.230.446/0001-36",
+    setores: [
+      "ADMINISTRATIVO",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000498",
+    nome: "INOVA MARKETING DIGITAL E PROMOTORA DE EVENTOS LTDA",
+    cnpj: "50927027000100",
+    cnpj_fmt: "50.927.027/0001-00",
+    setores: [
+      "ADMINISTRATIVO",
+      "COMERCIAL",
+      "ESTOQUE",
+      "EXTERNO - MOTORISTA",
+      "EXTERNO - PROMOTORES",
+      "FINANCEIRO"
+    ]
+  },
+  {
+    codigo: "00000499",
+    nome: "NEOLATINO GLOBAL MATERIAIS DIDATICOS LTDA",
+    cnpj: "51820746000182",
+    cnpj_fmt: "51.820.746/0001-82",
+    setores: [
+      "ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000500",
+    nome: "VALENCIA COMERCIAL LTDA",
+    cnpj: "58543572000105",
+    cnpj_fmt: "58.543.572/0001-05",
+    setores: [
+      "ADMINISTRATIVO",
+      "EXPEDICAO",
+      "LIMPEZA",
+      "MARKETING",
+      "TRANSPORTES",
+      "VENDAS",
+      "VENDAS EXTERNAS"
+    ]
+  },
+  {
+    codigo: "00000501",
+    nome: "ID INSTALACAO DE PISOS LTDA",
+    cnpj: "43388576000180",
+    cnpj_fmt: "43.388.576/0001-80",
+    setores: [
+      "OBRAS"
+    ]
+  },
+  {
+    codigo: "00000502",
+    nome: "M J - COMERCIO DE RETALHOS , MALHAS E ROUPAS USADAS",
+    cnpj: "59371857000160",
+    cnpj_fmt: "59.371.857/0001-60",
+    setores: [
+      "GERAL",
+      "GERAL - TRANSPORTES",
+      "GERAL - TRIAGEM"
+    ]
+  },
+  {
+    codigo: "00000503",
+    nome: "L B MEDEIROS CONFECCAOES E COMERCIO TEXTIL LTDA",
+    cnpj: "58493665000164",
+    cnpj_fmt: "58.493.665/0001-64",
+    setores: [
+      "ADMINISTRATIVO",
+      "PRODUCAO",
+      "PRODUCAO - ADMINISTRATIVO"
+    ]
+  },
+  {
+    codigo: "00000504",
+    nome: "RESTAURANTE AGROBAR LTDA",
+    cnpj: "60075752000143",
+    cnpj_fmt: "60.075.752/0001-43",
+    setores: [
+      "ATENDIMENTO - CAIXA",
+      "ATENDIMENTO - SALAO",
+      "BAR",
+      "COMERCIAL",
+      "COZINHA",
+      "LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000505",
+    nome: "REFRISEL INDUSTRIA E COMERCIO LTDA",
+    cnpj: "60056412000175",
+    cnpj_fmt: "60.056.412/0001-75",
+    setores: [
+      "ADMINISTRATIVO",
+      "LIMPEZA",
+      "PRODUCAO",
+      "PRODUCAO - SOLDA"
+    ]
+  },
+  {
+    codigo: "00000507",
+    nome: "AGROBAR VINHEDO LTDA",
+    cnpj: "60399496000140",
+    cnpj_fmt: "60.399.496/0001-40",
+    setores: [
+      "ATENDIMENTO",
+      "ATENDIMENTO - CAIXA",
+      "BAR",
+      "COMERCIAL",
+      "COZINHA",
+      "LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000508",
+    nome: "IVEMIX DISTRIBUIDORA DE PECAS DIESEL LTDA",
+    cnpj: "38823147000154",
+    cnpj_fmt: "38.823.147/0001-54",
+    setores: [
+      "ADMINISTRATIVO",
+      "CAIXA",
+      "COMPRAS",
+      "ESTOQUE",
+      "EXTERNO",
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000509",
+    nome: "GOTRAN SOLUCOES INDUSTRIAIS LTDA",
+    cnpj: "36413900000108",
+    cnpj_fmt: "36.413.900/0001-08",
+    setores: [
+      "INSTALAÇÃO",
+      "INSTALAÇÃO - OPERACIONAL",
+      "INSTALAÇÃO - SOLDA"
+    ]
+  },
+  {
+    codigo: "00000510",
+    nome: "SUPER VANS LOCADORA",
+    cnpj: "11820004000132",
+    cnpj_fmt: "11.820.004/0001-32",
+    setores: [
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000511",
+    nome: "EXPRESSO COMBATE",
+    cnpj: "06301666000166",
+    cnpj_fmt: "06.301.666/0001-66",
+    setores: [
+      "ARQUIVO",
+      "COLETA",
+      "COMERCIAL",
+      "CONTROLADORIA",
+      "COTACAO",
+      "EMISSAO",
+      "FATURAMENTO",
+      "FINANCEIRO",
+      "LIMPEZA",
+      "OPERACIONAL",
+      "OPERACIONAL EMPILHADEIRA",
+      "OPERACIONAL EXTERNO",
+      "OPERACIONAL EXTERNO E INTERNO",
+      "RECURSOS HUMANOS",
+      "SAC"
+    ]
+  },
+  {
+    codigo: "00000513",
+    nome: "M.S.NOVE EMPREENDIMENTOS E PARTICIPACOES LTDA.",
+    cnpj: "33508825000170",
+    cnpj_fmt: "33.508.825/0001-70",
+    setores: [
+      "ESTANCIA RIVIERA"
+    ]
+  },
+  {
+    codigo: "00000514",
+    nome: "CHARME TEXTIL",
+    cnpj: "60237370000179",
+    cnpj_fmt: "60.237.370/0001-79",
+    setores: [
+      "ESTOQUE",
+      "GERAL",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000515",
+    nome: "ATUAL SP COMERCIO DE FERRAMENTAS E EQUIPAMENTOS LTDA",
+    cnpj: "03803271000173",
+    cnpj_fmt: "03.803.271/0001-73",
+    setores: [
+      "ADMINISTRACAO",
+      "COMERCIAL",
+      "ESTOQUE",
+      "LOGISTICA"
+    ]
+  },
+  {
+    codigo: "00000516",
+    nome: "LUIZ RICARDO DE MELO SOUZA TRANSPORTES E LOGISTICA",
+    cnpj: "24964617000195",
+    cnpj_fmt: "24.964.617/0001-95",
+    setores: [
+      "ADMINISTRATIVO",
+      "EXPEDICAO",
+      "OPERACIONAL",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000517",
+    nome: "TRANSPORTES DELLA VOLPE S A COMERCIO E INDUSTRIA - CONTAGEM",
+    cnpj: "61139432015951",
+    cnpj_fmt: "61.139.432/0159-51",
+    setores: [
+      "FROTA PROPRIA - CONTAGEM"
+    ]
+  },
+  {
+    codigo: "00000518",
+    nome: "TELHADOS CONFIANCA - COMERCIO, MANUTENCAO E REFORMAS LTDA",
+    cnpj: "14166087000186",
+    cnpj_fmt: "14.166.087/0001-86",
+    setores: [
+      "ESCRITORIO",
+      "OBRAS",
+      "VENDAS EXTERNA"
+    ]
+  },
+  {
+    codigo: "00000519",
+    nome: "NTM RIO TRANSPORTES E LOGISTICA LTDA",
+    cnpj: "43137034000135",
+    cnpj_fmt: "43.137.034/0001-35",
+    setores: [
+      "CCO",
+      "COMERCIAL",
+      "LOGISTICA"
+    ]
+  },
+  {
+    codigo: "00000520",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PECAS LTDA - AGOSTINHO",
+    cnpj: "54267463003592",
+    cnpj_fmt: "54.267.463/0035-92",
+    setores: [
+      "ADMINISTRACAO - AGOSTINHO",
+      "GERENCIA - AGOSTINHO",
+      "PECAS - AGOSTINHO",
+      "PECAS - ENTREGA - AGOSTINHO"
+    ]
+  },
+  {
+    codigo: "00000521",
+    nome: "ABNNA SERVICOS EM SAUDE LTDA",
+    cnpj: "58952668000119",
+    cnpj_fmt: "58.952.668/0001-19",
+    setores: [
+      "CONSULTORIO"
+    ]
+  },
+  {
+    codigo: "00000522",
+    nome: "AGROBAR APARECIDA DE GOIANIA LTDA",
+    cnpj: "60285130000140",
+    cnpj_fmt: "60.285.130/0001-40",
+    setores: [
+      "BAR",
+      "CAIXA",
+      "COZINHA",
+      "LIMPEZA",
+      "SALAO"
+    ]
+  },
+  {
+    codigo: "00000523",
+    nome: "FOLKS PUB ENTRETENIMENTO CAMPINAS LTDA",
+    cnpj: "29263898000172",
+    cnpj_fmt: "29.263.898/0001-72",
+    setores: [
+      "ADMINISTRATIVO",
+      "BAR",
+      "COZINHA",
+      "LIMPEZA",
+      "SALAO",
+      "SEGURANCA"
+    ]
+  },
+  {
+    codigo: "00000524",
+    nome: "POLIESTER PREMIUM COMERCIO LTDA",
+    cnpj: "63093856000179",
+    cnpj_fmt: "63.093.856/0001-79",
+    setores: [
+      "CONFECCAO",
+      "ESTOQUE",
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000525",
+    nome: "LUZINETE PEREIRA DA SILVA ROSA",
+    cnpj: "11588244830",
+    cnpj_fmt: "00.011.588/2448-30",
+    setores: [
+      "ATENDIMENTO"
+    ]
+  },
+  {
+    codigo: "00000526",
+    nome: "EDC MECANICA",
+    cnpj: "38429025000188",
+    cnpj_fmt: "38.429.025/0001-88",
+    setores: [
+      "ADMINISTRATIVO",
+      "EXTERNO",
+      "OFICINA",
+      "OFICINA - LIMPEZA"
+    ]
+  },
+  {
+    codigo: "00000528",
+    nome: "AGROBAR GUARUJA LTDA",
+    cnpj: "63198799000192",
+    cnpj_fmt: "63.198.799/0001-92",
+    setores: [
+      "BAR",
+      "CAIXA",
+      "COMERCIAL",
+      "COZINHA",
+      "LIMPEZA",
+      "SALAO"
+    ]
+  },
+  {
+    codigo: "00000529",
+    nome: "MOTO REMAZA DISTRIBUIDORA DE VEICULOS E PECAS LTDA - IMIRIM",
+    cnpj: "54267463003673",
+    cnpj_fmt: "54.267.463/0036-73",
+    setores: [
+      "ACESSORIOS - IMIRIM",
+      "ADMINISTRACAO - IMIRIM",
+      "ADMINISTRACAO - LIMPEZA - IMIRIM",
+      "LAVAGEM - IMIRIM",
+      "MANUTENCAO - IMIRIM",
+      "MONTAGEM - IMIRIM",
+      "OFICINA - CONSULTORIA - IMIRIM",
+      "OFICINA - IMIRIM",
+      "PECAS - IMIRIM",
+      "SUPERVISAO - IMIRIM",
+      "VENDAS - IMIRIM"
+    ]
+  },
+  {
+    codigo: "00000530",
+    nome: "NEWFUSO INDUSTRIA DE MAQUINAS",
+    cnpj: "61139780000140",
+    cnpj_fmt: "61.139.780/0001-40",
+    setores: [
+      "MONTAGEM",
+      "MONTAGEM - SOLDA",
+      "USINAGEM"
+    ]
+  },
+  {
+    codigo: "00000531",
+    nome: "AJ PACK",
+    cnpj: "47857863000143",
+    cnpj_fmt: "47.857.863/0001-43",
+    setores: [
+      "ACABAMENTO",
+      "ADMINISTRATIVO",
+      "CORTE",
+      "IMPRESSAO",
+      "LOGISTICA",
+      "TRANSPORTE"
+    ]
+  },
+  {
+    codigo: "00000534",
+    nome: "PENHA FOOD RESTAURANTE",
+    cnpj: "64422346000160",
+    cnpj_fmt: "64.422.346/0001-60",
+    setores: [
+      "ATENDIMENTO",
+      "CAIXA",
+      "COZINHA",
+      "COZINHA - CHAPA",
+      "COZINHA / ATENDIMENTO"
+    ]
+  },
+  {
+    codigo: "00000535",
+    nome: "AESC EXPRESS",
+    cnpj: "43055228000191",
+    cnpj_fmt: "43.055.228/0001-91",
+    setores: [
+      "ADMINISTRACAO",
+      "ESTOQUE",
+      "ESTOQUE - FRIO",
+      "LOJA",
+      "PRODUCAO",
+      "PRODUCAO - LIMPEZA",
+      "PRODUCAO - MAQUINAS",
+      "TRANSPORTES"
+    ]
+  },
+  {
+    codigo: "00000536",
+    nome: "EDISA 111 GRAFICOS LTDA",
+    cnpj: "60847093000116",
+    cnpj_fmt: "60.847.093/0001-16",
+    setores: [
+      "ADMINISTRATIVO",
+      "EXTERNO",
+      "PRODUCAO"
+    ]
+  },
+  {
+    codigo: "00000537",
+    nome: "LACECI STORE MODA FEMININA",
+    cnpj: "61432479000120",
+    cnpj_fmt: "61.432.479/0001-20",
+    setores: [
+      "E-COMMERCE",
+      "ESTOQUE"
+    ]
+  },
+  {
+    codigo: "00000538",
+    nome: "FJ COMERCIO DE TECIDOS",
+    cnpj: "55263969000147",
+    cnpj_fmt: "55.263.969/0001-47",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000539",
+    nome: "IRENE DE FATIMA RIBEIRO MODAS",
+    cnpj: "03841649000123",
+    cnpj_fmt: "03.841.649/0001-23",
+    setores: [
+      "LOJA"
+    ]
+  },
+  {
+    codigo: "00000540",
+    nome: "SILVA TAMBORES",
+    cnpj: "49865287000101",
+    cnpj_fmt: "49.865.287/0001-01",
+    setores: [
+      "ADMINISTRATIVO",
+      "OPERACIONAL"
+    ]
+  },
+  {
+    codigo: "00000541",
+    nome: "PEQUI BRASIL COMERCIO DE ALIMENTOS LTDA",
+    cnpj: "58035769000125",
+    cnpj_fmt: "58.035.769/0001-25",
+    setores: [
+      "VENDAS"
+    ]
+  },
+  {
+    codigo: "00000542",
+    nome: "BVG UTILIDADES LTDA",
+    cnpj: "60448145000181",
+    cnpj_fmt: "60.448.145/0001-81",
+    setores: [
+      "ECOMMERCE"
+    ]
+  }
+];
