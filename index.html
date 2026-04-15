@@ -1105,7 +1105,7 @@ async function gerarPDFBlob(){
   E.setores.forEach(function(s){ var resp=E.resps[s]||{}; SUBITENS.forEach(function(sub,si){ sub.pergs.forEach(function(p,pi){ var id=si+'_'+pi; if(resp[id]==='nc'){ ncsHtml+='<div style="border:1px solid #fca5a5;border-radius:8px;padding:10px 14px;margin-bottom:8px;"><div style="font-size:10px;color:#dc2626;font-weight:600;">'+s+' - '+sub.nr+' - '+sub.nome+'</div><div style="font-weight:700;font-size:13px;margin-top:2px;">'+p+'</div>'+(resp['obs'+id]?'<div style="font-size:11px;color:#555;margin-top:4px;">Obs: '+resp['obs'+id]+'</div>':'')+(resp['prz'+id]?'<div style="font-size:11px;color:#555;">Prazo: '+resp['prz'+id]+'</div>':'')+'</div>'; } }); }); });
   var levHtml='';
   E.setores.forEach(function(s){ var resp=E.resps[s]||{}; SUBITENS.forEach(function(sub,si){ if(sub.nome!=='Levantamento') return; sub.pergs.forEach(function(p,pi){ var id=si+'_'+pi; if(resp[id]==='c' && resp['lv'+id]){ var un=unidades[p]||''; levHtml+='<div style="border:1px solid #fde047;border-radius:8px;padding:8px 14px;margin-bottom:6px;background:#fefce8;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:10px;color:#ca8a04;font-weight:600;">'+s+'</div><div style="font-size:13px;font-weight:600;margin-top:2px;">'+p+'</div></div><div style="font-size:18px;font-weight:700;color:#ca8a04;">'+resp['lv'+id]+(un?' '+un:'')+'</div></div>'; } }); }); });
-  var html='<!DOCTYPE html><html><head><meta charset="utf-8"><style>*{box-sizing:border-box;}body{font-family:Arial,sans-serif;padding:20px;color:#1e293b;margin:0;width:560px;}</style></head><body>';
+  var html='';
   html+='<div style="font-size:11px;color:#666;display:flex;justify-content:space-between;margin-bottom:10px;"><span>'+new Date().toLocaleString('pt-BR')+'</span><span>Check List</span></div>';
   html+='<div style="border:1px solid #e2e8f0;border-radius:12px;padding:16px;">';
   html+='<div style="font-size:11px;color:#64748b;text-transform:uppercase;font-weight:700;margin-bottom:8px;">RESULTADO DA VISTORIA</div>';
@@ -1121,14 +1121,14 @@ async function gerarPDFBlob(){
   if(levHtml){ html+='<div style="margin-top:14px;"><div style="font-weight:700;color:#ca8a04;font-size:13px;margin-bottom:8px;">📊 VALORES MEDIDOS (LEVANTAMENTO)</div>'+levHtml+'</div>'; }
   if(nc>0){ html+='<div style="margin-top:14px;"><div style="font-weight:700;color:#dc2626;font-size:13px;margin-bottom:8px;">NAO CONFORMIDADES</div>'+ncsHtml+'</div>'; }
   else if(!levHtml){ html+='<div style="margin-top:14px;text-align:center;color:#16a34a;font-weight:600;">Nenhuma nao conformidade!</div>'; }
-  html+='</div></body></html>';
-  var iframe=document.createElement('iframe');
-  iframe.style.cssText='position:fixed;left:-9999px;top:0;width:580px;height:900px;border:none;';
-  document.body.appendChild(iframe);
-  iframe.contentDocument.open(); iframe.contentDocument.write(html); iframe.contentDocument.close();
-  await new Promise(function(r){setTimeout(r,500);});
-  var canvas=await html2canvas(iframe.contentDocument.body,{scale:2,backgroundColor:'#ffffff',width:560,windowWidth:580});
-  document.body.removeChild(iframe);
+  html+='</div>';
+  var div=document.createElement('div');
+  div.style.cssText='position:fixed;left:-9999px;top:0;width:580px;background:#ffffff;font-family:Arial,sans-serif;padding:20px;color:#1e293b;box-sizing:border-box;';
+  div.innerHTML=html;
+  document.body.appendChild(div);
+  await new Promise(function(r){setTimeout(r,400);});
+  var canvas=await html2canvas(div,{scale:2,backgroundColor:'#ffffff',width:560,windowWidth:580,useCORS:true,allowTaint:false});
+  document.body.removeChild(div);
   var imgData=canvas.toDataURL('image/jpeg',0.95);
   var jsPDF=window.jspdf.jsPDF;
   var pdf=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
