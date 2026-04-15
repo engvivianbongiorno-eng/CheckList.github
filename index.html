@@ -902,7 +902,7 @@ function atualizarChips() {
 // ============================================================
 // VER RESULTADO GERAL (todos os setores)
 // ============================================================
-function verResultadoGeral() {
+function verResultadoGeral(autoSalvo) {
   var c=0, nc=0, na=0, ncsArr=[], levArr=[];
   E.setores.forEach(function(s){
     var resp = E.resps[s] || {};
@@ -961,17 +961,22 @@ function verResultadoGeral() {
   }
   document.getElementById('nc-list').innerHTML=ncHtml;
   tela(4);
-  // Enviar ao Drive se já autenticado
+  // Enviar ao Drive
   var hashAuto={};
   location.hash.replace('#','').split('&').filter(function(p){return p;}).forEach(function(p){
-    var kv=p.split('='); hashAuto[kv[0]]=kv[1];
+    var idx=p.indexOf('='); if(idx>0) hashAuto[p.substring(0,idx)]=decodeURIComponent(p.substring(idx+1));
   });
   if(hashAuto.access_token){
     history.replaceState(null,'',location.pathname);
     showMsg('⏳ Salvando no Drive...','load');
     uploadDrive(hashAuto.access_token);
-  } else {
-    showMsg('💾 Clique em "Salvar no Google Drive" para enviar.','ok');
+  } else if(!autoSalvo && localStorage.getItem('gd_cid')){
+    var tmDrive=setTimeout(function(){ salvarDrive(); }, 4000);
+    var m=document.getElementById('dmsg');
+    m.className='dmsg'; m.style.display='block';
+    m.innerHTML='⏳ Enviando ao Drive em 4s… <button onclick="clearTimeout(tmDrive);showMsg(\'\',\'ok\');" style="margin-left:8px;padding:2px 10px;border-radius:6px;border:none;background:#dc2626;color:#fff;cursor:pointer;font-size:12px;">Cancelar</button>';
+  } else if(!localStorage.getItem('gd_cid')){
+    showMsg('⚙️ Configure o Google Drive para salvar automaticamente.','ok');
   }
 }
 
@@ -1205,7 +1210,7 @@ function handleOAuthReturn(){
       return;
     }
     uploadDrive(hash.access_token);
-    try{ verResultadoGeral(); }catch(ex){ tela(4); showMsg('⚠️ Erro ao exibir resultado: '+ex.message,'err'); }
+    try{ verResultadoGeral(true); }catch(ex){ tela(4); showMsg('⚠️ Erro ao exibir resultado: '+ex.message,'err'); }
   } else {
     localStorage.removeItem('dp');
     localStorage.removeItem('dv');
