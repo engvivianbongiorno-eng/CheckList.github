@@ -400,7 +400,9 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
       5. Copie o Client ID gerado
     </div>
     <span class="lbl">Cole o Client ID aqui</span>
-    <input id="inp-cid" type="text" placeholder="xxxxx.apps.googleusercontent.com" style="margin-bottom:4px;"/>
+    <input id="inp-cid" type="text" placeholder="xxxxx.apps.googleusercontent.com" style="margin-bottom:8px;"/>
+    <span class="lbl">Cole o Client Secret aqui</span>
+    <input id="inp-cs" type="text" placeholder="GOCSPX-..." style="margin-bottom:4px;"/>
     <div class="modal-btns">
       <button class="mcancel" onclick="fecharDriveCfg()">Cancelar</button>
       <button class="mok" onclick="salvarCid()">✅ Salvar</button>
@@ -472,9 +474,11 @@ window.onload = function() {
     }
   });
 
-  // Client ID salvo
+  // Client ID e Secret salvos
   var cid = localStorage.getItem('gd_cid');
   if (cid) document.getElementById('inp-cid').value = cid;
+  var cs = localStorage.getItem('gd_cs');
+  if (cs) document.getElementById('inp-cs').value = cs;
 
   // Restaurar setores customizados salvos
   restaurarSetores();
@@ -1365,10 +1369,13 @@ function abrirDriveCfg(){ document.getElementById('modal-drive').classList.add('
 function fecharDriveCfg(){ document.getElementById('modal-drive').classList.remove('vis'); }
 function salvarCid(){
   var cid=document.getElementById('inp-cid').value.trim();
+  var cs=document.getElementById('inp-cs').value.trim();
   if(!cid){showMsg('⚠️ Cole o Client ID','err');return;}
+  if(!cs){showMsg('⚠️ Cole o Client Secret','err');return;}
   localStorage.setItem('gd_cid',cid);
+  localStorage.setItem('gd_cs',cs);
   fecharDriveCfg();
-  showMsg('✅ Client ID salvo! Agora clique em Salvar no Google Drive.','ok');
+  showMsg('✅ Credenciais salvas! Agora clique em Salvar no Google Drive.','ok');
 }
 
 // ============================================================
@@ -1434,11 +1441,13 @@ function handleOAuthReturn(){
   try{verResultadoGeral(true);}catch(ex){tela(4);}
   showMsg('⏳ Autenticando com Google...','load');
 
+  var cs=localStorage.getItem('gd_cs')||'';
   fetch('https://oauth2.googleapis.com/token',{
     method:'POST',
     headers:{'Content-Type':'application/x-www-form-urlencoded'},
     body:'code='+encodeURIComponent(params.code)+
          '&client_id='+encodeURIComponent(cid)+
+         '&client_secret='+encodeURIComponent(cs)+
          '&redirect_uri='+encodeURIComponent(redirect)+
          '&grant_type=authorization_code'+
          '&code_verifier='+encodeURIComponent(verifier)
