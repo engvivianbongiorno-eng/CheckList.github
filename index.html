@@ -205,6 +205,20 @@ input:focus,select:focus,textarea:focus{border-color:#00b4a0;box-shadow:0 0 0 3p
   </div>
 </div>
 
+<!-- BANNER INSTALAR APP -->
+<div id="install-banner" style="display:none;position:relative;background:linear-gradient(135deg,#0d1b2a,#152638);color:#fff;padding:12px 16px;font-size:13px;font-family:Arial,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,0.3);">
+  <div style="max-width:480px;margin:0 auto;">
+    <div style="font-weight:700;margin-bottom:6px;">📲 Instale o app na tela inicial</div>
+    <div id="install-ios" style="display:none;font-size:12px;color:#94a3b8;line-height:1.7;">
+      No Safari: toque em <strong style="color:#fff;">compartilhar</strong> (□↑) → <strong style="color:#fff;">Adicionar à Tela de Início</strong>
+    </div>
+    <div id="install-android" style="display:none;margin-top:4px;">
+      <button id="btn-instalar" style="background:#00b4a0;color:#fff;border:none;border-radius:8px;padding:8px 18px;font-size:13px;font-weight:700;cursor:pointer;">⬇️ Instalar agora</button>
+    </div>
+    <button onclick="fecharInstallBanner()" style="position:absolute;top:8px;right:12px;background:transparent;border:none;color:#94a3b8;font-size:18px;cursor:pointer;line-height:1;">✕</button>
+  </div>
+</div>
+
 <div class="wrap">
 
 <!-- S1: EMPRESA -->
@@ -1502,10 +1516,58 @@ function verificarRascunho(){
   }catch(ex){ localStorage.removeItem('cl_rasc'); }
 }
 
+// ============================================================
+// BANNER INSTALAR APP (PWA)
+// ============================================================
+var _deferredInstall = null;
+
+function _initInstallBanner() {
+  // Já está instalado como PWA — não mostra
+  if (window.navigator.standalone || window.matchMedia('(display-mode: standalone)').matches) return;
+  // Usuário já fechou antes — não incomoda de novo
+  if (localStorage.getItem('install_dismissed')) return;
+
+  var isIOS = /iPad|iPhone|iPod/i.test(navigator.userAgent) && !window.MSStream;
+  var banner = document.getElementById('install-banner');
+
+  if (isIOS) {
+    // iOS Safari: instruções manuais
+    document.getElementById('install-ios').style.display = 'block';
+    banner.style.display = 'block';
+  }
+  // Android: aguarda evento beforeinstallprompt (definido abaixo)
+}
+
+window.addEventListener('beforeinstallprompt', function(e) {
+  e.preventDefault();
+  _deferredInstall = e;
+  if (localStorage.getItem('install_dismissed')) return;
+  document.getElementById('install-android').style.display = 'block';
+  document.getElementById('install-banner').style.display = 'block';
+
+  document.getElementById('btn-instalar').onclick = function() {
+    _deferredInstall.prompt();
+    _deferredInstall.userChoice.then(function(r) {
+      if (r.outcome === 'accepted') fecharInstallBanner();
+    });
+  };
+});
+
+window.addEventListener('appinstalled', function() {
+  fecharInstallBanner();
+});
+
+function fecharInstallBanner() {
+  var banner = document.getElementById('install-banner');
+  if (banner) banner.style.display = 'none';
+  localStorage.setItem('install_dismissed', '1');
+}
+
 // 'load' carga normal; 'pageshow' retorno via BFCache iOS Safari (load não dispara)
 window.addEventListener('load', function(){
   var foiOAuth = handleOAuthReturn();
   if(!foiOAuth) verificarRascunho();
+  _initInstallBanner();
 });
 window.addEventListener('pageshow', function(e){
   if(e.persisted){
