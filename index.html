@@ -17,10 +17,10 @@
 body{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#eef2f7;color:#1e293b;min-height:100vh;}
 
 /* HEADER */
-.hdr{background:linear-gradient(135deg,#0d1b2a 0%,#152638 100%);border-bottom:3px solid #00b4a0;padding:10px 16px;display:flex;align-items:center;justify-content:center;gap:10px;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.35);}
+.hdr{background:linear-gradient(135deg,#0d1b2a 0%,#152638 100%);border-bottom:3px solid #00b4a0;padding:5px 12px;display:flex;align-items:center;justify-content:center;gap:8px;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.35);}
 .hdr-logo-wrap{display:flex;align-items:center;justify-content:center;gap:10px;}
-.hdr-logo-img{height:48px;object-fit:contain;}
-.hdr-checklist{font-size:23px;font-weight:900;color:#ffffff;letter-spacing:2px;line-height:1.1;text-transform:uppercase;}
+.hdr-logo-img{height:32px;object-fit:contain;}
+.hdr-checklist{font-size:16px;font-weight:900;color:#ffffff;letter-spacing:2px;line-height:1.1;text-transform:uppercase;}
 .hdr-checklist span{color:#00d4be;text-shadow:0 0 12px rgba(0,212,190,.4);}
 .hdr-data{font-size:11.5px;color:rgba(255,255,255,.75);text-align:right;line-height:1.6;}
 .hdr-data b{display:block;font-size:13.5px;color:white;font-weight:700;}
@@ -1252,7 +1252,7 @@ async function uploadDrive(token){
     var rTxt=await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart',
       {method:'POST',headers:{Authorization:'Bearer '+token,'Content-Type':'multipart/related; boundary='+bnd},body:bodyTxt});
     if(!rTxt.ok) throw new Error('TXT '+rTxt.status);
-  }catch(e){ showMsg('⚠️ Erro ao enviar TXT para o Drive.','err'); console.error(e); return; }
+  }catch(e){ showMsg('⚠️ Erro ao enviar TXT: '+e.message,'err'); console.error(e); return; }
   // 2. Enviar PDF (com timeout de 20s — pode falhar em mobile)
   try{
     showMsg('⏳ Gerando PDF...','load');
